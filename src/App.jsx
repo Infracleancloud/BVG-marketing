@@ -2934,7 +2934,7 @@ function PricingPage() {
             <div className="enterprise-callout-content">
               <h2 className="content-block-title">Built for enterprise scale.</h2>
               <p className="content-block-body">
-                Start with a free trial. Upgrade when you are ready for enterprise features.
+                Get started with a free plan. Upgrade when you are ready for enterprise features.
               </p>
               <ul className="enterprise-benefits">
                 <li><Check size={18} /> Unlimited resources and accounts</li>
@@ -2986,8 +2986,8 @@ function PricingPage() {
 
       {/* Final CTA */}
       <DarkCTA 
-        headline="Start your free trial today." 
-        description="No credit card required. Full access for 14 days. Cancel anytime." 
+        headline="Ready to see it in action?" 
+        description="Request a briefing and we'll walk you through the platform." 
       />
     </>
   );
@@ -3196,7 +3196,7 @@ function BlogPost({ post }) {
               {post.content ? post.content.map(renderContent) : (
                 <>
                   <p>This article is coming soon.</p>
-                  <p>Start your free trial to experience Cloud Hygiene Coach firsthand.</p>
+                  <p>Request a briefing and experience Cloud Hygiene Coach firsthand.</p>
                 </>
               )}
             </div>
@@ -3206,7 +3206,7 @@ function BlogPost({ post }) {
           </div>
         </div>
       </section>
-      <DarkCTA headline="Ready to transform your cloud governance?" description="Start your free 14-day trial today. No credit card required." />
+      <DarkCTA headline="Ready to transform your cloud governance?" description="Request a briefing and see results in under 30 minutes." />
     </>
   );
 }

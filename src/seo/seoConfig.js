@@ -47,7 +47,7 @@ export const SOFTWARE_SCHEMA = {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'USD',
-    description: 'Free trial available',
+    description: 'Free tier available',
   },
 };
 
