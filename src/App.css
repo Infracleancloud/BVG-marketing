@@ -7,6 +7,24 @@
    BASE STYLES
    =========================================== */
 
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 1000;
+  padding: 12px 24px;
+  background: var(--color-accent);
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
 .site {
   display: flex;
   flex-direction: column;
@@ -390,7 +408,8 @@ main {
   text-align: center;
 }
 
-.hero-stat-card h3 {
+.hero-stat-card h3,
+.hero-stat-value {
   font-size: 5rem;
   margin: 0 0 8px;
   letter-spacing: -0.04em;
@@ -3267,6 +3286,14 @@ html {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
 }
 
 .faq-question span {

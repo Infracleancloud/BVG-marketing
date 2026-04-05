@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState, useRef } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState, useRef, Fragment } from 'react';
 import { SEO } from './seo';
 import { createHandoffAndRedirect as handoffRedirect, getAttributionData, storeUtmParams } from './api/handoff';
 import { 
@@ -1461,6 +1461,7 @@ function SiteLayout({ children, pathname }) {
 
   return (
     <div className="site">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <header className="nav">
         <div className="section-content nav-inner">
           <SiteLink to="/" className="logo">
@@ -1601,19 +1602,19 @@ function HomePage() {
           <div className="hero-stats">
             <ScrollReveal delay={0}>
               <div className="hero-stat-card">
-                <h3>98%</h3>
+                <div className="hero-stat-value">98%</div>
                 <p>Asset ownership coverage</p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={50}>
               <div className="hero-stat-card">
-                <h3>40%</h3>
+                <div className="hero-stat-value">40%</div>
                 <p>Less audit prep time</p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <div className="hero-stat-card">
-                <h3>60%</h3>
+                <div className="hero-stat-value">60%</div>
                 <p>Fewer critical violations</p>
               </div>
             </ScrollReveal>
@@ -1669,10 +1670,10 @@ function HomePage() {
                   Risk, compliance, and cost data in one view.
                 </p>
                 <ul>
-                  <li><Check size={20} /> Hygiene score with trend analysis</li>
-                  <li><Check size={20} /> Risk exposure by category</li>
-                  <li><Check size={20} /> Compliance readiness metrics</li>
-                  <li><Check size={20} /> Executive-ready reporting</li>
+                  <li><Check size={20} aria-hidden="true" /> Hygiene score with trend analysis</li>
+                  <li><Check size={20} aria-hidden="true" /> Risk exposure by category</li>
+                  <li><Check size={20} aria-hidden="true" /> Compliance readiness metrics</li>
+                  <li><Check size={20} aria-hidden="true" /> Executive-ready reporting</li>
                 </ul>
               </div>
             </ScrollReveal>
@@ -1696,9 +1697,9 @@ function HomePage() {
                   Prioritized findings with context and clear remediation paths.
                 </p>
                 <ul>
-                  <li><Check size={20} /> Prioritized by impact</li>
-                  <li><Check size={20} /> Framework-aligned</li>
-                  <li><Check size={20} /> One-click task creation</li>
+                  <li><Check size={20} aria-hidden="true" /> Prioritized by impact</li>
+                  <li><Check size={20} aria-hidden="true" /> Framework-aligned</li>
+                  <li><Check size={20} aria-hidden="true" /> One-click task creation</li>
                 </ul>
               </div>
             </ScrollReveal>
@@ -1722,9 +1723,9 @@ function HomePage() {
                   Kanban workflows with ownership and evidence capture.
                 </p>
                 <ul>
-                  <li><Check size={20} /> Assign owners and due dates</li>
-                  <li><Check size={20} /> Step-by-step guides</li>
-                  <li><Check size={20} /> Automatic verification</li>
+                  <li><Check size={20} aria-hidden="true" /> Assign owners and due dates</li>
+                  <li><Check size={20} aria-hidden="true" /> Step-by-step guides</li>
+                  <li><Check size={20} aria-hidden="true" /> Automatic verification</li>
                 </ul>
               </div>
             </ScrollReveal>
@@ -1822,7 +1823,7 @@ function SectionRenderer({ section }) {
         {section.bullets && (
           <ul className="check-list">
             {section.bullets.map((item) => (
-              <li key={item}><Check size={18} /> {item}</li>
+              <li key={item}><Check size={18} aria-hidden="true" /> {item}</li>
             ))}
           </ul>
         )}
@@ -1839,7 +1840,7 @@ function SectionRenderer({ section }) {
           {section.bullets && (
             <ul>
               {section.bullets.map((item) => (
-                <li key={item}><Check size={20} /> {item}</li>
+                <li key={item}><Check size={20} aria-hidden="true" /> {item}</li>
               ))}
             </ul>
           )}
@@ -2894,8 +2895,8 @@ function PricingPage() {
               </thead>
               <tbody>
                 {FEATURE_COMPARISON.map((category) => (
-                  <>
-                    <tr key={category.category} className="category-row">
+                  <Fragment key={category.category}>
+                    <tr className="category-row">
                       <td colSpan={4}>{category.category}</td>
                     </tr>
                     {category.features.map((feature) => (
@@ -2906,7 +2907,7 @@ function PricingPage() {
                         <td>{renderFeatureValue(feature.enterprise)}</td>
                       </tr>
                     ))}
-                  </>
+                  </Fragment>
                 ))}
               </tbody>
             </table>
@@ -2952,16 +2953,17 @@ function PricingPage() {
           </div>
           <div className="faq-grid">
             {PRICING_FAQS.map((faq, index) => (
-              <div 
-                key={index} 
-                className={`faq-item ${expandedFaq === index ? 'expanded' : ''}`}
-                onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-              >
-                <div className="faq-question">
+              <div key={index} className={`faq-item ${expandedFaq === index ? 'expanded' : ''}`}>
+                <button
+                  className="faq-question"
+                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  aria-expanded={expandedFaq === index}
+                  type="button"
+                >
                   <span>{faq.question}</span>
-                  <ChevronDown size={20} className="faq-icon" />
-                </div>
-                <div className="faq-answer">
+                  <ChevronDown size={20} className="faq-icon" aria-hidden="true" />
+                </button>
+                <div className="faq-answer" role="region">
                   <p>{faq.answer}</p>
                 </div>
               </div>
