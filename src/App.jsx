@@ -66,7 +66,10 @@ import {
   Minus,
   // How it works icons
   Search,
-  Wrench
+  Wrench,
+  // Mobile nav
+  Menu,
+  X as XIcon
 } from 'lucide-react';
 
 const NavigationContext = createContext({ navigate: () => {} });
@@ -1425,17 +1428,32 @@ function SiteLink({ to, children, className }) {
 }
 
 function SiteLayout({ children, pathname }) {
+  const { navigate } = useContext(NavigationContext);
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('theme') || 'light';
     }
     return 'light';
   });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileMenuOpen]);
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
@@ -1459,16 +1477,42 @@ function SiteLayout({ children, pathname }) {
             <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle dark mode">
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
-            <SiteLink to="/login" className="btn btn-secondary">
+            <SiteLink to="/login" className="btn btn-secondary nav-desktop-only">
               Sign in
             </SiteLink>
-            <SiteLink to="/request-briefing" className="btn btn-primary">
+            <SiteLink to="/request-briefing" className="btn btn-primary nav-desktop-only">
               Request briefing
             </SiteLink>
+            <button
+              className="mobile-menu-toggle"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <XIcon size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
+        {mobileMenuOpen && (
+          <div className="mobile-menu">
+            <nav className="mobile-menu-nav">
+              {NAV_LINKS.map((link) => (
+                <SiteLink key={link.href} to={link.href} className="mobile-menu-link">
+                  {link.label}
+                </SiteLink>
+              ))}
+              <hr className="mobile-menu-divider" />
+              <SiteLink to="/login" className="mobile-menu-link">
+                Sign in
+              </SiteLink>
+              <SiteLink to="/request-briefing" className="btn btn-primary mobile-menu-cta">
+                Request briefing
+              </SiteLink>
+            </nav>
+          </div>
+        )}
       </header>
-      <main key={pathname} className="page-transition">{children}</main>
+      <main id="main-content" key={pathname} className="page-transition">{children}</main>
       <footer className="footer">
         <div className="section-content">
           <div className="footer-grid">
