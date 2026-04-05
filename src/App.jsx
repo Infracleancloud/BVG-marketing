@@ -133,6 +133,18 @@ function ScrollReveal({ children, className = '', delay = 0, direction = 'up' })
 
 const APP_URL = import.meta.env.VITE_APP_URL || 'https://app.cloudhygienecoach.com';
 const API_URL = import.meta.env.VITE_APP_API_URL || 'https://api.cloudhygienecoach.com';
+const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
+
+if (GA_ID && typeof window !== 'undefined') {
+  const script = document.createElement('script');
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  script.async = true;
+  document.head.appendChild(script);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function() { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', GA_ID);
+}
 
 // UTM capture for attribution
 function captureUtmParams() {

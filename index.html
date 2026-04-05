@@ -43,45 +43,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <!-- Google Analytics: loaded at runtime if VITE_GA_MEASUREMENT_ID is set -->
     
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Cloud Hygiene Coach",
-      "url": "https://cloudhygienecoach.com",
-      "logo": "https://cloudhygienecoach.com/logo.png",
-      "description": "Enterprise cloud governance platform for compliance, security, and operational excellence.",
-      "sameAs": [
-        "https://twitter.com/cloudhygiene",
-        "https://linkedin.com/company/cloudhygienecoach"
-      ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Cloud Hygiene Coach",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "description": "Free trial available"
-      }
-    }
-    </script>
+    <!-- Structured data injected by React Helmet per-page -->
   </head>
   <body>
     <div id="root"></div>

@@ -191,6 +191,16 @@ export const SEO_CONFIG = {
     title: 'Pricing | Cloud Hygiene Coach',
     description: 'Simple, transparent pricing. Start free, scale as you grow. Free, Pro, and Enterprise plans for cloud governance.',
     keywords: 'cloud governance pricing, compliance software pricing, cloud security cost',
+    schema: [ORGANIZATION_SCHEMA, {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        { '@type': 'Question', name: 'Is there a free trial?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. All paid plans include a 14-day free trial with full access. No credit card required to start.' }},
+        { '@type': 'Question', name: 'Can I change plans later?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. Upgrade or downgrade anytime. When upgrading, you get immediate access to new features.' }},
+        { '@type': 'Question', name: 'What happens if I exceed my resource limits?', acceptedAnswer: { '@type': 'Answer', text: 'We will notify you when you reach 80% of your limit. Scanning continues but new resources are queued until you upgrade.' }},
+        { '@type': 'Question', name: 'Is my data secure?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We are SOC 2 Type II certified and encrypt all data at rest and in transit. We use read-only IAM roles with least-privilege access.' }},
+      ]
+    }],
   },
 
   // Blog
@@ -198,6 +208,38 @@ export const SEO_CONFIG = {
     title: 'Blog | Cloud Hygiene Coach',
     description: 'Insights on cloud governance, compliance, and security from industry experts. Best practices and guides.',
     keywords: 'cloud governance blog, compliance insights, cloud security articles, AWS best practices',
+  },
+
+  // Blog Posts
+  '/blog/cloud-governance-2026': {
+    title: 'The State of Cloud Governance in 2026 | Cloud Hygiene Coach',
+    description: 'Why 73% of enterprises still struggle with cloud compliance and what leaders are doing differently.',
+    keywords: 'cloud governance 2026, compliance trends, enterprise cloud',
+    article: true,
+  },
+  '/blog/soc2-without-pain': {
+    title: 'SOC 2 Without the Pain | Cloud Hygiene Coach',
+    description: 'How modern teams cut audit prep time from weeks to hours with continuous compliance.',
+    keywords: 'SOC 2 audit, continuous compliance, audit automation',
+    article: true,
+  },
+  '/blog/aws-iam-best-practices': {
+    title: 'AWS IAM Best Practices for 2026 | Cloud Hygiene Coach',
+    description: 'Least privilege, key rotation, and MFA enforcement. A practical guide for security teams.',
+    keywords: 'AWS IAM, least privilege, MFA, access key rotation, cloud security',
+    article: true,
+  },
+  '/blog/tagging-strategy-that-works': {
+    title: 'A Tagging Strategy That Actually Works | Cloud Hygiene Coach',
+    description: 'Why most tagging initiatives fail and the simple framework that drives 95%+ compliance.',
+    keywords: 'cloud tagging, resource tagging, tagging compliance, AWS tags',
+    article: true,
+  },
+  '/blog/cloud-cost-ownership': {
+    title: 'The Hidden Cost of No Ownership | Cloud Hygiene Coach',
+    description: 'Unowned cloud resources cost enterprises millions. Here is how to fix it.',
+    keywords: 'cloud cost, resource ownership, cloud waste, cost optimization',
+    article: true,
   },
 
   // Utility Pages
