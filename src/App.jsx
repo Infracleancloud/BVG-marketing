@@ -131,6 +131,38 @@ function ScrollReveal({ children, className = '', delay = 0, direction = 'up' })
   );
 }
 
+// ========== PRODUCT SCREENSHOTS ==========
+// To insert real screenshots:
+// 1. Add optimized WebP images to /public/screenshots/
+// 2. Update the src path below for each slot
+// 3. Placeholder renders automatically when src is null
+const SCREENSHOTS = {
+  heroMain:      { src: null, alt: 'Cloud Hygiene Coach dashboard overview',     w: 1100, h: 500 },
+  dashboard:     { src: null, alt: 'Governance dashboard with hygiene scores',   w: 600,  h: 360 },
+  findings:      { src: null, alt: 'Prioritized findings and remediation paths', w: 600,  h: 360 },
+  tasks:         { src: null, alt: 'Remediation task board with ownership',      w: 600,  h: 360 },
+  contentHero:   { src: null, alt: 'Platform feature view',                      w: 1100, h: 500 },
+  contentInline: { src: null, alt: 'Product detail view',                        w: 600,  h: 360 },
+  enterprise:    { src: null, alt: 'Enterprise deployment overview',             w: 600,  h: 400 },
+};
+
+function ProductScreenshot({ slot, className = '' }) {
+  const img = SCREENSHOTS[slot];
+  if (!img) return <div className={`screenshot-placeholder ${className}`} />;
+  if (!img.src) return <div className={`screenshot-placeholder ${className}`} />;
+  return (
+    <img
+      src={img.src}
+      alt={img.alt}
+      width={img.w}
+      height={img.h}
+      loading="lazy"
+      decoding="async"
+      className={`product-screenshot ${className}`}
+    />
+  );
+}
+
 const APP_URL = import.meta.env.VITE_APP_URL || 'https://app.cloudhygienecoach.com';
 const API_URL = import.meta.env.VITE_APP_API_URL || 'https://api.cloudhygienecoach.com';
 const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
@@ -1602,7 +1634,7 @@ function HomePage() {
           {/* Hero Screenshot */}
           <div className="hero-screenshot">
             <div className="hero-screenshot-wrapper">
-              <div className="hero-screenshot-placeholder"></div>
+              <ProductScreenshot slot="heroMain" className="hero-screenshot-placeholder" />
             </div>
           </div>
         </div>
@@ -1691,7 +1723,7 @@ function HomePage() {
             </ScrollReveal>
             <ScrollReveal direction="left" delay={80}>
               <div className="screenshot-wrapper">
-                <div className="screenshot-placeholder"></div>
+                <ProductScreenshot slot="dashboard" />
               </div>
             </ScrollReveal>
           </div>
@@ -1717,7 +1749,7 @@ function HomePage() {
             </ScrollReveal>
             <ScrollReveal direction="right" delay={80}>
               <div className="screenshot-wrapper">
-                <div className="screenshot-placeholder"></div>
+                <ProductScreenshot slot="findings" />
               </div>
             </ScrollReveal>
           </div>
@@ -1743,7 +1775,7 @@ function HomePage() {
             </ScrollReveal>
             <ScrollReveal direction="left" delay={80}>
               <div className="screenshot-wrapper">
-                <div className="screenshot-placeholder"></div>
+                <ProductScreenshot slot="tasks" />
               </div>
             </ScrollReveal>
           </div>
@@ -1858,7 +1890,7 @@ function SectionRenderer({ section }) {
           )}
         </div>
         <div className="screenshot-wrapper">
-          <div className="screenshot-placeholder"></div>
+          <ProductScreenshot slot="contentInline" />
         </div>
       </div>
     );
@@ -2262,7 +2294,7 @@ function ContentPage({ page, pathname }) {
           {page.heroScreenshot && (
             <div className="content-hero-screenshot">
               <div className="hero-screenshot-wrapper">
-                <div className="hero-screenshot-placeholder"></div>
+                <ProductScreenshot slot="contentHero" className="hero-screenshot-placeholder" />
               </div>
             </div>
           )}
@@ -2950,7 +2982,7 @@ function PricingPage() {
               </div>
             </div>
             <div className="enterprise-callout-visual">
-              <div className="enterprise-visual-placeholder"></div>
+              <ProductScreenshot slot="enterprise" className="enterprise-visual-placeholder" />
             </div>
           </div>
         </div>

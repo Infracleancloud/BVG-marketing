@@ -2837,13 +2837,26 @@ html {
   opacity: 0.7;
 }
 
-/* Screenshot placeholders */
+/* Screenshot placeholders and real images */
 .screenshot-placeholder {
   transition: transform 0.3s ease;
 }
 
-.screenshot-wrapper:hover .screenshot-placeholder {
+.screenshot-wrapper:hover .screenshot-placeholder,
+.screenshot-wrapper:hover .product-screenshot {
   transform: scale(1.02);
+}
+
+.product-screenshot {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.hero-screenshot-wrapper .product-screenshot {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 /* Stats on hover */
@@ -3128,6 +3141,22 @@ html {
   overflow-x: auto;
   margin: 0 -24px;
   padding: 0 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .comparison-table-wrapper {
+    position: relative;
+  }
+  .comparison-table-wrapper::after {
+    content: '← scroll →';
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    padding: 8px 0 0;
+    opacity: 0.6;
+  }
 }
 
 .comparison-table {
