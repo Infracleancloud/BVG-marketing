@@ -1,0 +1,51 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  
+  <!-- Gradient accent -->
+  <rect x="0" y="580" width="1200" height="50" fill="url(#gradient)"/>
+  
+  <!-- Logo/Brand mark -->
+  <g transform="translate(80, 80)">
+    <circle cx="24" cy="24" r="24" fill="#10b981"/>
+    <path d="M24 12C17.4 12 12 17.4 12 24C12 30.6 17.4 36 24 36C30.6 36 36 30.6 36 24" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="24" cy="24" r="6" fill="white"/>
+  </g>
+  
+  <!-- Company name -->
+  <text x="140" y="108" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="500">Cloud Hygiene Coach</text>
+  
+  <!-- Main headline -->
+  <text x="80" y="300" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="600" letter-spacing="-0.03em">Governance that works.</text>
+  
+  <!-- Subheadline -->
+  <text x="80" y="380" fill="#a1a1aa" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="400">Connect once. Scan continuously. Fix systematically.</text>
+  
+  <!-- Feature icons -->
+  <g transform="translate(80, 440)">
+    <rect width="160" height="70" rx="12" fill="#18181b"/>
+    <text x="20" y="45" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500">200+ checks</text>
+  </g>
+  <g transform="translate(260, 440)">
+    <rect width="160" height="70" rx="12" fill="#18181b"/>
+    <text x="20" y="45" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500">Multi-account</text>
+  </g>
+  <g transform="translate(440, 440)">
+    <rect width="160" height="70" rx="12" fill="#18181b"/>
+    <text x="20" y="45" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500">SOC 2 ready</text>
+  </g>
+  <g transform="translate(620, 440)">
+    <rect width="160" height="70" rx="12" fill="#18181b"/>
+    <text x="20" y="45" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="500">API-first</text>
+  </g>
+  
+  <!-- URL -->
+  <text x="1120" y="108" fill="#71717a" font-family="system-ui, -apple-system, sans-serif" font-size="20" text-anchor="end">cloudhygienecoach.com/platform</text>
+  
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="1200" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+</svg>

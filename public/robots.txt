@@ -1,0 +1,16 @@
+# Cloud Hygiene Coach - Robots.txt
+# https://cloudhygienecoach.com
+
+User-agent: *
+Allow: /
+
+# Disallow utility pages
+Disallow: /login
+Disallow: /signup
+Disallow: /status
+
+# Sitemap
+Sitemap: https://cloudhygienecoach.com/sitemap.xml
+
+# Crawl-delay for politeness (optional)
+Crawl-delay: 1
