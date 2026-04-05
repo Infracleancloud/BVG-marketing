@@ -131,36 +131,70 @@ function ScrollReveal({ children, className = '', delay = 0, direction = 'up' })
   );
 }
 
-// ========== PRODUCT SCREENSHOTS ==========
-// To insert real screenshots:
-// 1. Add optimized WebP images to /public/screenshots/
-// 2. Update the src path below for each slot
-// 3. Placeholder renders automatically when src is null
-const SCREENSHOTS = {
-  heroMain:      { src: null, alt: 'Cloud Hygiene Coach dashboard overview',     w: 1100, h: 500 },
-  dashboard:     { src: null, alt: 'Governance dashboard with hygiene scores',   w: 600,  h: 360 },
-  findings:      { src: null, alt: 'Prioritized findings and remediation paths', w: 600,  h: 360 },
-  tasks:         { src: null, alt: 'Remediation task board with ownership',      w: 600,  h: 360 },
-  contentHero:   { src: null, alt: 'Platform feature view',                      w: 1100, h: 500 },
-  contentInline: { src: null, alt: 'Product detail view',                        w: 600,  h: 360 },
-  enterprise:    { src: null, alt: 'Enterprise deployment overview',             w: 600,  h: 400 },
+// ========== PRODUCT DEMOS ==========
+const DEMOS = {
+  heroMain:      { video: '/demos/01-dashboard-overview.webm',   poster: '/demos/01-dashboard-overview-poster.png',   alt: 'Cloud Hygiene Coach dashboard overview',     w: 1440, h: 900 },
+  dashboard:     { video: '/demos/01-dashboard-overview.webm',   poster: '/demos/01-dashboard-overview-poster.png',   alt: 'Governance dashboard with hygiene scores',   w: 1440, h: 900 },
+  findings:      { video: '/demos/02-findings-drilldown.webm',   poster: '/demos/02-findings-drilldown-poster.png',   alt: 'Prioritized findings and remediation paths', w: 1440, h: 900 },
+  tasks:         { video: '/demos/03-task-remediation.webm',     poster: '/demos/03-task-remediation-poster.png',     alt: 'Remediation task board with ownership',      w: 1440, h: 900 },
+  reports:       { video: '/demos/04-reports-compliance.webm',   poster: '/demos/04-reports-compliance-poster.png',   alt: 'Compliance readiness and reporting',          w: 1440, h: 900 },
+  security:      { video: '/demos/05-security-dashboard.webm',   poster: '/demos/05-security-dashboard-poster.png',   alt: 'Enterprise security monitoring',              w: 1440, h: 900 },
+  standards:     { video: '/demos/06-standards-frameworks.webm',  poster: '/demos/06-standards-frameworks-poster.png',  alt: 'Standards and compliance frameworks',         w: 1440, h: 900 },
+  workflow:      { video: '/demos/07-workflow-navigation.webm',   poster: '/demos/07-workflow-navigation-poster.png',   alt: 'Full workflow navigation',                    w: 1440, h: 900 },
+  contentHero:   { video: null, poster: null, alt: 'Platform feature view',    w: 1440, h: 900 },
+  contentInline: { video: null, poster: null, alt: 'Product detail view',      w: 1440, h: 900 },
+  enterprise:    { video: null, poster: null, alt: 'Enterprise deployment',    w: 1440, h: 900 },
 };
 
-function ProductScreenshot({ slot, className = '' }) {
-  const img = SCREENSHOTS[slot];
-  if (!img) return <div className={`screenshot-placeholder ${className}`} />;
-  if (!img.src) return <div className={`screenshot-placeholder ${className}`} />;
+function ProductDemo({ slot, className = '', eager = false }) {
+  const ref = useRef(null);
+  const demo = DEMOS[slot];
+  if (!demo) return <div className={`screenshot-placeholder ${className}`} />;
+  if (!demo.video && !demo.poster) return <div className={`screenshot-placeholder ${className}`} />;
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || eager) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.play().catch(() => {});
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [eager]);
+
+  if (!demo.video) {
+    return demo.poster
+      ? <img src={demo.poster} alt={demo.alt} width={demo.w} height={demo.h} loading="lazy" decoding="async" className={`product-screenshot ${className}`} />
+      : <div className={`screenshot-placeholder ${className}`} />;
+  }
+
   return (
-    <img
-      src={img.src}
-      alt={img.alt}
-      width={img.w}
-      height={img.h}
-      loading="lazy"
-      decoding="async"
-      className={`product-screenshot ${className}`}
-    />
+    <video
+      ref={ref}
+      className={`product-demo ${className}`}
+      width={demo.w}
+      height={demo.h}
+      poster={demo.poster}
+      autoPlay={eager}
+      loop
+      muted
+      playsInline
+      preload={eager ? 'auto' : 'none'}
+      aria-label={demo.alt}
+    >
+      <source src={demo.video} type="video/webm" />
+    </video>
   );
+}
+
+function ProductScreenshot({ slot, className = '' }) {
+  return <ProductDemo slot={slot} className={className} />;
 }
 
 const APP_URL = import.meta.env.VITE_APP_URL || 'https://app.cloudhygienecoach.com';
@@ -1634,7 +1668,7 @@ function HomePage() {
           {/* Hero Screenshot */}
           <div className="hero-screenshot">
             <div className="hero-screenshot-wrapper">
-              <ProductScreenshot slot="heroMain" className="hero-screenshot-placeholder" />
+              <ProductDemo slot="heroMain" className="hero-screenshot-placeholder" eager />
             </div>
           </div>
         </div>
@@ -1723,7 +1757,7 @@ function HomePage() {
             </ScrollReveal>
             <ScrollReveal direction="left" delay={80}>
               <div className="screenshot-wrapper">
-                <ProductScreenshot slot="dashboard" />
+                <ProductDemo slot="dashboard" />
               </div>
             </ScrollReveal>
           </div>
@@ -1749,7 +1783,7 @@ function HomePage() {
             </ScrollReveal>
             <ScrollReveal direction="right" delay={80}>
               <div className="screenshot-wrapper">
-                <ProductScreenshot slot="findings" />
+                <ProductDemo slot="findings" />
               </div>
             </ScrollReveal>
           </div>
@@ -1775,7 +1809,59 @@ function HomePage() {
             </ScrollReveal>
             <ScrollReveal direction="left" delay={80}>
               <div className="screenshot-wrapper">
-                <ProductScreenshot slot="tasks" />
+                <ProductDemo slot="tasks" />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== REPORTS / PROVE SECTION ========== */}
+      <section className="section-white">
+        <div className="section-content">
+          <div className="screenshot-section reverse">
+            <ScrollReveal direction="left">
+              <div className="screenshot-content">
+                <h2>Prove it to any auditor.</h2>
+                <p>
+                  Executive summaries, risk impact analysis, and compliance readiness in one view.
+                </p>
+                <ul>
+                  <li><Check size={20} aria-hidden="true" /> Audit-ready PDF reports</li>
+                  <li><Check size={20} aria-hidden="true" /> SOC 2, NIST, CIS alignment</li>
+                  <li><Check size={20} aria-hidden="true" /> Risk quantification by category</li>
+                </ul>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal direction="right" delay={80}>
+              <div className="screenshot-wrapper">
+                <ProductDemo slot="reports" />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECURITY SECTION ========== */}
+      <section className="section-gray">
+        <div className="section-content">
+          <div className="screenshot-section">
+            <ScrollReveal direction="right">
+              <div className="screenshot-content">
+                <h2>Security built in, not bolted on.</h2>
+                <p>
+                  Real-time threat monitoring, event trends, and posture scoring across your entire fleet.
+                </p>
+                <ul>
+                  <li><Check size={20} aria-hidden="true" /> Real-time security status</li>
+                  <li><Check size={20} aria-hidden="true" /> Event severity trends</li>
+                  <li><Check size={20} aria-hidden="true" /> Auth failure and rate-limit tracking</li>
+                </ul>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal direction="left" delay={80}>
+              <div className="screenshot-wrapper">
+                <ProductDemo slot="security" />
               </div>
             </ScrollReveal>
           </div>
@@ -3032,7 +3118,7 @@ const BLOG_POSTS = [
     title: 'The State of Cloud Governance in 2026',
     excerpt: 'Why 73% of enterprises still struggle with cloud compliance—and what the leaders are doing differently.',
     date: '2026-01-15',
-    author: 'Sarah Chen',
+    author: 'Cloud Hygiene Coach Team',
     category: 'Industry',
     readTime: '8 min',
     content: [
@@ -3054,7 +3140,7 @@ const BLOG_POSTS = [
     title: 'SOC 2 Without the Pain',
     excerpt: 'How modern teams are cutting audit prep time from weeks to hours with continuous compliance.',
     date: '2026-01-08',
-    author: 'Marcus Johnson',
+    author: 'Cloud Hygiene Coach Team',
     category: 'Compliance',
     readTime: '6 min',
     content: [
@@ -3075,7 +3161,7 @@ const BLOG_POSTS = [
     title: 'AWS IAM Best Practices for 2026',
     excerpt: 'Least privilege, key rotation, and MFA enforcement—a practical guide for security teams.',
     date: '2025-12-20',
-    author: 'Alex Rivera',
+    author: 'Cloud Hygiene Coach Team',
     category: 'Security',
     readTime: '10 min',
     content: [
@@ -3102,7 +3188,7 @@ const BLOG_POSTS = [
     title: 'A Tagging Strategy That Actually Works',
     excerpt: 'Why most tagging initiatives fail—and the simple framework that drives 95%+ compliance.',
     date: '2025-12-12',
-    author: 'Sarah Chen',
+    author: 'Cloud Hygiene Coach Team',
     category: 'Operations',
     readTime: '7 min',
     content: [
@@ -3123,7 +3209,7 @@ const BLOG_POSTS = [
     title: 'The Hidden Cost of No Ownership',
     excerpt: 'Unowned cloud resources cost enterprises millions. Here is how to fix it.',
     date: '2025-12-01',
-    author: 'Marcus Johnson',
+    author: 'Cloud Hygiene Coach Team',
     category: 'Cost',
     readTime: '5 min',
     content: [
