@@ -340,7 +340,7 @@ const CAMPAIGNS = [
 ];
 
 const DEFAULT_CTA = {
-  primary: { label: 'Free Sign Up', href: '/request-briefing' },
+  primary: { label: 'Request briefing', href: '/request-briefing' },
   secondary: { label: 'Explore platform', href: '/platform' }
 };
 
@@ -396,9 +396,8 @@ function buildOutcomePage({ title, summary, focus, kpis, outcomes }) {
       {
         type: 'quote',
         quote: 'We moved from reactive hygiene work to a measurable governance cadence in under 60 days.',
-        name: 'Robert Martinez',
         role: 'VP Cloud Operations',
-        company: 'Global Enterprise'
+        company: 'Enterprise Customer'
       },
       {
         type: 'cta',
@@ -459,9 +458,8 @@ function buildRolePage({ title, summary, priorities, outcomes }) {
       {
         type: 'quote',
         quote: 'Finally, a tool that gives me the executive visibility I need without requiring my team to do manual work.',
-        name: 'Alex Thompson',
         role: roleType,
-        company: 'Enterprise Technology Company'
+        company: 'Enterprise Customer'
       }
     ]
   };
@@ -491,9 +489,8 @@ function buildProofPage({ title, summary, stories }) {
       {
         type: 'quote',
         quote: 'Cloud Hygiene Coach gave us the visibility and accountability we needed to pass our SOC 2 audit with zero findings.',
-        name: 'Jennifer Walsh',
         role: 'CISO',
-        company: 'Enterprise SaaS Company'
+        company: 'Enterprise SaaS'
       },
       {
         type: 'stat-grid',
@@ -538,9 +535,8 @@ function buildTrustPage({ title, summary, domains }) {
       {
         type: 'quote',
         quote: 'Procurement approved in two weeks.',
-        name: 'David Kim',
         role: 'Security Director',
-        company: 'Fortune 500'
+        company: 'Enterprise Customer'
       }
     ]
   };
@@ -644,7 +640,6 @@ const CONTENT_PAGES = {
       {
         type: 'quote',
         quote: 'Cut audit prep time in half.',
-        name: 'Sarah Chen',
         role: 'VP Engineering',
         company: 'Financial Services'
       }
@@ -862,7 +857,6 @@ const CONTENT_PAGES = {
       {
         type: 'quote',
         quote: 'The AWS integration gave us visibility we never had before. Setup took 30 minutes.',
-        name: 'Michael Torres',
         role: 'Cloud Architect',
         company: 'Healthcare Technology'
       }
@@ -1060,10 +1054,9 @@ const CONTENT_PAGES = {
       {
         type: 'metrics-bar',
         metrics: [
-          { value: '50+', label: 'Enterprise customers' },
-          { value: '10M+', label: 'Resources scanned' },
-          { value: '98%', label: 'Customer retention' },
-          { value: '2024', label: 'Founded' }
+          { value: '2024', label: 'Founded' },
+          { value: 'AWS', label: 'Primary platform' },
+          { value: 'Remote', label: 'Distributed team' }
         ]
       },
       {
@@ -1076,11 +1069,6 @@ const CONTENT_PAGES = {
           { name: 'Earn trust daily', icon: 'heart', description: 'Enterprise customers bet their compliance on us. We take that seriously.' },
           { name: 'Move with urgency', icon: 'rocket', description: 'Speed matters. But so does quality. We find the balance every day.' }
         ]
-      },
-      {
-        type: 'investors-bar',
-        label: 'Backed by',
-        investors: ['Sequoia', 'a16z', 'Index Ventures', 'First Round']
       },
       {
         type: 'hiring-cta',
@@ -1098,16 +1086,13 @@ const CONTENT_PAGES = {
     hideLogoBar: true,
     sections: [
       {
-        type: 'team-grid',
+        type: 'narrative',
         title: 'Leadership team',
-        subtitle: 'The people steering the ship.',
-        members: [
-          { name: 'Alex Chen', role: 'CEO & Co-founder', bio: 'Former VP Engineering at enterprise SaaS companies. Built compliance and security systems serving Fortune 500 customers. Stanford CS.', funFact: 'Still writes code on weekends', linkedin: '#', twitter: '#' },
-          { name: 'Jordan Rivera', role: 'CTO & Co-founder', bio: '15 years building cloud infrastructure at AWS and startups. Led teams of 50+ engineers. Security certifications nobody can pronounce.', funFact: 'Homelab has more compute than some startups', linkedin: '#' },
-          { name: 'Sam Patel', role: 'Head of Product', bio: 'Product leadership at Datadog, Splunk, and two acquisitions. Obsessed with making complex things simple.', funFact: 'Has a spreadsheet for everything. Everything.', linkedin: '#', twitter: '#' },
-          { name: 'Morgan Kim', role: 'Head of Engineering', bio: 'Built platform engineering teams at Stripe, Figma, and Notion. Cares deeply about developer experience and system reliability.', funFact: 'Terminal-only workflow since 2015', linkedin: '#' },
-          { name: 'Taylor Brooks', role: 'Head of Sales', bio: 'Enterprise sales leader from Snowflake and MongoDB. Closed deals you\'ve heard of. Believes in consultative selling.', funFact: 'Former college athlete, still competitive', linkedin: '#' },
-          { name: 'Casey Zhang', role: 'Head of Customer Success', bio: 'Built CS teams at three Series B+ startups. 98% retention track record. Customer obsessed.', funFact: 'Sends the best thank-you notes', linkedin: '#' }
+        body: 'Cloud Hygiene Coach is led by a team of operators and engineers who have built governance and compliance systems at enterprise scale.',
+        bullets: [
+          'Deep experience in cloud infrastructure and security',
+          'Backgrounds in enterprise SaaS and compliance',
+          'Full team profiles coming soon'
         ]
       },
       {
@@ -1258,9 +1243,8 @@ const CONTENT_PAGES = {
       {
         type: 'quote',
         quote: 'The Cloud Hygiene Coach team was incredibly responsive during our evaluation. They understood our requirements and made procurement painless.',
-        name: 'David Park',
         role: 'VP of IT',
-        company: 'Fortune 500 Financial Services'
+        company: 'Enterprise Customer'
       }
     ]
   }
@@ -1350,7 +1334,7 @@ function SiteLayout({ children, pathname }) {
               Sign in
             </SiteLink>
             <SiteLink to="/request-briefing" className="btn btn-primary">
-              Free Sign Up
+              Request briefing
             </SiteLink>
           </div>
         </div>
@@ -1422,7 +1406,7 @@ function HomePage() {
           </p>
           <div className="hero-buttons">
             <SiteLink to="/request-briefing" className="btn btn-primary">
-              Free Trial
+              Request briefing
             </SiteLink>
             <SiteLink to="/platform" className="btn btn-secondary">
               Learn more →
@@ -1591,10 +1575,10 @@ function HomePage() {
                 we govern our cloud infrastructure."
               </p>
               <div className="quote-attribution">
-                <div className="quote-avatar">VP</div>
+                <div className="quote-avatar" aria-hidden="true">VP</div>
                 <div className="quote-info">
                   <div className="quote-name">VP of Engineering</div>
-                  <div className="quote-role">Global Enterprise SaaS Company</div>
+                  <div className="quote-role">Enterprise SaaS Company</div>
                 </div>
               </div>
             </div>
@@ -1646,7 +1630,7 @@ function DarkCTA({ headline = "Ready to transform your cloud governance?",
             <h2 className="dark-cta-headline">{headline}</h2>
             <p className="dark-cta-description">{description}</p>
             <div className="dark-cta-buttons">
-              <SiteLink to={primaryHref} className="btn btn-dark">Free Sign Up <ArrowRight size={18} /></SiteLink>
+              <SiteLink to={primaryHref} className="btn btn-dark">Request briefing <ArrowRight size={18} /></SiteLink>
               <SiteLink to={secondaryHref} className="btn btn-dark-outline">Explore platform</SiteLink>
             </div>
           </div>
@@ -1755,16 +1739,17 @@ function SectionRenderer({ section }) {
   }
 
   if (section.type === 'quote') {
-    const initials = section.name ? section.name.split(' ').map(n => n[0]).join('') : 'EC';
+    const displayName = section.name || section.attribution || section.role || 'Enterprise Customer';
+    const initials = displayName.split(' ').map(n => n[0]).join('').slice(0, 2);
     return (
       <div className="content-block">
         <div className="quote-section-enhanced">
-          <div className="quote-mark">"</div>
+          <div className="quote-mark" aria-hidden="true">"</div>
           <blockquote className="quote-text-large">{section.quote}</blockquote>
           <div className="quote-attribution-enhanced">
-            <div className="quote-avatar-large">{initials}</div>
+            <div className="quote-avatar-large" aria-hidden="true">{initials}</div>
             <div className="quote-info">
-              <div className="quote-name">{section.name || section.attribution}</div>
+              {section.name && <div className="quote-name">{section.name}</div>}
               <div className="quote-role">{section.role || 'Enterprise Customer'}</div>
               {section.company && <div className="quote-company">{section.company}</div>}
             </div>
@@ -2079,7 +2064,7 @@ function ContentPage({ page, pathname }) {
             <p className="content-page-summary">{page.summary}</p>
             <div className="hero-buttons">
               <SiteLink to={DEFAULT_CTA.primary.href} className="btn btn-primary">
-                Start Free Trial
+                Request briefing
               </SiteLink>
               <SiteLink to={secondaryCTA.href} className="btn btn-secondary">
                 {secondaryCTA.label}
@@ -2179,7 +2164,7 @@ function CampaignLanding({ campaign }) {
             <p className="content-page-summary">{campaign.summary}</p>
             <div className="hero-buttons">
               <SiteLink to="/request-briefing" className="btn btn-primary">
-                Free Trial
+                Request briefing
               </SiteLink>
               <SiteLink to="/campaigns" className="btn btn-secondary">
                 All campaigns →
@@ -2279,48 +2264,50 @@ function RequestBriefing() {
     
     setIsSubmitting(true);
     
-    // Track the form submission
-    trackEvent('signup_form_submit', {
-      role: formData.role,
-      company_size: formData.size,
-      primary_cloud: formData.clouds
-    });
-    
-    // Parse name into first/last
-    const nameParts = formData.fullName.trim().split(' ');
-    const firstName = nameParts[0] || '';
-    const lastName = nameParts.slice(1).join(' ') || '';
-    
-    // Use handoff API to create token and redirect
-    // Includes full form context as attribution data
-    await handoffRedirect({
-      email: formData.email,
-      firstName,
-      lastName,
-      company: formData.company,
-      extraAttribution: {
-        formRole: formData.role,
-        formCompanySize: formData.size,
-        formPrimaryCloud: formData.clouds,
-        formNotes: formData.notes || null,
-        marketingSource: 'request_briefing_form',
-      },
-      destination: '/welcome',
-    });
+    try {
+      trackEvent('signup_form_submit', {
+        role: formData.role,
+        company_size: formData.size,
+        primary_cloud: formData.clouds
+      });
+      
+      const nameParts = formData.fullName.trim().split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+      
+      await handoffRedirect({
+        email: formData.email,
+        firstName,
+        lastName,
+        company: formData.company,
+        extraAttribution: {
+          formRole: formData.role,
+          formCompanySize: formData.size,
+          formPrimaryCloud: formData.clouds,
+          formNotes: formData.notes || null,
+          marketingSource: 'request_briefing_form',
+        },
+        destination: '/welcome',
+      });
+    } catch (err) {
+      setError('Something went wrong. Please try again or contact support@cloudhygienecoach.com.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section className="content-page-hero" style={{ paddingBottom: '80px' }}>
       <div className="section-content">
         <div className="content-page-header">
-          <h1 className="content-page-title">Start your free trial</h1>
+          <h1 className="content-page-title">Request a briefing</h1>
           <p className="content-page-summary">
-            No credit card required. Full access for 14 days.
+            Tell us about your governance goals. We'll follow up within one business day.
           </p>
         </div>
         <form className="form-card" onSubmit={handleSubmit}>
           {error && (
-            <div className="form-error" style={{ 
+            <div className="form-error" role="alert" style={{ 
               background: '#fef2f2', 
               border: '1px solid #fecaca', 
               borderRadius: '8px', 
@@ -2408,7 +2395,7 @@ function RequestBriefing() {
             disabled={isSubmitting}
             style={{ opacity: isSubmitting ? 0.7 : 1 }}
           >
-            {isSubmitting ? 'Starting trial...' : 'Start free trial'}
+            {isSubmitting ? 'Submitting...' : 'Request briefing'}
           </button>
         </form>
       </div>
@@ -2492,7 +2479,7 @@ const PRICING_TIERS = [
       'Weekly scans',
       'Community support'
     ],
-    cta: 'Start free',
+    cta: 'Get started',
     ctaHref: '/request-briefing',
     highlighted: false
   },
@@ -2510,7 +2497,7 @@ const PRICING_TIERS = [
       'Custom rules',
       'Priority support'
     ],
-    cta: 'Start free trial',
+    cta: 'Request briefing',
     ctaHref: '/request-briefing',
     highlighted: true
   },
@@ -2529,7 +2516,7 @@ const PRICING_TIERS = [
       'Priority support',
       '99.9% SLA'
     ],
-    cta: 'Start free trial',
+    cta: 'Request briefing',
     ctaHref: '/request-briefing',
     highlighted: false
   }
@@ -2620,9 +2607,7 @@ const PRICING_FAQS = [
   }
 ];
 
-const TRUST_LOGOS = [
-  'Acme Corp', 'TechStart', 'CloudFirst', 'SecureBank', 'HealthTech'
-];
+const TRUST_LOGOS = [];
 
 function PricingPage() {
   const [isAnnual, setIsAnnual] = useState(true);
@@ -2648,7 +2633,7 @@ function PricingPage() {
         <div className="section-content">
           <div className="content-page-header">
             <h1 className="content-page-title">Simple, transparent pricing.</h1>
-            <p className="content-page-summary">Start free. Scale as you grow. No surprises.</p>
+            <p className="content-page-summary">Transparent pricing. Scale as you grow. No surprises.</p>
           </div>
           
           {/* Billing Toggle */}
@@ -2699,12 +2684,6 @@ function PricingPage() {
       <section className="section-gray">
         <div className="section-content">
           <div className="pricing-trust">
-            <p className="pricing-trust-label">Trusted by 500+ companies worldwide</p>
-            <div className="pricing-trust-logos">
-              {TRUST_LOGOS.map((logo) => (
-                <div key={logo} className="trust-logo-placeholder">{logo}</div>
-              ))}
-            </div>
             <div className="pricing-trust-badges">
               <div className="trust-badge-item">
                 <Shield size={20} />
@@ -2780,7 +2759,7 @@ function PricingPage() {
                 <li><Check size={18} /> SOC 2 Type II compliance report</li>
               </ul>
               <div className="hero-buttons">
-                <SiteLink to="/request-briefing" className="btn btn-primary">Start free trial</SiteLink>
+                <SiteLink to="/request-briefing" className="btn btn-primary">Request briefing</SiteLink>
                 <SiteLink to="/trust" className="btn btn-secondary">View security docs →</SiteLink>
               </div>
             </div>
@@ -3035,7 +3014,7 @@ function BlogPost({ post }) {
               )}
             </div>
             <div className="blog-post-cta">
-              <SiteLink to="/request-briefing" className="btn btn-primary">Start Free Trial</SiteLink>
+              <SiteLink to="/request-briefing" className="btn btn-primary">Request briefing</SiteLink>
             </div>
           </div>
         </div>
@@ -3047,12 +3026,12 @@ function BlogPost({ post }) {
 
 function StatusPage() {
   const services = [
-    { name: 'Dashboard', status: 'operational', uptime: '99.99%' },
-    { name: 'API', status: 'operational', uptime: '99.98%' },
-    { name: 'Scanning Engine', status: 'operational', uptime: '99.95%' },
-    { name: 'Reports', status: 'operational', uptime: '99.99%' },
-    { name: 'Authentication', status: 'operational', uptime: '100%' },
-    { name: 'Webhooks', status: 'operational', uptime: '99.97%' }
+    { name: 'Dashboard' },
+    { name: 'API' },
+    { name: 'Scanning Engine' },
+    { name: 'Reports' },
+    { name: 'Authentication' },
+    { name: 'Webhooks' }
   ];
   
   return (
@@ -3061,39 +3040,25 @@ function StatusPage() {
         <div className="section-content">
           <div className="content-page-header">
             <h1 className="content-page-title">System status</h1>
-            <p className="content-page-summary">All systems operational.</p>
+            <p className="content-page-summary">For real-time status updates, check our monitoring dashboard.</p>
           </div>
         </div>
       </section>
       <section className="section-white">
         <div className="section-content">
-          <h2 className="content-block-title">Service status</h2>
+          <h2 className="content-block-title">Services</h2>
           <div className="status-grid">
             {services.map((service) => (
               <div key={service.name} className="status-card">
                 <div className="status-card-header">
                   <span className="status-card-name">{service.name}</span>
-                  <CheckCircle size={20} className="status-icon-ok" />
-                </div>
-                <div className="status-card-detail">
-                  <span>Uptime: {service.uptime}</span>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-      <section className="section-gray">
-        <div className="section-content">
-          <h2 className="content-block-title">Uptime history</h2>
-          <div className="uptime-chart-placeholder">
-            <div className="uptime-bar-row">
-              {Array.from({ length: 30 }).map((_, i) => (
-                <div key={i} className="uptime-bar uptime-bar-ok" title={`Day ${30 - i}: 100%`} />
-              ))}
-            </div>
-            <p className="uptime-chart-label">Last 30 days: 99.98% uptime</p>
-          </div>
+          <p style={{ textAlign: 'center', marginTop: '40px', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+            Live status monitoring will be available at launch. Contact <a href="mailto:support@cloudhygienecoach.com" style={{ color: 'var(--color-accent)' }}>support@cloudhygienecoach.com</a> for current status.
+          </p>
         </div>
       </section>
       <DarkCTA headline="Questions about our reliability?" 
@@ -3138,7 +3103,7 @@ function resolveRoute(pathname) {
   }
 
   if (pathname === '/request-briefing') {
-    return { title: 'Free Sign Up', element: <RequestBriefing /> };
+    return { title: 'Request Briefing', element: <RequestBriefing /> };
   }
 
   if (pathname === '/login') {

@@ -49,11 +49,6 @@ export const SOFTWARE_SCHEMA = {
     priceCurrency: 'USD',
     description: 'Free trial available',
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    ratingCount: '127',
-  },
 };
 
 /**
@@ -207,9 +202,9 @@ export const SEO_CONFIG = {
 
   // Utility Pages
   '/request-briefing': {
-    title: 'Free Sign Up | Cloud Hygiene Coach',
-    description: 'Start your free trial today. See how Cloud Hygiene Coach transforms cloud governance in minutes.',
-    keywords: 'free trial, sign up, demo, cloud governance trial',
+    title: 'Request Briefing | Cloud Hygiene Coach',
+    description: 'Request a personalized briefing on how Cloud Hygiene Coach can transform your cloud governance.',
+    keywords: 'request briefing, demo, cloud governance consultation',
   },
   '/campaigns': {
     title: 'Campaigns | Cloud Hygiene Coach',
