@@ -1163,38 +1163,167 @@ const CONTENT_PAGES = {
   '/privacy': {
     eyebrow: 'Legal',
     title: 'Privacy Policy',
-    summary: 'How we collect, use, and protect your information.',
+    summary: 'How we collect, use, and protect your information. Last updated: [Date — requires legal review].',
     hideLogoBar: true,
     sections: [
       {
         type: 'narrative',
-        title: 'Your privacy matters',
-        body: 'Cloud Hygiene Coach is committed to protecting your privacy. This policy describes how we handle your personal information.',
+        title: 'DRAFT — Pending Legal Review',
+        body: 'This privacy policy is a draft and is subject to final legal review before launch. It outlines the intended data practices of Cloud Hygiene Coach.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '1. Information we collect',
+        body: 'We collect information you provide directly (name, email, company information when you request a briefing), information collected automatically (usage data, device information, IP address, cookies), and information from third parties (analytics providers, advertising partners).',
         bullets: [
-          'We collect only what we need',
-          'We never sell your data',
-          'You control your information',
-          'GDPR and CCPA compliant'
+          'Account registration data',
+          'Briefing request form submissions',
+          'Usage analytics and session data',
+          'Cookie and tracking identifiers'
         ]
+      },
+      {
+        type: 'narrative',
+        title: '2. How we use your information',
+        body: 'We use collected information to provide and improve our services, communicate with you about your account and our products, process briefing requests, ensure security and prevent fraud, and comply with legal obligations.',
+        bullets: [
+          'Service delivery and improvement',
+          'Customer communication',
+          'Security and fraud prevention',
+          'Legal compliance'
+        ]
+      },
+      {
+        type: 'narrative',
+        title: '3. How we share your information',
+        body: 'We do not sell your personal information. We may share information with service providers who assist in operating our platform, when required by law, or in connection with a business transfer.',
+        bullets: [
+          'We never sell personal data',
+          'Service providers are contractually bound',
+          'Law enforcement requests are reviewed individually',
+          'Business transfers include data protection provisions'
+        ]
+      },
+      {
+        type: 'narrative',
+        title: '4. Data security',
+        body: 'We implement industry-standard security measures including encryption at rest and in transit, role-based access controls, and regular security assessments.',
+        bullets: [
+          'Encryption at rest and in transit',
+          'Role-based access control',
+          'Regular security assessments',
+          'SOC 2 Type II audit program'
+        ]
+      },
+      {
+        type: 'narrative',
+        title: '5. Your rights',
+        body: 'Depending on your jurisdiction, you may have the right to access, correct, delete, or port your personal data. You may also opt out of marketing communications at any time.',
+        bullets: [
+          'Right to access your data',
+          'Right to correction or deletion',
+          'Right to data portability',
+          'Right to opt out of marketing',
+          'GDPR and CCPA rights honored'
+        ]
+      },
+      {
+        type: 'narrative',
+        title: '6. Cookies and tracking',
+        body: 'We use cookies and similar technologies for functionality, analytics, and marketing. You can manage cookie preferences through your browser settings.',
+        bullets: [
+          'Essential cookies for site functionality',
+          'Analytics cookies for usage insights',
+          'Marketing cookies for attribution'
+        ]
+      },
+      {
+        type: 'narrative',
+        title: '7. Contact us',
+        body: 'For privacy-related inquiries, contact us at privacy@cloudhygienecoach.com. We aim to respond within 30 days.',
+        bullets: []
       }
     ]
   },
   '/terms': {
     eyebrow: 'Legal',
     title: 'Terms of Service',
-    summary: 'Terms and conditions for using Cloud Hygiene Coach.',
+    summary: 'Terms and conditions for using Cloud Hygiene Coach. Last updated: [Date — requires legal review].',
     hideLogoBar: true,
     sections: [
       {
         type: 'narrative',
-        title: 'Agreement to terms',
-        body: 'By accessing Cloud Hygiene Coach, you agree to these terms of service.',
+        title: 'DRAFT — Pending Legal Review',
+        body: 'These terms of service are a draft and are subject to final legal review before launch. They outline the intended contractual framework for Cloud Hygiene Coach.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '1. Acceptance of terms',
+        body: 'By accessing or using Cloud Hygiene Coach, you agree to be bound by these Terms of Service and our Privacy Policy. If you are using the service on behalf of an organization, you represent that you have authority to bind that organization.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '2. Description of service',
+        body: 'Cloud Hygiene Coach provides cloud governance, compliance monitoring, and remediation workflow tools delivered as a software-as-a-service platform. Features and availability may vary by subscription plan.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '3. Account responsibilities',
+        body: 'You are responsible for maintaining the security of your account credentials, all activity under your account, and ensuring your use complies with applicable laws and regulations.',
         bullets: [
-          'Account responsibilities',
-          'Acceptable use policy',
-          'Intellectual property',
-          'Limitation of liability'
+          'Maintain confidentiality of login credentials',
+          'Notify us promptly of unauthorized access',
+          'Accurate and current account information required'
         ]
+      },
+      {
+        type: 'narrative',
+        title: '4. Acceptable use',
+        body: 'You agree not to misuse the service, attempt to gain unauthorized access to systems, interfere with other users, or use the service for unlawful purposes.',
+        bullets: [
+          'No unauthorized access attempts',
+          'No interference with service operations',
+          'No unlawful use or data processing',
+          'No reverse engineering'
+        ]
+      },
+      {
+        type: 'narrative',
+        title: '5. Intellectual property',
+        body: 'Cloud Hygiene Coach and its content, features, and functionality are owned by BVG Solutions and are protected by copyright, trademark, and other intellectual property laws. Your data remains yours.',
+        bullets: [
+          'Service IP belongs to Cloud Hygiene Coach',
+          'Customer data remains customer property',
+          'Limited license granted for service use'
+        ]
+      },
+      {
+        type: 'narrative',
+        title: '6. Payment and billing',
+        body: 'Paid plans are billed in advance on a monthly or annual basis. Prices are subject to change with notice. Refund policies apply as described in your subscription agreement.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '7. Termination',
+        body: 'Either party may terminate the agreement with written notice. Upon termination, your right to access the service ceases. We will make your data available for export for a reasonable period following termination.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '8. Limitation of liability',
+        body: 'To the maximum extent permitted by law, Cloud Hygiene Coach shall not be liable for indirect, incidental, special, consequential, or punitive damages. Our total liability is limited to the amount paid for the service in the 12 months preceding the claim.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '9. Contact',
+        body: 'For questions about these terms, contact us at legal@cloudhygienecoach.com.',
+        bullets: []
       }
     ]
   },
