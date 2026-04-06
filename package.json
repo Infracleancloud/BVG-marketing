@@ -8,7 +8,12 @@
     "dev": "vite",
     "dev:open": "vite --open",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "smoke": "node scripts/smoke-test.mjs",
+    "ci:check": "npm run lint && npm run build && npm run smoke",
+    "prepare": "husky"
   },
   "dependencies": {
     "lucide-react": "^0.563.0",
@@ -17,7 +22,13 @@
     "react-helmet-async": "^2.0.5"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.4",
     "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.26",
+    "globals": "^17.4.0",
+    "husky": "^9.1.7",
     "vite": "^5.0.8"
   }
 }
