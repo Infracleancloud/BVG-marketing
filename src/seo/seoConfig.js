@@ -12,7 +12,7 @@ export const SITE_CONFIG = {
   siteName: 'Infra Clean Cloud',
   siteUrl: 'https://infraclean.cloud',
   defaultImage: '/og-default.png',
-  twitterHandle: '@infracleancloud',
+  twitterHandle: '',
   locale: 'en_US',
 };
 
@@ -26,7 +26,6 @@ export const ORGANIZATION_SCHEMA = {
   description: 'Enterprise cloud governance platform for compliance, security, and operational excellence.',
   foundingDate: '2024',
   sameAs: [
-    'https://twitter.com/infracleancloud',
     'https://linkedin.com/company/infracleancloud',
   ],
   contactPoint: {
@@ -141,39 +140,12 @@ export const SEO_CONFIG = {
     description: 'Industry benchmarks for cloud hygiene, compliance readiness, and remediation velocity. See where you stand.',
     keywords: 'cloud governance benchmarks, compliance benchmarks, industry standards',
   },
-  '/proof/roi': {
-    title: 'ROI Calculator | Infra Clean Cloud',
-    description: 'Calculate your cloud governance ROI. Quantify audit savings, risk reduction, and operational efficiency gains.',
-    keywords: 'cloud governance ROI, compliance ROI, cost savings calculator',
-  },
-
-  // Trust Pages
-  '/trust': {
-    title: 'Trust Center | Security & Compliance | Infra Clean Cloud',
-    description: 'SOC 2 Type II aligned. ISO 27001 aligned. 99.9% uptime target. Enterprise-grade security you can trust.',
-    keywords: 'trust center, security certifications, SOC 2, ISO 27001, enterprise security',
-  },
-  '/trust/security': {
-    title: 'Security Practices | Infra Clean Cloud',
-    description: 'Enterprise-grade security. Encryption at rest and in transit, role-based access, and continuous monitoring.',
-    keywords: 'cloud security, data encryption, access control, security monitoring',
-  },
-  '/trust/compliance': {
-    title: 'Compliance Certifications | Infra Clean Cloud',
-    description: 'SOC 2 Type II, ISO 27001, GDPR, and HIPAA ready. Full compliance documentation available on request.',
-    keywords: 'compliance certifications, SOC 2, ISO 27001, GDPR compliance, HIPAA',
-  },
 
   // Company Pages
   '/company': {
     title: 'About Us | Infra Clean Cloud',
     description: 'Built by operators, for operators. We believe every cloud should be crystal clear. Learn our story.',
     keywords: 'about infra clean cloud, company, cloud governance company',
-  },
-  '/company/leadership': {
-    title: 'Leadership Team | Infra Clean Cloud',
-    description: 'Meet the team building the future of cloud governance. Leaders from AWS, Google, and enterprise security.',
-    keywords: 'leadership team, executives, founders, cloud governance experts',
   },
   '/company/careers': {
     title: 'Careers | Join Infra Clean Cloud',
@@ -280,11 +252,6 @@ export const SEO_CONFIG = {
     title: 'Terms of Service | Infra Clean Cloud',
     description: 'Terms and conditions for using Infra Clean Cloud services.',
     keywords: 'terms of service, terms and conditions, user agreement',
-  },
-  '/security': {
-    title: 'Security | Infra Clean Cloud',
-    description: 'Security practices and measures at Infra Clean Cloud. Enterprise-grade protection.',
-    keywords: 'security practices, data security, enterprise security',
   },
 };
 

@@ -58,9 +58,9 @@ export function SEO({ pathname = '/', overrides = {} }) {
       <meta property="og:site_name" content={SITE_CONFIG.siteName} />
       <meta property="og:locale" content={SITE_CONFIG.locale} />
       
-      {/* Twitter Card */}
+      {/* Social Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={SITE_CONFIG.twitterHandle} />
+      {SITE_CONFIG.twitterHandle && <meta name="twitter:site" content={SITE_CONFIG.twitterHandle} />}
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />

@@ -42,7 +42,6 @@ import {
   Coffee,
   Globe,
   Linkedin,
-  Twitter,
   Mail,
   MapPin,
   Sparkles,
@@ -59,8 +58,6 @@ import {
   Link,
   Fingerprint,
   // Pricing & Blog icons
-  Moon,
-  Sun,
   Calendar,
   User,
   Minus,
@@ -571,7 +568,7 @@ function buildProofPage({ title, summary, stories }) {
       },
       {
         type: 'quote',
-        quote: 'Infra Clean Cloud gave us the visibility and accountability we needed to pass our SOC 2 audit with zero findings.',
+        quote: 'Continuous evidence collection changed how we approach audits. We went from scrambling to prepared.',
         role: 'CISO',
         company: 'Enterprise SaaS'
       },
@@ -583,43 +580,6 @@ function buildProofPage({ title, summary, stories }) {
           { value: 'Up to 60%', label: 'Violations', detail: 'Critical issues reduced' },
           { value: 'Up to 98%', label: 'Ownership', detail: 'Coverage target' }
         ]
-      }
-    ]
-  };
-}
-
-function buildTrustPage({ title, summary, domains }) {
-  return {
-    eyebrow: 'Trust',
-    title,
-    summary,
-    heroKpis: [
-      { label: 'Security', value: 'Enterprise', detail: 'Grade' },
-      { label: 'Uptime', value: '99.9%', detail: 'Target SLA' },
-      { label: 'Monitoring', value: '24/7', detail: 'Active' }
-    ],
-    sections: [
-      {
-        type: 'trust-badges',
-        title: 'Certifications',
-        badges: [
-          { name: 'SOC 2 Type II', detail: 'In progress' },
-          { name: 'ISO 27001', detail: 'Aligned' },
-          { name: 'GDPR', detail: 'Compliant' },
-          { name: 'HIPAA', detail: 'Ready' }
-        ]
-      },
-      {
-        type: 'narrative',
-        title: 'Built for security teams.',
-        body: 'Demonstrable control coverage.',
-        bullets: domains
-      },
-      {
-        type: 'quote',
-        quote: 'Procurement approved in two weeks.',
-        role: 'Security Director',
-        company: 'Enterprise Customer'
       }
     ]
   };
@@ -1089,42 +1049,6 @@ const CONTENT_PAGES = {
       }
     ]
   }),
-  '/proof/roi': buildProofPage({
-    title: 'ROI',
-    summary:
-      'Quantify savings from reduced audit effort and cloud waste.',
-    stories: [
-      {
-        title: 'Audit savings',
-        body: 'Reduce audit preparation time through continuous evidence capture.'
-      },
-      {
-        title: 'Cloud savings',
-        body: 'Eliminate resource waste with lifecycle hygiene and ownership clarity.'
-      },
-      {
-        title: 'Risk reduction',
-        body: 'Lower exposure by enforcing standards consistently.'
-      }
-    ]
-  }),
-  '/trust/security': buildTrustPage({
-    title: 'Security',
-    summary:
-      'Security-first architecture with enterprise-grade governance controls.',
-    domains: ['Least privilege', 'Audit logging', 'Tenant isolation']
-  }),
-  '/trust/compliance': buildTrustPage({
-    title: 'Compliance',
-    summary:
-      'Compliance-ready governance aligned to enterprise frameworks.',
-    domains: ['SOC 2 alignment', 'ISO 27001 mapping', 'PCI-DSS readiness']
-  }),
-  '/trust': buildTrustPage({
-    title: 'Enterprise ready.',
-    summary: 'Security. Compliance. Reliability.',
-    domains: ['SOC 2 Type II aligned', 'ISO 27001 aligned', '99.9% uptime target']
-  }),
   '/company': {
     eyebrow: 'Company',
     title: 'Governance that works.',
@@ -1177,36 +1101,8 @@ const CONTENT_PAGES = {
         type: 'hiring-cta',
         title: 'Join us',
         description: 'We\'re building something meaningful. If you want to work on hard problems with smart people, let\'s talk.',
-        openRoles: 5,
+        openRoles: JOB_LISTINGS.length,
         href: '/company/careers'
-      }
-    ]
-  },
-  '/company/leadership': {
-    eyebrow: 'Leadership',
-    title: 'Meet the team',
-    summary: 'Operators and security leaders who\'ve lived the pain we\'re solving.',
-    hideLogoBar: true,
-    sections: [
-      {
-        type: 'origin-story',
-        title: 'Leadership team',
-        paragraphs: [
-          'Infra Clean Cloud is led by a team of operators and engineers who have built governance and compliance systems at enterprise scale.',
-          'Deep experience in cloud infrastructure and security. Backgrounds in enterprise SaaS and compliance.'
-        ],
-        signature: { name: 'The Leadership Team', role: 'Infra Clean Cloud' },
-        image: '/images/team-meeting.jpg',
-        imageAlt: 'Engineers collaborating on code together'
-      },
-      {
-        type: 'values-grid',
-        title: 'How we lead',
-        values: [
-          { name: 'Default to transparency', icon: 'compass', description: 'We share context freely. Bad news travels fast. Good news travels faster.' },
-          { name: 'Hire people smarter than us', icon: 'sparkles', description: 'Ego is expensive. We want to be surrounded by people who make us better.' },
-          { name: 'Customers > metrics', icon: 'heart', description: 'Numbers matter, but customer outcomes matter more. Always.' }
-        ]
       }
     ]
   },
@@ -1251,15 +1147,8 @@ const CONTENT_PAGES = {
         ]
       },
       {
-        type: 'pillar-grid',
+        type: 'job-listings',
         title: 'Open roles',
-        cards: [
-          { title: 'Senior Backend Engineer', body: 'Build the core platform. Go, PostgreSQL, AWS. 5+ years experience.' },
-          { title: 'Senior Frontend Engineer', body: 'Craft beautiful UIs. React, TypeScript. Design system experience a plus.' },
-          { title: 'Product Designer', body: 'Design enterprise software that doesn\'t feel like enterprise software.' },
-          { title: 'Enterprise Account Executive', body: 'Sell to CIOs and CISOs. Complex sales, consultative approach.' },
-          { title: 'Customer Success Manager', body: 'Make customers wildly successful. Technical background preferred.' }
-        ]
       },
       {
         type: 'hiring-cta',
@@ -1273,85 +1162,97 @@ const CONTENT_PAGES = {
   '/privacy': {
     eyebrow: 'Legal',
     title: 'Privacy Policy',
-    summary: 'How we collect, use, and protect your information. This policy is under legal review and will be finalized before general availability.',
+    summary: 'This policy describes how BVG Solutions, Inc. ("Infra Clean Cloud") collects, uses, shares, and protects your information.',
     hideLogoBar: true,
     sections: [
       {
         type: 'narrative',
-        title: 'DRAFT — Pending Legal Review',
-        body: 'This privacy policy is a draft and is subject to final legal review before launch. It outlines the intended data practices of Infra Clean Cloud.',
+        title: 'Effective Date: Draft — Subject to Legal Review',
+        body: 'This Privacy Policy ("Policy") applies to all personal information collected by BVG Solutions, Inc., operating as Infra Clean Cloud ("Company," "we," "us," or "our"), through our website (infraclean.cloud), platform, and related services. By using our services, you acknowledge that you have read and understood this Policy.',
         bullets: []
       },
       {
         type: 'narrative',
-        title: '1. Information we collect',
-        body: 'We collect information you provide directly (name, email, company information when you request a briefing), information collected automatically (usage data, device information, IP address, cookies), and information from third parties (analytics providers, advertising partners).',
+        title: '1. Information We Collect',
+        body: 'We collect information in three categories: (a) Information you provide directly, including name, email address, company name, job title, and phone number when you register, request a briefing, or contact us; (b) Information collected automatically, including IP address, browser type, device identifiers, operating system, referring URLs, pages visited, session duration, and interaction data through cookies, web beacons, and similar technologies; (c) Information from third parties, including analytics providers (e.g., Google Analytics), advertising platforms, and publicly available business information.',
         bullets: [
-          'Account registration data',
-          'Briefing request form submissions',
-          'Usage analytics and session data',
-          'Cookie and tracking identifiers'
+          'Account registration and profile data',
+          'Briefing request and contact form submissions',
+          'Usage analytics, session data, and interaction logs',
+          'Cookie identifiers and device fingerprints',
+          'Payment and billing information (processed by third-party payment processors)'
         ]
       },
       {
         type: 'narrative',
-        title: '2. How we use your information',
-        body: 'We use collected information to provide and improve our services, communicate with you about your account and our products, process briefing requests, ensure security and prevent fraud, and comply with legal obligations.',
-        bullets: [
-          'Service delivery and improvement',
-          'Customer communication',
-          'Security and fraud prevention',
-          'Legal compliance'
-        ]
+        title: '2. How We Use Your Information',
+        body: 'We use collected information for the following purposes: to provide, maintain, and improve the Service; to process briefing requests and respond to inquiries; to send transactional communications related to your account; to send marketing communications (with your consent or where permitted by law); to monitor and analyze usage trends and preferences; to detect, investigate, and prevent fraudulent or unauthorized activity; to comply with legal obligations and enforce our Terms of Service.',
+        bullets: []
       },
       {
         type: 'narrative',
-        title: '3. How we share your information',
-        body: 'We do not sell your personal information. We may share information with service providers who assist in operating our platform, when required by law, or in connection with a business transfer.',
-        bullets: [
-          'We never sell personal data',
-          'Service providers are contractually bound',
-          'Law enforcement requests are reviewed individually',
-          'Business transfers include data protection provisions'
-        ]
+        title: '3. Legal Basis for Processing (EEA/UK Users)',
+        body: 'If you are located in the European Economic Area or United Kingdom, our legal basis for processing your personal data includes: (a) performance of a contract when we process data to provide services you requested; (b) legitimate interests in operating and improving our business, provided those interests are not overridden by your data protection rights; (c) your consent, which you may withdraw at any time; (d) compliance with legal obligations.',
+        bullets: []
       },
       {
         type: 'narrative',
-        title: '4. Data security',
-        body: 'We implement industry-standard security measures including encryption at rest and in transit, role-based access controls, and regular security assessments.',
-        bullets: [
-          'Encryption at rest and in transit',
-          'Role-based access control',
-          'Regular security assessments',
-          'SOC 2 Type II audit program in progress'
-        ]
+        title: '4. How We Share Your Information',
+        body: 'We do not sell your personal information. We may share information with: (a) service providers who assist us in operating the platform (hosting, analytics, email delivery, payment processing), each bound by data processing agreements with confidentiality and security obligations; (b) professional advisors, including legal counsel, auditors, and accountants, as necessary; (c) law enforcement or government authorities when required by applicable law, subpoena, or court order, or when we believe disclosure is necessary to protect our rights, safety, or property; (d) in connection with a merger, acquisition, reorganization, or sale of assets, in which case your information may be transferred as a business asset, subject to the commitments made in this Policy.',
+        bullets: []
       },
       {
         type: 'narrative',
-        title: '5. Your rights',
-        body: 'Depending on your jurisdiction, you may have the right to access, correct, delete, or port your personal data. You may also opt out of marketing communications at any time.',
-        bullets: [
-          'Right to access your data',
-          'Right to correction or deletion',
-          'Right to data portability',
-          'Right to opt out of marketing',
-          'GDPR and CCPA rights honored'
-        ]
+        title: '5. Data Security',
+        body: 'We implement administrative, technical, and physical safeguards designed to protect personal information from unauthorized access, disclosure, alteration, and destruction. These measures include: encryption of data at rest (AES-256) and in transit (TLS 1.2+); role-based access controls with least-privilege principles; regular security assessments and penetration testing; employee security training and access auditing; SOC 2 Type II audit program in progress. While we strive to protect your information, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.',
+        bullets: []
       },
       {
         type: 'narrative',
-        title: '6. Cookies and tracking',
-        body: 'We use cookies and similar technologies for functionality, analytics, and marketing. You can manage cookie preferences through your browser settings.',
-        bullets: [
-          'Essential cookies for site functionality',
-          'Analytics cookies for usage insights',
-          'Marketing cookies for attribution'
-        ]
+        title: '6. Data Retention',
+        body: 'We retain personal information for as long as necessary to fulfill the purposes described in this Policy, maintain our business relationship with you, comply with legal obligations, resolve disputes, and enforce our agreements. Account data is retained for the duration of your subscription and for a reasonable period thereafter. Marketing data is retained until you opt out or request deletion. Usage analytics data is retained in aggregate form and may be retained indefinitely for statistical purposes.',
+        bullets: []
       },
       {
         type: 'narrative',
-        title: '7. Contact us',
-        body: 'For privacy-related inquiries, contact us at privacy@infraclean.cloud. We aim to respond within 30 days.',
+        title: '7. Your Rights and Choices',
+        body: 'Depending on your jurisdiction, you may have the following rights regarding your personal data: the right to access the personal information we hold about you; the right to correct inaccurate or incomplete data; the right to request deletion of your data (subject to legal retention requirements); the right to data portability in a machine-readable format; the right to restrict or object to certain processing; the right to withdraw consent at any time (without affecting prior processing); the right to lodge a complaint with a supervisory authority. To exercise any of these rights, contact privacy@infraclean.cloud. We will respond within thirty (30) days.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '8. Cookies and Tracking Technologies',
+        body: 'We use cookies and similar technologies for the following purposes: (a) Essential cookies required for site functionality and security; (b) Analytics cookies (e.g., Google Analytics) to understand usage patterns and improve the Service; (c) Marketing cookies for campaign attribution and measurement. You can manage cookie preferences through your browser settings. Disabling certain cookies may affect site functionality. We honor Do Not Track signals where technically feasible.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '9. International Data Transfers',
+        body: 'Your information may be transferred to and processed in countries other than your country of residence, including the United States. When we transfer data outside the EEA or UK, we implement appropriate safeguards, including standard contractual clauses approved by the European Commission, or rely on other legally recognized transfer mechanisms.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '10. California Privacy Rights (CCPA)',
+        body: 'If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information we collect and how it is used, the right to request deletion, and the right to opt out of the sale of personal information. We do not sell personal information. To exercise your CCPA rights, contact privacy@infraclean.cloud.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '11. Children\'s Privacy',
+        body: 'The Service is not directed to individuals under the age of 16. We do not knowingly collect personal information from children. If we become aware that a child has provided us with personal information, we will take steps to delete such information.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '12. Changes to This Policy',
+        body: 'We may update this Policy from time to time. Material changes will be communicated via email or prominent notice on the Service at least thirty (30) days before they take effect. Your continued use of the Service after the effective date of a revised Policy constitutes acceptance of the changes.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '13. Contact Us',
+        body: 'For privacy-related inquiries, requests, or complaints, contact us at: privacy@infraclean.cloud. BVG Solutions, Inc., San Francisco, CA. We aim to respond to all requests within thirty (30) days.',
         bullets: []
       }
     ]
@@ -1359,100 +1260,109 @@ const CONTENT_PAGES = {
   '/terms': {
     eyebrow: 'Legal',
     title: 'Terms of Service',
-    summary: 'Terms and conditions for using Infra Clean Cloud. These terms are under legal review and will be finalized before general availability.',
+    summary: 'These terms govern your access to and use of Infra Clean Cloud services. Please read them carefully.',
     hideLogoBar: true,
     sections: [
       {
         type: 'narrative',
-        title: 'DRAFT — Pending Legal Review',
-        body: 'These terms of service are a draft and are subject to final legal review before launch. They outline the intended contractual framework for Infra Clean Cloud.',
+        title: 'Effective Date: Draft — Subject to Legal Review',
+        body: 'These Terms of Service ("Terms") constitute a binding agreement between you ("Customer," "you," or "your") and BVG Solutions, Inc., operating as Infra Clean Cloud ("Company," "we," "us," or "our"). By accessing or using the Infra Clean Cloud platform and related services (collectively, the "Service"), you agree to be bound by these Terms and our Privacy Policy. If you are entering into these Terms on behalf of an organization, you represent and warrant that you have the authority to bind that organization.',
         bullets: []
       },
       {
         type: 'narrative',
-        title: '1. Acceptance of terms',
-        body: 'By accessing or using Infra Clean Cloud, you agree to be bound by these Terms of Service and our Privacy Policy. If you are using the service on behalf of an organization, you represent that you have authority to bind that organization.',
+        title: '1. Description of Service',
+        body: 'Infra Clean Cloud provides a cloud governance, compliance monitoring, and remediation workflow platform delivered as a software-as-a-service ("SaaS") offering. The Service enables customers to discover, assess, and remediate cloud hygiene issues across their infrastructure. Features, service levels, and resource limits vary by subscription tier as described in the applicable order form or pricing documentation.',
         bullets: []
       },
       {
         type: 'narrative',
-        title: '2. Description of service',
-        body: 'Infra Clean Cloud provides cloud governance, compliance monitoring, and remediation workflow tools delivered as a software-as-a-service platform. Features and availability may vary by subscription plan.',
-        bullets: []
-      },
-      {
-        type: 'narrative',
-        title: '3. Account responsibilities',
-        body: 'You are responsible for maintaining the security of your account credentials, all activity under your account, and ensuring your use complies with applicable laws and regulations.',
+        title: '2. Account Registration and Responsibilities',
+        body: 'To access the Service, you must register for an account and provide accurate, complete, and current information. You are solely responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You must notify us immediately of any unauthorized use of your account or any other breach of security.',
         bullets: [
-          'Maintain confidentiality of login credentials',
-          'Notify us promptly of unauthorized access',
-          'Accurate and current account information required'
+          'You must be at least 18 years of age or the age of legal majority in your jurisdiction',
+          'You are responsible for all activity under your account, including actions by authorized users you add',
+          'You must maintain accurate account information and promptly update any changes',
+          'You must notify us within 24 hours of any unauthorized access or security breach'
         ]
       },
       {
         type: 'narrative',
-        title: '4. Acceptable use',
-        body: 'You agree not to misuse the service, attempt to gain unauthorized access to systems, interfere with other users, or use the service for unlawful purposes.',
-        bullets: [
-          'No unauthorized access attempts',
-          'No interference with service operations',
-          'No unlawful use or data processing',
-          'No reverse engineering'
-        ]
-      },
-      {
-        type: 'narrative',
-        title: '5. Intellectual property',
-        body: 'Infra Clean Cloud and its content, features, and functionality are owned by BVG Solutions and are protected by copyright, trademark, and other intellectual property laws. Your data remains yours.',
-        bullets: [
-          'Service IP belongs to Infra Clean Cloud',
-          'Customer data remains customer property',
-          'Limited license granted for service use'
-        ]
-      },
-      {
-        type: 'narrative',
-        title: '6. Payment and billing',
-        body: 'Paid plans are billed in advance on a monthly or annual basis. Prices are subject to change with notice. Refund policies apply as described in your subscription agreement.',
+        title: '3. Acceptable Use Policy',
+        body: 'You agree to use the Service only for lawful purposes and in accordance with these Terms. You shall not: (a) use the Service to violate any applicable law, regulation, or third-party rights; (b) attempt to gain unauthorized access to the Service, other accounts, or computer systems; (c) interfere with or disrupt the integrity or performance of the Service; (d) attempt to reverse engineer, decompile, or disassemble any portion of the Service; (e) use the Service to transmit malicious code or conduct vulnerability testing without prior written authorization; (f) resell, sublicense, or share access to the Service without our express written consent.',
         bullets: []
       },
       {
         type: 'narrative',
-        title: '7. Termination',
-        body: 'Either party may terminate the agreement with written notice. Upon termination, your right to access the service ceases. We will make your data available for export for a reasonable period following termination.',
+        title: '4. Customer Data',
+        body: 'As between you and Company, you retain all right, title, and interest in your data ("Customer Data"). You grant Company a limited, non-exclusive license to access and process Customer Data solely to provide and improve the Service. Company will not access, use, or disclose Customer Data except as necessary to provide the Service, prevent or address technical issues, or as required by law. Upon termination, Company will make Customer Data available for export for thirty (30) days, after which it may be deleted.',
         bullets: []
       },
       {
         type: 'narrative',
-        title: '8. Limitation of liability',
-        body: 'To the maximum extent permitted by law, Infra Clean Cloud shall not be liable for indirect, incidental, special, consequential, or punitive damages. Our total liability is limited to the amount paid for the service in the 12 months preceding the claim.',
+        title: '5. Intellectual Property',
+        body: 'The Service, including all software, documentation, interfaces, designs, algorithms, and underlying technology, is the exclusive property of BVG Solutions, Inc. and is protected by copyright, trademark, patent, trade secret, and other intellectual property laws. These Terms grant you a limited, non-exclusive, non-transferable, revocable license to access and use the Service during the subscription term for your internal business purposes only. All rights not expressly granted are reserved by Company.',
         bullets: []
       },
       {
         type: 'narrative',
-        title: '9. Contact',
-        body: 'For questions about these terms, contact us at legal@infraclean.cloud.',
+        title: '6. Payment Terms',
+        body: 'Paid subscription plans are billed in advance on a monthly or annual basis as specified in your order form. All fees are non-refundable except as expressly set forth herein or required by applicable law. Company reserves the right to modify pricing upon thirty (30) days written notice; price changes will take effect at the start of your next billing cycle. Late payments may incur interest at the rate of 1.5% per month or the maximum rate permitted by law, whichever is less. Company may suspend access for accounts with overdue balances exceeding thirty (30) days.',
         bullets: []
-      }
-    ]
-  },
-  '/security': {
-    eyebrow: 'Security',
-    title: 'Security Practices',
-    summary: 'Enterprise-grade security for your cloud governance data.',
-    hideLogoBar: true,
-    sections: [
+      },
       {
         type: 'narrative',
-        title: 'Security first',
-        body: 'Security is foundational to everything we build at Infra Clean Cloud.',
-        bullets: [
-          'SOC 2 Type II aligned',
-          'Encryption at rest and in transit',
-          'Role-based access control',
-          '24/7 security monitoring'
-        ]
+        title: '7. Service Availability and Support',
+        body: 'Company will use commercially reasonable efforts to maintain Service availability. Target uptime is 99.9% measured monthly, excluding scheduled maintenance windows and force majeure events. Scheduled maintenance will be communicated at least 48 hours in advance where practicable. Support is provided according to the response-time commitments applicable to your subscription tier. Service Level Agreements ("SLAs") for Enterprise customers are documented in the applicable order form.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '8. Confidentiality',
+        body: 'Each party agrees to hold the other party\'s Confidential Information in strict confidence and not to disclose it to any third party except as necessary to perform obligations under these Terms, and only to employees, contractors, or agents who are bound by confidentiality obligations at least as protective as those contained herein. Confidential Information does not include information that: (a) is or becomes publicly known through no fault of the receiving party; (b) was known to the receiving party prior to disclosure; (c) is independently developed without reference to Confidential Information; or (d) is required to be disclosed by law, provided the receiving party gives reasonable prior notice.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '9. Warranty Disclaimer',
+        body: 'THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE." TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, COMPANY DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WITHOUT LIMITATION WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. COMPANY DOES NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR COMPLETELY SECURE. YOU ACKNOWLEDGE THAT THE SERVICE IS NOT DESIGNED OR INTENDED TO REPLACE PROFESSIONAL LEGAL, COMPLIANCE, OR SECURITY ADVICE.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '10. Limitation of Liability',
+        body: 'TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW: (A) IN NO EVENT SHALL EITHER PARTY BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR LOSS OF PROFITS, REVENUE, DATA, BUSINESS OPPORTUNITIES, OR GOODWILL, ARISING OUT OF OR RELATED TO THESE TERMS, REGARDLESS OF THE THEORY OF LIABILITY; (B) EACH PARTY\'S TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THESE TERMS SHALL NOT EXCEED THE AMOUNTS PAID OR PAYABLE BY CUSTOMER TO COMPANY IN THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO LIABILITY. THE FOREGOING LIMITATIONS SHALL NOT APPLY TO: (I) EITHER PARTY\'S INDEMNIFICATION OBLIGATIONS; (II) EITHER PARTY\'S BREACH OF CONFIDENTIALITY OBLIGATIONS; OR (III) CUSTOMER\'S PAYMENT OBLIGATIONS.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '11. Indemnification',
+        body: 'Customer agrees to indemnify, defend, and hold harmless Company and its officers, directors, employees, and agents from and against any third-party claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys\' fees) arising from: (a) Customer\'s use of the Service in violation of these Terms; (b) Customer\'s violation of applicable law; or (c) any third-party claim relating to Customer Data. Company agrees to indemnify Customer from third-party claims alleging that the Service infringes a valid patent, copyright, or trademark, provided Customer gives prompt notice and reasonable cooperation.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '12. Term and Termination',
+        body: 'These Terms are effective upon your first access to the Service and continue until terminated. Either party may terminate for convenience with thirty (30) days written notice. Either party may terminate immediately upon written notice if the other party materially breaches these Terms and fails to cure within fifteen (15) days of receiving notice. Upon termination: (a) all licenses granted hereunder immediately terminate; (b) Customer must cease all use of the Service; (c) Company will make Customer Data available for export for thirty (30) days; (d) sections relating to intellectual property, limitation of liability, indemnification, confidentiality, and governing law survive termination.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '13. Governing Law and Dispute Resolution',
+        body: 'These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, without regard to its conflict-of-laws principles. Any dispute arising out of or relating to these Terms shall first be subject to good-faith negotiation for a period of thirty (30) days. If the dispute cannot be resolved through negotiation, it shall be submitted to binding arbitration administered by JAMS under its Comprehensive Arbitration Rules, conducted in San Francisco, California. Each party shall bear its own costs and attorneys\' fees, except that the prevailing party in any dispute shall be entitled to recover reasonable attorneys\' fees.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '14. General Provisions',
+        body: 'These Terms, together with the Privacy Policy and any applicable order forms, constitute the entire agreement between the parties and supersede all prior agreements. No waiver of any provision shall be effective unless in writing and signed by both parties. If any provision is found to be unenforceable, the remaining provisions shall continue in full force and effect. Company may assign these Terms in connection with a merger, acquisition, or sale of assets. Customer may not assign without Company\'s prior written consent. Notices shall be sent to the email addresses associated with the respective accounts.',
+        bullets: []
+      },
+      {
+        type: 'narrative',
+        title: '15. Contact',
+        body: 'For questions regarding these Terms, contact legal@infraclean.cloud. For general inquiries, contact hello@infraclean.cloud.',
+        bullets: []
       }
     ]
   },
@@ -1480,10 +1390,10 @@ const CONTENT_PAGES = {
         bullets: ['Custom demos for your team', 'Security questionnaire support', 'Legal and procurement fast-track', 'Executive alignment sessions']
       },
       {
-        type: 'quote',
-        quote: 'The Infra Clean Cloud team was incredibly responsive during our evaluation. They understood our requirements and made procurement painless.',
-        role: 'VP of IT',
-        company: 'Enterprise Customer'
+        type: 'narrative',
+        title: 'Enterprise-ready engagement',
+        body: 'We support enterprise procurement, security reviews, and legal processes. Our team responds within 24 hours.',
+        bullets: ['Custom demos for your team', 'Security questionnaire support', 'Legal and procurement fast-track']
       }
     ]
   }
@@ -1536,18 +1446,7 @@ function SiteLink({ to, children, className }) {
 
 function SiteLayout({ children, pathname }) {
   const { navigate } = useContext(NavigationContext);
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'light';
-    }
-    return 'light';
-  });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -1561,10 +1460,6 @@ function SiteLayout({ children, pathname }) {
     }
     return () => { document.body.style.overflow = ''; };
   }, [mobileMenuOpen]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
 
   return (
     <div className="site">
@@ -1582,9 +1477,6 @@ function SiteLayout({ children, pathname }) {
             ))}
           </nav>
           <div className="nav-actions">
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle dark mode">
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
             <SiteLink to="/login" className="btn btn-secondary nav-desktop-only">
               Sign in
             </SiteLink>
@@ -1628,18 +1520,15 @@ function SiteLayout({ children, pathname }) {
               <strong>Platform</strong>
               <SiteLink to="/platform">Overview</SiteLink>
               <SiteLink to="/pricing">Pricing</SiteLink>
-              <SiteLink to="/trust">Security</SiteLink>
             </div>
             <div className="footer-column">
               <strong>Resources</strong>
               <SiteLink to="/blog">Blog</SiteLink>
               <SiteLink to="/proof/case-studies">Case studies</SiteLink>
-              <SiteLink to="/proof/roi">ROI</SiteLink>
             </div>
             <div className="footer-column">
               <strong>Company</strong>
               <SiteLink to="/company">About</SiteLink>
-              <SiteLink to="/company/leadership">Leadership</SiteLink>
               <SiteLink to="/company/careers">Careers</SiteLink>
               <SiteLink to="/privacy">Privacy</SiteLink>
               <SiteLink to="/terms">Terms</SiteLink>
@@ -1652,22 +1541,11 @@ function SiteLayout({ children, pathname }) {
               <a href="mailto:support@infraclean.cloud">
                 <MessageCircle size={16} /> support@infraclean.cloud
               </a>
-              <div className="footer-social">
-                <a href="https://linkedin.com/company/infracleancloud" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                  <Linkedin size={20} />
-                </a>
-                <a href="https://twitter.com/infracleancloud" target="_blank" rel="noreferrer" aria-label="Twitter">
-                  <Twitter size={20} />
-                </a>
-              </div>
             </div>
           </div>
           <div className="footer-bottom">
             <div className="footer-copyright">
-              © {new Date().getFullYear()} Infra Clean Cloud
-            </div>
-            <div className="footer-legal">
-              <SiteLink to="/status">Status</SiteLink>
+              © {new Date().getFullYear()} Infra Clean Cloud. All rights reserved.
             </div>
           </div>
         </div>
@@ -1898,21 +1776,19 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ========== TESTIMONIAL SECTION ========== */}
+      {/* ========== VALUE PROP SECTION ========== */}
       <section className="section-gray">
         <div className="section-content">
           <ScrollReveal direction="fade">
             <div className="quote-section">
               <p className="quote-text">
-                "We replaced quarterly hygiene audits with weekly operational reporting 
-                and cut audit prep time in half. Infra Clean Cloud transformed how 
-                we govern our cloud infrastructure."
+                "Every enterprise has the same problem: too many cloud resources, 
+                not enough owners, and audit season turns into panic season. 
+                It doesn't have to be this way."
               </p>
               <div className="quote-attribution">
-                <div className="quote-avatar" aria-hidden="true">VP</div>
                 <div className="quote-info">
-                  <div className="quote-name">VP of Engineering</div>
-                  <div className="quote-role">Enterprise SaaS Company</div>
+                  <div className="quote-name">The Infra Clean Cloud Team</div>
                 </div>
               </div>
             </div>
@@ -2252,11 +2128,6 @@ function SectionRenderer({ section }) {
                     <Linkedin size={18} />
                   </a>
                 )}
-                {member.twitter && (
-                  <a href={member.twitter} target="_blank" rel="noreferrer" className="social-link">
-                    <Twitter size={18} />
-                  </a>
-                )}
               </div>
             </div>
           ))}
@@ -2360,6 +2231,29 @@ function SectionRenderer({ section }) {
               </div>
             );
           })}
+        </div>
+      </div>
+    );
+  }
+
+  if (section.type === 'job-listings') {
+    return (
+      <div className="content-block">
+        <h2 className="content-block-title">{section.title}</h2>
+        <div className="job-listings-grid">
+          {JOB_LISTINGS.map((job) => (
+            <SiteLink key={job.slug} to={`/company/careers/${job.slug}`} className="job-listing-card">
+              <div className="job-listing-header">
+                <h3>{job.title}</h3>
+                <span className="job-listing-dept">{job.department}</span>
+              </div>
+              <div className="job-listing-meta">
+                <span><MapPin size={14} /> {job.location}</span>
+                <span><Briefcase size={14} /> {job.type}</span>
+              </div>
+              <span className="blog-read-more">View role →</span>
+            </SiteLink>
+          ))}
         </div>
       </div>
     );
@@ -2812,15 +2706,16 @@ function AuthRedirect({ mode }) {
 // ========== PRICING PAGE ==========
 const PRICING_TIERS = [
   {
-    name: 'Free',
+    name: 'Starter',
     monthlyPrice: 0,
     annualPrice: 0,
-    description: 'For teams getting started with cloud governance.',
+    description: 'Explore cloud governance with a single AWS account. No credit card required.',
     features: [
       'Up to 100 cloud resources',
       '1 AWS account',
-      '2 compliance frameworks',
+      '2 compliance frameworks (CIS, custom)',
       'Weekly scans',
+      'Executive dashboard',
       'Community support'
     ],
     cta: 'Get started',
@@ -2831,15 +2726,16 @@ const PRICING_TIERS = [
     name: 'Pro',
     monthlyPrice: 499,
     annualPrice: 399,
-    description: 'For growing teams with serious compliance needs.',
+    description: 'Full governance for growing teams. All frameworks, daily scans, and integrations.',
     features: [
       'Up to 5,000 cloud resources',
       '10 AWS accounts',
-      'All compliance frameworks',
-      'Daily scans',
-      'Slack & Teams integration',
-      'Custom rules',
-      'Priority support'
+      'All compliance frameworks (SOC 2, HIPAA, PCI, ISO)',
+      'Daily scans with drift detection',
+      'Slack, Teams, and Jira integration',
+      'Custom rules and policies',
+      'Audit evidence packages',
+      'Priority email support'
     ],
     cta: 'Request briefing',
     ctaHref: '/request-briefing',
@@ -2847,20 +2743,20 @@ const PRICING_TIERS = [
   },
   {
     name: 'Enterprise',
-    monthlyPrice: 1499,
-    annualPrice: 1199,
-    description: 'For organizations with complex multi-cloud environments.',
+    monthlyPrice: null,
+    annualPrice: null,
+    description: 'Unlimited scale, multi-cloud, SSO, and dedicated support for complex organizations.',
     features: [
-      'Unlimited resources',
-      'Unlimited accounts',
-      'Multi-cloud support',
-      'Real-time scanning',
-      'SSO & RBAC',
-      'Full API access',
-      'Priority support',
-      '99.9% target SLA'
+      'Unlimited resources and accounts',
+      'Multi-cloud (AWS, Azure, GCP)',
+      'Real-time continuous scanning',
+      'SSO (SAML/OIDC) and advanced RBAC',
+      'Full REST API access',
+      'Custom SLA and dedicated CSM',
+      'White-label reporting',
+      'Security review and onboarding support'
     ],
-    cta: 'Request briefing',
+    cta: 'Contact sales',
     ctaHref: '/request-briefing',
     highlighted: false
   }
@@ -2977,7 +2873,7 @@ function PricingPage() {
         <div className="section-content">
           <div className="content-page-header">
             <h1 className="content-page-title">Simple, transparent pricing.</h1>
-            <p className="content-page-summary">Transparent pricing. Scale as you grow. No surprises.</p>
+            <p className="content-page-summary">Start free. Scale as you grow. Enterprise plans are custom-tailored.</p>
           </div>
           
           {/* Billing Toggle */}
@@ -3031,15 +2927,19 @@ function PricingPage() {
             <div className="pricing-trust-badges">
               <div className="trust-badge-item">
                 <Shield size={20} />
-                <span>SOC 2 Type II</span>
+                <span>SOC 2 Type II (in progress)</span>
               </div>
               <div className="trust-badge-item">
                 <Shield size={20} />
-                <span>ISO 27001</span>
+                <span>ISO 27001 aligned</span>
               </div>
               <div className="trust-badge-item">
                 <Shield size={20} />
-                <span>GDPR Ready</span>
+                <span>GDPR ready</span>
+              </div>
+              <div className="trust-badge-item">
+                <Lock size={20} />
+                <span>Encrypted at rest &amp; in transit</span>
               </div>
             </div>
           </div>
@@ -3058,7 +2958,7 @@ function PricingPage() {
               <thead>
                 <tr>
                   <th>Features</th>
-                  <th>Free</th>
+                  <th>Starter</th>
                   <th className="highlighted-col">Pro</th>
                   <th>Enterprise</th>
                 </tr>
@@ -3092,19 +2992,19 @@ function PricingPage() {
             <div className="enterprise-callout-content">
               <h2 className="content-block-title">Built for enterprise scale.</h2>
               <p className="content-block-body">
-                Get started with a free plan. Upgrade when you are ready for enterprise features.
+                Custom pricing, dedicated support, and the security controls your procurement team requires.
               </p>
               <ul className="enterprise-benefits">
                 <li><Check size={18} /> Unlimited resources and accounts</li>
                 <li><Check size={18} /> Multi-cloud support (AWS, Azure, GCP)</li>
-                <li><Check size={18} /> SSO with your identity provider</li>
-                <li><Check size={18} /> Full API access for automation</li>
-                <li><Check size={18} /> Priority support with 99.9% target SLA</li>
-                <li><Check size={18} /> SOC 2 Type II readiness report</li>
+                <li><Check size={18} /> SSO (SAML/OIDC) with your identity provider</li>
+                <li><Check size={18} /> Full REST API access for automation</li>
+                <li><Check size={18} /> Dedicated customer success manager</li>
+                <li><Check size={18} /> Custom SLA and security review support</li>
               </ul>
               <div className="hero-buttons">
                 <SiteLink to="/request-briefing" className="btn btn-primary">Request briefing</SiteLink>
-                <SiteLink to="/trust" className="btn btn-secondary">View security docs →</SiteLink>
+                <SiteLink to="/platform" className="btn btn-secondary">Explore platform →</SiteLink>
               </div>
             </div>
             <div className="enterprise-callout-visual">
@@ -3150,6 +3050,130 @@ function PricingPage() {
     </>
   );
 }
+
+// ========== JOB LISTINGS ==========
+const JOB_LISTINGS = [
+  {
+    slug: 'senior-backend-engineer',
+    title: 'Senior Backend Engineer',
+    department: 'Engineering',
+    location: 'Remote (US)',
+    type: 'Full-time',
+    overview: 'Build the core platform that powers enterprise cloud governance. You will design and implement APIs, data pipelines, and scanning infrastructure that processes millions of cloud resources.',
+    responsibilities: [
+      'Design and build scalable APIs and microservices in Go',
+      'Architect data pipelines for cloud resource scanning and analysis',
+      'Implement compliance frameworks and rule engines',
+      'Collaborate with product and design to deliver features end-to-end',
+      'Participate in on-call rotations and incident response',
+      'Mentor junior engineers and contribute to engineering standards',
+    ],
+    qualifications: [
+      '5+ years of backend engineering experience',
+      'Strong experience with Go, PostgreSQL, and AWS',
+      'Experience building and operating production SaaS systems',
+      'Understanding of cloud infrastructure and security concepts',
+      'Comfortable with CI/CD, infrastructure-as-code, and monitoring',
+      'Clear written and verbal communication skills',
+    ],
+  },
+  {
+    slug: 'senior-frontend-engineer',
+    title: 'Senior Frontend Engineer',
+    department: 'Engineering',
+    location: 'Remote (US)',
+    type: 'Full-time',
+    overview: 'Craft the interfaces that security and operations teams use every day. You will build dashboards, data visualizations, and workflow tools that make complex governance data actionable.',
+    responsibilities: [
+      'Build and maintain React/TypeScript UI components and pages',
+      'Implement complex data visualizations and interactive dashboards',
+      'Collaborate closely with product design on UX decisions',
+      'Optimize front-end performance and accessibility',
+      'Write unit and integration tests for critical user flows',
+      'Contribute to the component library and design system',
+    ],
+    qualifications: [
+      '5+ years of frontend engineering experience',
+      'Expert-level React and TypeScript skills',
+      'Experience with data visualization libraries (D3, Recharts, etc.)',
+      'Strong understanding of web accessibility (WCAG 2.1)',
+      'Design system experience is a plus',
+      'Comfortable working in a fast-paced, remote-first environment',
+    ],
+  },
+  {
+    slug: 'product-designer',
+    title: 'Product Designer',
+    department: 'Design',
+    location: 'Remote (US)',
+    type: 'Full-time',
+    overview: 'Design enterprise software that does not feel like enterprise software. You will own the end-to-end design process for features used by CIOs, CISOs, and engineering leaders.',
+    responsibilities: [
+      'Lead design for new features from concept through implementation',
+      'Conduct user research and synthesize findings into design decisions',
+      'Create wireframes, prototypes, and high-fidelity designs in Figma',
+      'Collaborate with engineering to ensure design intent is preserved',
+      'Contribute to and maintain the product design system',
+      'Present design rationale to stakeholders and incorporate feedback',
+    ],
+    qualifications: [
+      '4+ years of product design experience, preferably in B2B SaaS',
+      'Strong portfolio demonstrating complex information design',
+      'Proficiency in Figma and prototyping tools',
+      'Experience designing for data-heavy applications',
+      'Understanding of accessibility and responsive design principles',
+      'Excellent communication and collaboration skills',
+    ],
+  },
+  {
+    slug: 'enterprise-account-executive',
+    title: 'Enterprise Account Executive',
+    department: 'Sales',
+    location: 'Remote (US)',
+    type: 'Full-time',
+    overview: 'Sell to CIOs and CISOs at mid-market and enterprise organizations. You will run complex sales cycles with security-conscious buyers who need governance solutions they can trust.',
+    responsibilities: [
+      'Manage full-cycle enterprise sales from prospecting to close',
+      'Build relationships with C-level and VP-level decision makers',
+      'Conduct discovery, demos, and executive briefings',
+      'Navigate procurement, legal, and security review processes',
+      'Collaborate with solutions engineering on technical evaluations',
+      'Maintain accurate pipeline and forecasting in CRM',
+    ],
+    qualifications: [
+      '5+ years of enterprise SaaS sales experience',
+      'Track record of selling to security, compliance, or infrastructure buyers',
+      'Consultative sales approach with complex deal management skills',
+      'Comfortable with technical concepts (cloud, security, compliance)',
+      'Experience with MEDDIC, Challenger, or similar sales methodologies',
+      'Self-motivated and comfortable in an early-stage environment',
+    ],
+  },
+  {
+    slug: 'customer-success-manager',
+    title: 'Customer Success Manager',
+    department: 'Customer Success',
+    location: 'Remote (US)',
+    type: 'Full-time',
+    overview: 'Make customers wildly successful with Infra Clean Cloud. You will be the primary point of contact for enterprise accounts, driving adoption, value realization, and retention.',
+    responsibilities: [
+      'Own the post-sale relationship for a portfolio of enterprise accounts',
+      'Drive onboarding, adoption, and value realization',
+      'Conduct regular business reviews and health checks',
+      'Identify expansion opportunities and coordinate with sales',
+      'Serve as the voice of the customer internally',
+      'Build scalable playbooks and best practices documentation',
+    ],
+    qualifications: [
+      '3+ years of customer success or account management in B2B SaaS',
+      'Technical aptitude—comfortable discussing cloud infrastructure concepts',
+      'Strong project management and organizational skills',
+      'Excellent written and verbal communication',
+      'Experience with customer health scoring and retention metrics',
+      'Empathetic, proactive, and solutions-oriented',
+    ],
+  },
+];
 
 // ========== BLOG PAGE ==========
 const BLOG_POSTS = [
@@ -3200,7 +3224,7 @@ const BLOG_POSTS = [
     slug: 'aws-iam-best-practices',
     title: 'AWS IAM Best Practices for 2026',
     excerpt: 'Least privilege, key rotation, and MFA enforcement—a practical guide for security teams.',
-    date: '2025-12-20',
+    date: '2026-02-20',
     author: 'Infra Clean Cloud Team',
     category: 'Security',
     readTime: '10 min',
@@ -3227,7 +3251,7 @@ const BLOG_POSTS = [
     slug: 'tagging-strategy-that-works',
     title: 'A Tagging Strategy That Actually Works',
     excerpt: 'Why most tagging initiatives fail—and the simple framework that drives 95%+ compliance.',
-    date: '2025-12-12',
+    date: '2026-02-12',
     author: 'Infra Clean Cloud Team',
     category: 'Operations',
     readTime: '7 min',
@@ -3248,7 +3272,7 @@ const BLOG_POSTS = [
     slug: 'cloud-cost-ownership',
     title: 'The Hidden Cost of No Ownership',
     excerpt: 'Unowned cloud resources cost enterprises millions. Here is how to fix it.',
-    date: '2025-12-01',
+    date: '2026-02-01',
     author: 'Infra Clean Cloud Team',
     category: 'Cost',
     readTime: '5 min',
@@ -3429,6 +3453,67 @@ function NotFound() {
   );
 }
 
+function JobDetailPage({ job }) {
+  return (
+    <>
+      <section className="content-page-hero">
+        <div className="section-content">
+          <div className="blog-post-header">
+            <SiteLink to="/company/careers" className="blog-back-link">← Back to careers</SiteLink>
+            <span className="blog-category">{job.department}</span>
+            <h1 className="content-page-title">{job.title}</h1>
+            <div className="blog-post-meta">
+              <span><MapPin size={16} /> {job.location}</span>
+              <span><Briefcase size={16} /> {job.type}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-white">
+        <div className="section-content">
+          <div className="blog-post-content">
+            <p className="blog-post-lead">{job.overview}</p>
+            <div className="blog-post-body">
+              <h2>Responsibilities</h2>
+              <ul>
+                {job.responsibilities.map((item, i) => <li key={i}>{item}</li>)}
+              </ul>
+              <h2>Qualifications</h2>
+              <ul>
+                {job.qualifications.map((item, i) => <li key={i}>{item}</li>)}
+              </ul>
+              <h2>What we offer</h2>
+              <ul>
+                <li>Competitive salary and meaningful equity</li>
+                <li>Remote-first, flexible hours</li>
+                <li>Premium health, dental, and vision</li>
+                <li>Home office stipend and latest hardware</li>
+                <li>Unlimited PTO and annual team offsite</li>
+                <li>Learning and development budget</li>
+              </ul>
+            </div>
+            <div className="blog-post-cta" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <a
+                href={`mailto:careers@infraclean.cloud?subject=Application: ${encodeURIComponent(job.title)}&body=${encodeURIComponent(`Hi,\n\nI'm interested in the ${job.title} role at Infra Clean Cloud.\n\nPlease find my resume attached.\n\nName:\nLinkedIn:\nCurrent role:\n\nThank you.`)}`}
+                className="btn btn-primary"
+              >
+                Apply now <ArrowRight size={18} />
+              </a>
+              <SiteLink to="/company/careers" className="btn btn-secondary">
+                View all roles
+              </SiteLink>
+            </div>
+            <p style={{ marginTop: '16px', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+              Applications are reviewed by our team. Send your resume and a brief note to careers@infraclean.cloud.
+            </p>
+          </div>
+        </div>
+      </section>
+      <DarkCTA headline="Not the right role?" description="We're always looking for exceptional people. Send us a note and tell us what you'd build." />
+    </>
+  );
+}
+
 function resolveRoute(pathname) {
   if (pathname === '/') {
     return { title: 'Home', element: <HomePage /> };
@@ -3476,6 +3561,14 @@ function resolveRoute(pathname) {
     const post = BLOG_POSTS.find(p => p.slug === slug);
     if (post) {
       return { title: post.title, element: <BlogPost post={post} /> };
+    }
+  }
+
+  if (pathname.startsWith('/company/careers/')) {
+    const slug = pathname.replace('/company/careers/', '');
+    const job = JOB_LISTINGS.find(j => j.slug === slug);
+    if (job) {
+      return { title: `${job.title} | Careers`, element: <JobDetailPage job={job} /> };
     }
   }
 
