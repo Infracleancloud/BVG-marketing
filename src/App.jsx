@@ -146,12 +146,10 @@ const DEMOS = {
 function ProductDemo({ slot, className = '', eager = false }) {
   const ref = useRef(null);
   const demo = DEMOS[slot];
-  if (!demo) return <div className={`screenshot-placeholder ${className}`} />;
-  if (!demo.video && !demo.poster) return <div className={`screenshot-placeholder ${className}`} />;
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || eager) return;
+    if (!el || eager || !demo?.video) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -163,7 +161,10 @@ function ProductDemo({ slot, className = '', eager = false }) {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [eager]);
+  }, [eager, demo]);
+
+  if (!demo) return <div className={`screenshot-placeholder ${className}`} />;
+  if (!demo.video && !demo.poster) return <div className={`screenshot-placeholder ${className}`} />;
 
   if (!demo.video) {
     return demo.poster
