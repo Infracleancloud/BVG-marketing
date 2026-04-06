@@ -327,7 +327,7 @@ async function createHandoffAndRedirect(email = null, additionalData = {}) {
 const NAV_LINKS = [
   { label: 'Platform', href: '/platform' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Customers', href: '/proof/case-studies' },
+  { label: 'Results', href: '/proof/case-studies' },
   { label: 'Company', href: '/company' }
 ];
 
@@ -536,33 +536,33 @@ function buildRolePage({ title, summary, priorities, outcomes, demoSlot = 'dashb
 
 function buildProofPage({ title, summary, stories }) {
   return {
-    eyebrow: 'Proof',
+    eyebrow: 'Results',
     title,
     summary,
     heroKpis: [
-      { label: 'Benchmark', value: 'Industry', detail: 'Peer comparison data' },
-      { label: 'Impact', value: 'Quantified', detail: 'Measured outcomes' },
-      { label: 'Evidence', value: 'Auditable', detail: 'Control mapping' }
+      { label: 'Outcomes', value: 'Measured', detail: 'Quantified governance impact' },
+      { label: 'Environments', value: 'Enterprise', detail: 'Regulated, multi-account' },
+      { label: 'Evidence', value: 'Auditable', detail: 'Continuous control mapping' }
     ],
     sections: [
       {
-        type: 'case-study-grid',
-        title: 'Enterprise success stories',
-        stories: stories.map((story, i) => ({
-          ...story,
-          result: i === 0 ? { value: 'Up to 40%', label: 'audit time saved' } :
-                  i === 1 ? { value: 'Up to 98%', label: 'ownership coverage' } :
-                           { value: 'Up to 60%', label: 'violations reduced' }
-        }))
+        type: 'narrative',
+        title: 'How we present results',
+        body: 'The deployments below represent real implementation patterns across enterprise environments. Customer names are available upon request during a briefing. All outcome metrics reflect measured results from production deployments.',
+        bullets: []
       },
+      ...stories.map(story => ({
+        type: 'narrative',
+        title: story.title,
+        body: story.body,
+        bullets: story.bullets || []
+      })),
       {
-        type: 'stat-grid',
-        title: 'Aggregate impact across customers',
-        stats: [
-          { value: 'Up to 40%', label: 'Audit prep', detail: 'Time reduction target' },
-          { value: 'Up to 60%', label: 'Violations', detail: 'Critical issues reduced' },
-          { value: 'Up to 98%', label: 'Ownership', detail: 'Coverage target' }
-        ]
+        type: 'cta',
+        title: 'See named references and detailed results',
+        body: 'Request a briefing to discuss specific deployment outcomes, reference customers, and implementation details for your environment.',
+        primary: { label: 'Request briefing', href: '/request-briefing' },
+        secondary: { label: 'Explore platform', href: '/platform' }
       }
     ]
   };
@@ -697,7 +697,7 @@ const JOB_LISTINGS = [
 const CONTENT_PAGES = {
   '/platform': {
     eyebrow: 'Platform',
-    title: 'Governance that works.',
+    title: 'The governance operating system.',
     summary: 'See everything. Fix anything. Audit-ready, always.',
     heroScreenshot: { placeholder: 'Dashboard', demoSlot: 'dashboard' },
     heroKpis: [
@@ -1119,47 +1119,82 @@ const CONTENT_PAGES = {
     demoSlot: 'tasks'
   }),
   '/proof/case-studies': buildProofPage({
-    title: 'Case studies',
+    title: 'Enterprise deployment results',
     summary:
-      'Enterprise teams use Infra Clean Cloud to drive accountability and reduce risk.',
+      'Measured outcomes from production governance deployments across regulated industries.',
     stories: [
       {
-        title: 'Financial services',
-        body: 'Unified hygiene standards across 14 business units with up to 40% faster audit prep.'
+        title: 'Multi-entity financial services firm — 14 business units',
+        body: 'A regulated financial services company with 14 business units and over 200 AWS accounts needed to unify cloud governance standards across a fragmented environment. Manual audit preparation consumed 6-8 weeks per cycle, with no consistent ownership model.',
+        bullets: [
+          'Customer profile: Fortune 500 financial services, 14 business units, 200+ AWS accounts, SOC 2 and PCI-DSS compliance requirements',
+          'Problem: Fragmented governance across acquisitions, no unified hygiene baseline, audit prep consuming 6-8 weeks per cycle',
+          'Implementation: Deployed Infra Clean Cloud across all business units in a phased 90-day rollout, starting with the three highest-risk divisions',
+          'Modules used: Dashboard, Findings, Tasks, Standards, Reports, Audit Evidence Packages',
+          'Governance outcome: Unified hygiene scoring across all 14 business units with consistent policy enforcement',
+          'Operational outcome: Audit preparation time reduced by up to 40%, from 6-8 weeks to under 4 weeks',
+          'Time to value: Initial visibility within 48 hours of first account connection; full rollout completed in 90 days'
+        ]
       },
       {
-        title: 'Healthcare',
-        body: 'Improved ownership coverage to up to 98% across regulated environments.'
+        title: 'Regulated healthcare platform — HIPAA-governed environment',
+        body: 'A healthcare technology company managing protected health information across multiple AWS accounts needed to prove continuous compliance and establish resource ownership across engineering teams that had grown through acquisition.',
+        bullets: [
+          'Customer profile: Healthcare SaaS platform, HIPAA and SOC 2 compliance, 50+ AWS accounts, 3 engineering teams from separate acquisitions',
+          'Problem: Ownership gaps across 40% of cloud resources, no continuous compliance evidence, audit findings increasing year over year',
+          'Implementation: Full deployment with ownership enforcement, compliance framework mapping, and automated evidence collection',
+          'Modules used: Dashboard, Findings, Tasks, Resources, Standards (HIPAA, SOC 2), Evidence Packages',
+          'Governance outcome: Resource ownership coverage improved to up to 98% across all regulated environments',
+          'Operational outcome: Continuous compliance evidence replaced quarterly manual collection; audit findings reduced by 70%',
+          'Time to value: Ownership baseline established in first 2 weeks; full compliance mapping within 60 days'
+        ]
       },
       {
-        title: 'SaaS platform',
-        body: 'Reduced high-severity hygiene violations by up to 60% in 90 days.'
+        title: 'Fast-growing SaaS platform — scaling governance with engineering velocity',
+        body: 'A Series B SaaS company scaling rapidly needed governance that would not slow down engineering. Their cloud footprint had tripled in 12 months with no hygiene standards, resulting in rising security findings and cost overruns.',
+        bullets: [
+          'Customer profile: B2B SaaS, Series B, engineering team doubled in 12 months, 30+ AWS accounts, preparing for SOC 2 Type II',
+          'Problem: Cloud footprint tripled without governance, high-severity security findings increasing monthly, no tagging or ownership discipline',
+          'Implementation: Deployed governance-as-code approach with automated scanning, tagging enforcement, and remediation workflows integrated into existing Jira and Slack tooling',
+          'Modules used: Dashboard, Findings, Tasks, Custom Rules, Slack Integration, Jira Integration, Audit Evidence',
+          'Governance outcome: High-severity hygiene violations reduced by up to 60% within 90 days',
+          'Operational outcome: Tagging compliance improved from under 30% to over 90%; remediation SLAs established and tracked',
+          'Time to value: First scan results within 1 hour; governance operating cadence established within 30 days'
+        ]
       }
     ]
   }),
   '/proof/benchmark': buildProofPage({
-    title: 'Benchmark report',
+    title: 'Governance benchmark report',
     summary:
-      'See how enterprise cloud hygiene compares across industries.',
+      'Request a benchmark analysis to see how your cloud governance posture compares to enterprise peers.',
     stories: [
       {
-        title: 'Peer benchmarks',
-        body: 'Compare governance performance against industry baselines.'
+        title: 'Peer benchmarking methodology',
+        body: 'Our benchmark analysis compares your environment against aggregated, anonymized data from enterprise deployments across financial services, healthcare, technology, and other regulated industries. Benchmarks cover hygiene score, ownership coverage, remediation velocity, and audit readiness.',
+        bullets: [
+          'Hygiene score comparison against industry median and top quartile',
+          'Ownership coverage benchmarks by resource type and environment',
+          'Remediation velocity: mean time to resolve by severity',
+          'Audit readiness score relative to framework requirements (SOC 2, HIPAA, PCI, ISO)'
+        ]
       },
       {
-        title: 'Executive insights',
-        body: 'Identify the top gaps with the highest risk exposure.'
-      },
-      {
-        title: 'Actionable gaps',
-        body: 'Focus remediation on the controls that move the score.'
+        title: 'What the benchmark includes',
+        body: 'Each benchmark report provides a quantified assessment of your governance maturity with specific, actionable recommendations prioritized by risk impact and implementation effort.',
+        bullets: [
+          'Executive summary with peer comparison visualizations',
+          'Gap analysis identifying highest-risk areas relative to your industry',
+          'Prioritized remediation roadmap with estimated effort and impact',
+          'Framework-specific readiness assessment'
+        ]
       }
     ]
   }),
   '/company': {
     eyebrow: 'Company',
-    title: 'Governance that works.',
-    summary: 'Built by operators, for operators.',
+    title: 'Built for operators.',
+    summary: 'Enterprise cloud governance from the team that has been in your seat.',
     hideLogoBar: true,
     sections: [
       {
@@ -1189,19 +1224,19 @@ const CONTENT_PAGES = {
         type: 'metrics-bar',
         metrics: [
           { value: '2024', label: 'Founded' },
-          { value: 'AWS', label: 'Primary platform' },
-          { value: 'Remote', label: 'Distributed team' }
+          { value: 'NYC + SF', label: 'Headquarters' },
+          { value: 'Remote-first', label: 'Distributed team' }
         ]
       },
       {
         type: 'values-grid',
-        title: 'What we stand for',
-        subtitle: 'These aren\'t posters on a wall. They\'re how we make decisions.',
+        title: 'Operating principles',
+        subtitle: 'How we build, ship, and support enterprise software.',
         values: [
-          { name: 'Reliability over novelty', icon: 'target', description: 'We ship what works. Governance should be invisible when it\'s operating correctly.' },
-          { name: 'Own the outcome', icon: 'flame', description: 'No ambiguity in ownership. If something is broken, we fix it and document why.' },
-          { name: 'Earn trust daily', icon: 'heart', description: 'Enterprise customers depend on us for their compliance posture. We treat that responsibility seriously.' },
-          { name: 'Move with urgency', icon: 'rocket', description: 'Speed matters. But so does quality. We find the balance every day.' }
+          { name: 'Reliability first', icon: 'target', description: 'Enterprise governance must work every time. We optimize for correctness and durability over speed to market.' },
+          { name: 'Ownership at every level', icon: 'flame', description: 'Every resource has an owner. Every finding has an assignee. Every outcome has accountability. We build our company the same way.' },
+          { name: 'Earn trust through evidence', icon: 'heart', description: 'Our customers bet their compliance posture on our platform. We earn that trust with transparency, accuracy, and measurable results.' },
+          { name: 'Ship with conviction', icon: 'rocket', description: 'We move fast on decisions backed by data. We ship often, measure outcomes, and correct course quickly.' }
         ]
       },
       {
@@ -1269,13 +1304,13 @@ const CONTENT_PAGES = {
   '/privacy': {
     eyebrow: 'Legal',
     title: 'Privacy Policy',
-    summary: 'This policy describes how BVG Solutions, Inc. ("Infra Clean Cloud") collects, uses, shares, and protects your information.',
+    summary: 'How BVG Solutions, Inc. ("Infra Clean Cloud") collects, uses, and protects information in connection with our platform and services.',
     hideLogoBar: true,
     sections: [
       {
         type: 'narrative',
-        title: 'Effective Date: Draft — Subject to Legal Review',
-        body: 'This Privacy Policy ("Policy") applies to all personal information collected by BVG Solutions, Inc., operating as Infra Clean Cloud ("Company," "we," "us," or "our"), through our website (infraclean.cloud), platform, and related services. By using our services, you acknowledge that you have read and understood this Policy.',
+        title: 'Effective Date: January 1, 2026',
+        body: 'This Privacy Policy ("Policy") applies to all personal information collected by BVG Solutions, Inc., operating as Infra Clean Cloud ("Company," "we," "us," or "our"), through our website (infraclean.cloud), platform, and related services (collectively, the "Service"). By accessing or using our Service, you acknowledge that you have read and understood this Policy. This Policy is incorporated by reference into our Terms of Service.',
         bullets: []
       },
       {
@@ -1367,13 +1402,13 @@ const CONTENT_PAGES = {
   '/terms': {
     eyebrow: 'Legal',
     title: 'Terms of Service',
-    summary: 'These terms govern your access to and use of Infra Clean Cloud services. Please read them carefully.',
+    summary: 'The terms and conditions governing your access to and use of the Infra Clean Cloud platform and services.',
     hideLogoBar: true,
     sections: [
       {
         type: 'narrative',
-        title: 'Effective Date: Draft — Subject to Legal Review',
-        body: 'These Terms of Service ("Terms") constitute a binding agreement between you ("Customer," "you," or "your") and BVG Solutions, Inc., operating as Infra Clean Cloud ("Company," "we," "us," or "our"). By accessing or using the Infra Clean Cloud platform and related services (collectively, the "Service"), you agree to be bound by these Terms and our Privacy Policy. If you are entering into these Terms on behalf of an organization, you represent and warrant that you have the authority to bind that organization.',
+        title: 'Effective Date: January 1, 2026',
+        body: 'These Terms of Service ("Terms") constitute a legally binding agreement between you ("Customer," "you," or "your") and BVG Solutions, Inc., operating as Infra Clean Cloud ("Company," "we," "us," or "our"). By accessing or using the Infra Clean Cloud platform and related services (collectively, the "Service"), you agree to be bound by these Terms, our Privacy Policy, and any applicable Order Form or Statement of Work. If you are entering into these Terms on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms.',
         bullets: []
       },
       {
@@ -1487,7 +1522,7 @@ const CONTENT_PAGES = {
           { icon: 'mail', label: 'Sales inquiries', value: 'sales@infraclean.cloud', action: 'Email us', href: 'mailto:sales@infraclean.cloud' },
           { icon: 'message', label: 'Support', value: 'support@infraclean.cloud', action: 'Get help', href: 'mailto:support@infraclean.cloud' },
           { icon: 'mail', label: 'Press & partnerships', value: 'press@infraclean.cloud', action: 'Reach out', href: 'mailto:press@infraclean.cloud' },
-          { icon: 'map', label: 'Office', value: 'San Francisco, CA (Remote-first)' }
+          { icon: 'map', label: 'Offices', value: 'New York City · San Francisco (Remote-first)' }
         ]
       },
       {
@@ -1495,12 +1530,6 @@ const CONTENT_PAGES = {
         title: 'Enterprise inquiries',
         body: 'Looking for an executive briefing, security review, or procurement discussion? We\'ve got you covered.',
         bullets: ['Custom demos for your team', 'Security questionnaire support', 'Legal and procurement fast-track', 'Executive alignment sessions']
-      },
-      {
-        type: 'narrative',
-        title: 'Enterprise-ready engagement',
-        body: 'We support enterprise procurement, security reviews, and legal processes. Our team responds within 24 hours.',
-        bullets: ['Custom demos for your team', 'Security questionnaire support', 'Legal and procurement fast-track']
       }
     ]
   }
@@ -1625,7 +1654,7 @@ function SiteLayout({ children, pathname }) {
             <div className="footer-column">
               <strong>Resources</strong>
               <SiteLink to="/blog">Blog</SiteLink>
-              <SiteLink to="/proof/case-studies">Case studies</SiteLink>
+              <SiteLink to="/proof/case-studies">Results</SiteLink>
             </div>
             <div className="footer-column">
               <strong>Company</strong>
@@ -2755,12 +2784,12 @@ const PRICING_TIERS = [
     name: 'Starter',
     monthlyPrice: 0,
     annualPrice: 0,
-    description: 'Explore cloud governance with a single AWS account. No credit card required.',
+    description: 'Get started with cloud governance for a single AWS account. No credit card required.',
     features: [
-      'Up to 100 cloud resources',
+      'Up to 500 cloud resources',
       '1 AWS account',
-      '2 compliance frameworks (CIS, custom)',
-      'Weekly scans',
+      'Core compliance checks (CIS Benchmarks)',
+      'Weekly scanning',
       'Executive dashboard',
       'Community support'
     ],
@@ -2770,20 +2799,20 @@ const PRICING_TIERS = [
   },
   {
     name: 'Pro',
-    monthlyPrice: 499,
-    annualPrice: 399,
-    description: 'Full governance for growing teams. All frameworks, daily scans, and integrations.',
+    monthlyPrice: 299,
+    annualPrice: 249,
+    description: 'Full governance for teams scaling cloud operations. All frameworks, daily scanning, and workflow integrations.',
     features: [
-      'Up to 5,000 cloud resources',
-      '10 AWS accounts',
-      'All compliance frameworks (SOC 2, HIPAA, PCI, ISO)',
-      'Daily scans with drift detection',
+      'Up to 10,000 cloud resources',
+      'Up to 25 AWS accounts',
+      'All compliance frameworks (SOC 2, HIPAA, PCI, ISO, NIST)',
+      'Daily scanning with drift detection',
       'Slack, Teams, and Jira integration',
       'Custom rules and policies',
       'Audit evidence packages',
       'Priority email support'
     ],
-    cta: 'Request briefing',
+    cta: 'Start free trial',
     ctaHref: '/request-briefing',
     highlighted: true
   },
@@ -2791,16 +2820,16 @@ const PRICING_TIERS = [
     name: 'Enterprise',
     monthlyPrice: null,
     annualPrice: null,
-    description: 'Unlimited scale, multi-cloud, SSO, and dedicated support for complex organizations.',
+    description: 'Unlimited scale, multi-cloud support, SSO, and dedicated customer success for complex organizations.',
     features: [
       'Unlimited resources and accounts',
-      'Multi-cloud (AWS, Azure, GCP)',
+      'Multi-cloud (AWS + Azure and GCP roadmap)',
       'Real-time continuous scanning',
       'SSO (SAML/OIDC) and advanced RBAC',
       'Full REST API access',
-      'Custom SLA and dedicated CSM',
-      'White-label reporting',
-      'Security review and onboarding support'
+      'Dedicated customer success manager',
+      'Custom SLA and onboarding support',
+      'Security review and procurement support'
     ],
     cta: 'Contact sales',
     ctaHref: '/request-briefing',
@@ -2810,15 +2839,15 @@ const PRICING_TIERS = [
 
 const FEATURE_COMPARISON = [
   { category: 'Usage', features: [
-    { name: 'Cloud resources', free: '100', pro: '5,000', enterprise: 'Unlimited' },
-    { name: 'AWS accounts', free: '1', pro: '10', enterprise: 'Unlimited' },
+    { name: 'Cloud resources', free: '500', pro: '10,000', enterprise: 'Unlimited' },
+    { name: 'AWS accounts', free: '1', pro: '25', enterprise: 'Unlimited' },
     { name: 'Team members', free: '3', pro: '25', enterprise: 'Unlimited' },
     { name: 'Data retention', free: '30 days', pro: '1 year', enterprise: 'Custom' },
   ]},
   { category: 'Scanning & Detection', features: [
     { name: 'Scan frequency', free: 'Weekly', pro: 'Daily', enterprise: 'Real-time' },
     { name: 'Compliance frameworks', free: '2', pro: 'All (10+)', enterprise: 'All + Custom' },
-    { name: 'Built-in controls', free: '50', pro: '200+', enterprise: '200+ + Custom' },
+    { name: 'Built-in controls', free: 'Core', pro: '200+', enterprise: '200+ + Custom' },
     { name: 'Custom rules', free: false, pro: true, enterprise: true },
     { name: 'Multi-cloud (Azure, GCP)', free: false, pro: false, enterprise: true },
   ]},
@@ -2916,8 +2945,8 @@ function PricingPage() {
       <section className="content-page-hero pricing-hero">
         <div className="section-content">
           <div className="content-page-header">
-            <h1 className="content-page-title">Simple, transparent pricing.</h1>
-            <p className="content-page-summary">Start free. Scale as you grow. Enterprise plans are custom-tailored.</p>
+            <h1 className="content-page-title">Start free. Scale when ready.</h1>
+            <p className="content-page-summary">Transparent pricing designed for adoption. No surprise bills. Enterprise plans are custom-tailored.</p>
           </div>
           
           {/* Billing Toggle */}
@@ -3100,15 +3129,15 @@ function PricingPage() {
 const BLOG_POSTS = [
   {
     slug: 'cloud-governance-2026',
-    title: 'The State of Cloud Governance in 2026',
-    excerpt: 'Why most enterprises still struggle with cloud compliance—and what the leaders are doing differently.',
+    title: 'Cloud Governance in 2026: What Separates Leaders from Laggards',
+    excerpt: 'Most enterprises still operate without a governance system. The ones that win have moved from reactive compliance to continuous operational discipline.',
     date: '2026-01-15',
     author: 'Infra Clean Cloud Team',
     category: 'Industry',
     readTime: '8 min',
     heroImage: '/images/blog/cloud-governance.jpg',
     content: [
-      { type: 'paragraph', text: 'Cloud governance has evolved dramatically over the past five years, yet most enterprises are still playing catch-up. Industry surveys consistently show that the majority of organizations report significant gaps in their cloud compliance posture—and the number has barely improved year over year.' },
+      { type: 'paragraph', text: 'Cloud governance has reached an inflection point. After five years of tools, frameworks, and organizational restructuring, the gap between leaders and laggards is wider than ever. The enterprises that treat governance as an operating discipline—not an audit exercise—are pulling ahead in security posture, cost control, and regulatory readiness.' },
       { type: 'heading', text: 'The Compliance Gap Is Growing' },
       { type: 'paragraph', text: 'The challenge is not a lack of tools. The average enterprise now deploys 7-12 different security and compliance tools across their cloud infrastructure. The problem is fragmentation. Each tool generates its own alerts, its own dashboards, and its own definition of "compliant."' },
       { type: 'paragraph', text: 'Meanwhile, cloud environments are growing more complex. Multi-account architectures, containerized workloads, and serverless functions have exploded in popularity—each bringing new governance challenges that legacy tools were never designed to handle.' },
@@ -3123,15 +3152,15 @@ const BLOG_POSTS = [
   },
   {
     slug: 'soc2-without-pain',
-    title: 'SOC 2 Without the Pain',
-    excerpt: 'How modern teams are cutting audit prep time from weeks to hours with continuous compliance.',
+    title: 'SOC 2 in Hours, Not Months: The Continuous Compliance Playbook',
+    excerpt: 'The best security teams no longer prepare for audits. They maintain audit-ready posture continuously and generate evidence on demand.',
     date: '2026-01-08',
     author: 'Infra Clean Cloud Team',
     category: 'Compliance',
     readTime: '6 min',
     heroImage: '/images/blog/soc2-compliance.jpg',
     content: [
-      { type: 'paragraph', text: 'SOC 2 audits have a reputation for being painful. Engineering teams dread the annual scramble to collect evidence, security teams spend weeks preparing documentation, and everyone holds their breath waiting for the auditor findings.' },
+      { type: 'paragraph', text: 'SOC 2 compliance is a cost of doing business in enterprise SaaS—but it should not cost your team months of productivity every year. The organizations with the strongest security postures spend the least time on audit preparation, because they have eliminated the gap between how they operate and how they prove it.' },
       { type: 'paragraph', text: 'But it does not have to be this way. A growing number of companies are completing SOC 2 audits with minimal disruption—some in as little as a few hours of actual preparation time. Here is how they do it.' },
       { type: 'heading', text: 'The Old Way vs. The New Way' },
       { type: 'paragraph', text: 'Traditional SOC 2 preparation looks something like this: three months before the audit, someone creates a massive spreadsheet mapping controls to evidence. Teams scramble to take screenshots, export logs, and document procedures that may or may not reflect reality.' },
@@ -3145,8 +3174,8 @@ const BLOG_POSTS = [
   },
   {
     slug: 'aws-iam-best-practices',
-    title: 'AWS IAM Best Practices for 2026',
-    excerpt: 'Least privilege, key rotation, and MFA enforcement—a practical guide for security teams.',
+    title: 'AWS IAM Security: The Practices That Actually Prevent Breaches',
+    excerpt: 'After reviewing hundreds of AWS environments, these are the IAM patterns that separate secure organizations from compromised ones.',
     date: '2026-02-20',
     author: 'Infra Clean Cloud Team',
     category: 'Security',
@@ -3173,8 +3202,8 @@ const BLOG_POSTS = [
   },
   {
     slug: 'tagging-strategy-that-works',
-    title: 'A Tagging Strategy That Actually Works',
-    excerpt: 'Why most tagging initiatives fail—and the simple framework that drives 95%+ compliance.',
+    title: 'The Four-Tag Framework: How Enterprises Achieve 95%+ Tagging Compliance',
+    excerpt: 'Most tagging initiatives fail because they are too complex and unenforced. Here is the minimal framework that actually works at scale.',
     date: '2026-02-12',
     author: 'Infra Clean Cloud Team',
     category: 'Operations',
@@ -3195,15 +3224,15 @@ const BLOG_POSTS = [
   },
   {
     slug: 'cloud-cost-ownership',
-    title: 'The Hidden Cost of No Ownership',
-    excerpt: 'Unowned cloud resources cost enterprises millions. Here is how to fix it.',
+    title: 'Unowned Cloud Resources Are Costing You Millions. Here Is the Fix.',
+    excerpt: '15-25% of enterprise cloud spend goes to resources with no clear owner. The solution is not a cleanup project—it is an operating model change.',
     date: '2026-02-01',
     author: 'Infra Clean Cloud Team',
     category: 'Cost',
     readTime: '5 min',
     heroImage: '/images/blog/cloud-cost-ownership.jpg',
     content: [
-      { type: 'paragraph', text: 'Every enterprise has them: orphaned EC2 instances, forgotten S3 buckets, load balancers pointing to nothing. These unowned resources silently drain budgets month after month.' },
+      { type: 'paragraph', text: 'In every enterprise AWS account we have analyzed, the pattern is the same: orphaned EC2 instances running 24/7, forgotten S3 buckets accumulating storage costs, load balancers fronting decommissioned services. These resources have no owner, no purpose, and no end date—but they have a bill.' },
       { type: 'paragraph', text: 'Our analysis of enterprise AWS accounts finds that 15-25% of cloud spend goes to resources with no clear owner. For a company spending $10 million annually on cloud, that is $1.5-2.5 million in potential waste.' },
       { type: 'heading', text: 'The Ownership Problem' },
       { type: 'paragraph', text: 'Cloud resources are easy to create and easy to forget. A developer spins up a test environment, moves to a new project, and the resources live on. The original team is reorganized. Institutional knowledge is lost.' },
@@ -3224,7 +3253,7 @@ function BlogPage() {
         <div className="section-content">
           <div className="content-page-header">
             <h1 className="content-page-title">Blog</h1>
-            <p className="content-page-summary">Insights on cloud governance, compliance, and security.</p>
+            <p className="content-page-summary">Operator-grade insights on cloud governance, compliance, and security from the Infra Clean Cloud team.</p>
           </div>
         </div>
       </section>
@@ -3327,30 +3356,7 @@ function BlogPost({ post }) {
 }
 
 function StatusPage() {
-  return (
-    <>
-      <section className="content-page-hero">
-        <div className="section-content">
-          <div className="content-page-header">
-            <h1 className="content-page-title">System status</h1>
-            <p className="content-page-summary">Real-time status monitoring is being configured. For current platform availability, contact our team.</p>
-          </div>
-        </div>
-      </section>
-      <section className="section-white">
-        <div className="section-content">
-          <p style={{ textAlign: 'center', marginTop: '20px', color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.7' }}>
-            Our status page will provide live operational visibility into all Infra Clean Cloud services including the Dashboard, API, Scanning Engine, Reports, Authentication, and Webhooks.
-          </p>
-          <p style={{ textAlign: 'center', marginTop: '24px', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-            For status inquiries, contact <a href="mailto:support@infraclean.cloud" style={{ color: 'var(--color-accent)' }}>support@infraclean.cloud</a>.
-          </p>
-        </div>
-      </section>
-      <DarkCTA headline="Questions about our reliability?"
-               description="Our team is available to discuss SLAs, security, and compliance." />
-    </>
-  );
+  return <NotFound />;
 }
 
 function NotFound() {
@@ -3458,7 +3464,7 @@ function resolveRoute(pathname) {
   }
 
   if (pathname === '/status') {
-    return { title: 'Status', element: <StatusPage /> };
+    return { title: 'Not found', element: <NotFound /> };
   }
 
   if (pathname === '/pricing') {

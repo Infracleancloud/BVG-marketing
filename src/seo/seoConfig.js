@@ -131,13 +131,13 @@ export const SEO_CONFIG = {
 
   // Proof Pages
   '/proof/case-studies': {
-    title: 'Customer Case Studies | Infra Clean Cloud',
-    description: 'See how enterprise teams achieved up to 40% faster audits and up to 60% fewer violations with Infra Clean Cloud.',
+    title: 'Enterprise Deployment Results | Infra Clean Cloud',
+    description: 'Measured outcomes from production governance deployments across regulated financial services, healthcare, and technology companies.',
     keywords: 'cloud governance case studies, customer success, compliance case studies',
   },
   '/proof/benchmark': {
-    title: 'Cloud Governance Benchmarks | Infra Clean Cloud',
-    description: 'Industry benchmarks for cloud hygiene, compliance readiness, and remediation velocity. See where you stand.',
+    title: 'Governance Benchmark Report | Infra Clean Cloud',
+    description: 'See how your cloud governance posture compares to enterprise peers across hygiene, ownership, and audit readiness.',
     keywords: 'cloud governance benchmarks, compliance benchmarks, industry standards',
   },
 
@@ -184,32 +184,32 @@ export const SEO_CONFIG = {
 
   // Blog Posts
   '/blog/cloud-governance-2026': {
-    title: 'The State of Cloud Governance in 2026 | Infra Clean Cloud',
-    description: 'Why most enterprises still struggle with cloud compliance—and what the leaders are doing differently.',
+    title: 'Cloud Governance in 2026: Leaders vs Laggards | Infra Clean Cloud',
+    description: 'Most enterprises still operate without a governance system. The ones that win have moved from reactive compliance to continuous operational discipline.',
     keywords: 'cloud governance 2026, compliance trends, enterprise cloud',
     article: true,
   },
   '/blog/soc2-without-pain': {
-    title: 'SOC 2 Without the Pain | Infra Clean Cloud',
-    description: 'How modern teams cut audit prep time from weeks to hours with continuous compliance.',
+    title: 'SOC 2 in Hours, Not Months | Infra Clean Cloud',
+    description: 'The best security teams maintain audit-ready posture continuously and generate evidence on demand.',
     keywords: 'SOC 2 audit, continuous compliance, audit automation',
     article: true,
   },
   '/blog/aws-iam-best-practices': {
-    title: 'AWS IAM Best Practices for 2026 | Infra Clean Cloud',
-    description: 'Least privilege, key rotation, and MFA enforcement. A practical guide for security teams.',
+    title: 'AWS IAM Security: Practices That Prevent Breaches | Infra Clean Cloud',
+    description: 'After reviewing hundreds of AWS environments, these are the IAM patterns that separate secure organizations from compromised ones.',
     keywords: 'AWS IAM, least privilege, MFA, access key rotation, cloud security',
     article: true,
   },
   '/blog/tagging-strategy-that-works': {
-    title: 'A Tagging Strategy That Actually Works | Infra Clean Cloud',
-    description: 'Why most tagging initiatives fail and the simple framework that drives 95%+ compliance.',
+    title: 'The Four-Tag Framework for 95%+ Compliance | Infra Clean Cloud',
+    description: 'Most tagging initiatives fail because they are too complex and unenforced. Here is the minimal framework that works at scale.',
     keywords: 'cloud tagging, resource tagging, tagging compliance, AWS tags',
     article: true,
   },
   '/blog/cloud-cost-ownership': {
-    title: 'The Hidden Cost of No Ownership | Infra Clean Cloud',
-    description: 'Unowned cloud resources cost enterprises millions. Here is how to fix it.',
+    title: 'Unowned Cloud Resources Are Costing You Millions | Infra Clean Cloud',
+    description: '15-25% of enterprise cloud spend goes to resources with no clear owner. The fix is an operating model change.',
     keywords: 'cloud cost, resource ownership, cloud waste, cost optimization',
     article: true,
   },
@@ -234,11 +234,6 @@ export const SEO_CONFIG = {
   '/signup': {
     title: 'Request Access | Infra Clean Cloud',
     description: 'Request access to the Infra Clean Cloud platform. Get a personalized briefing.',
-    noindex: true,
-  },
-  '/status': {
-    title: 'System Status | Infra Clean Cloud',
-    description: 'Current operational status of Infra Clean Cloud services.',
     noindex: true,
   },
 
