@@ -588,6 +588,130 @@ function buildProofPage({ title, summary, stories }) {
 
 // Company pages are now defined directly in CONTENT_PAGES for full customization
 
+// ========== JOB LISTINGS ==========
+const JOB_LISTINGS = [
+  {
+    slug: 'senior-backend-engineer',
+    title: 'Senior Backend Engineer',
+    department: 'Engineering',
+    location: 'Remote (US)',
+    type: 'Full-time',
+    overview: 'Build the core platform that powers enterprise cloud governance. You will design and implement APIs, data pipelines, and scanning infrastructure that processes millions of cloud resources.',
+    responsibilities: [
+      'Design and build scalable APIs and microservices in Go',
+      'Architect data pipelines for cloud resource scanning and analysis',
+      'Implement compliance frameworks and rule engines',
+      'Collaborate with product and design to deliver features end-to-end',
+      'Participate in on-call rotations and incident response',
+      'Mentor junior engineers and contribute to engineering standards',
+    ],
+    qualifications: [
+      '5+ years of backend engineering experience',
+      'Strong experience with Go, PostgreSQL, and AWS',
+      'Experience building and operating production SaaS systems',
+      'Understanding of cloud infrastructure and security concepts',
+      'Comfortable with CI/CD, infrastructure-as-code, and monitoring',
+      'Clear written and verbal communication skills',
+    ],
+  },
+  {
+    slug: 'senior-frontend-engineer',
+    title: 'Senior Frontend Engineer',
+    department: 'Engineering',
+    location: 'Remote (US)',
+    type: 'Full-time',
+    overview: 'Craft the interfaces that security and operations teams use every day. You will build dashboards, data visualizations, and workflow tools that make complex governance data actionable.',
+    responsibilities: [
+      'Build and maintain React/TypeScript UI components and pages',
+      'Implement complex data visualizations and interactive dashboards',
+      'Collaborate closely with product design on UX decisions',
+      'Optimize front-end performance and accessibility',
+      'Write unit and integration tests for critical user flows',
+      'Contribute to the component library and design system',
+    ],
+    qualifications: [
+      '5+ years of frontend engineering experience',
+      'Expert-level React and TypeScript skills',
+      'Experience with data visualization libraries (D3, Recharts, etc.)',
+      'Strong understanding of web accessibility (WCAG 2.1)',
+      'Design system experience is a plus',
+      'Comfortable working in a fast-paced, remote-first environment',
+    ],
+  },
+  {
+    slug: 'product-designer',
+    title: 'Product Designer',
+    department: 'Design',
+    location: 'Remote (US)',
+    type: 'Full-time',
+    overview: 'Design enterprise software that does not feel like enterprise software. You will own the end-to-end design process for features used by CIOs, CISOs, and engineering leaders.',
+    responsibilities: [
+      'Lead design for new features from concept through implementation',
+      'Conduct user research and synthesize findings into design decisions',
+      'Create wireframes, prototypes, and high-fidelity designs in Figma',
+      'Collaborate with engineering to ensure design intent is preserved',
+      'Contribute to and maintain the product design system',
+      'Present design rationale to stakeholders and incorporate feedback',
+    ],
+    qualifications: [
+      '4+ years of product design experience, preferably in B2B SaaS',
+      'Strong portfolio demonstrating complex information design',
+      'Proficiency in Figma and prototyping tools',
+      'Experience designing for data-heavy applications',
+      'Understanding of accessibility and responsive design principles',
+      'Excellent communication and collaboration skills',
+    ],
+  },
+  {
+    slug: 'enterprise-account-executive',
+    title: 'Enterprise Account Executive',
+    department: 'Sales',
+    location: 'Remote (US)',
+    type: 'Full-time',
+    overview: 'Sell to CIOs and CISOs at mid-market and enterprise organizations. You will run complex sales cycles with security-conscious buyers who need governance solutions they can trust.',
+    responsibilities: [
+      'Manage full-cycle enterprise sales from prospecting to close',
+      'Build relationships with C-level and VP-level decision makers',
+      'Conduct discovery, demos, and executive briefings',
+      'Navigate procurement, legal, and security review processes',
+      'Collaborate with solutions engineering on technical evaluations',
+      'Maintain accurate pipeline and forecasting in CRM',
+    ],
+    qualifications: [
+      '5+ years of enterprise SaaS sales experience',
+      'Track record of selling to security, compliance, or infrastructure buyers',
+      'Consultative sales approach with complex deal management skills',
+      'Comfortable with technical concepts (cloud, security, compliance)',
+      'Experience with MEDDIC, Challenger, or similar sales methodologies',
+      'Self-motivated and comfortable in an early-stage environment',
+    ],
+  },
+  {
+    slug: 'customer-success-manager',
+    title: 'Customer Success Manager',
+    department: 'Customer Success',
+    location: 'Remote (US)',
+    type: 'Full-time',
+    overview: 'Make customers wildly successful with Infra Clean Cloud. You will be the primary point of contact for enterprise accounts, driving adoption, value realization, and retention.',
+    responsibilities: [
+      'Own the post-sale relationship for a portfolio of enterprise accounts',
+      'Drive onboarding, adoption, and value realization',
+      'Conduct regular business reviews and health checks',
+      'Identify expansion opportunities and coordinate with sales',
+      'Serve as the voice of the customer internally',
+      'Build scalable playbooks and best practices documentation',
+    ],
+    qualifications: [
+      '3+ years of customer success or account management in B2B SaaS',
+      'Technical aptitude—comfortable discussing cloud infrastructure concepts',
+      'Strong project management and organizational skills',
+      'Excellent written and verbal communication',
+      'Experience with customer health scoring and retention metrics',
+      'Empathetic, proactive, and solutions-oriented',
+    ],
+  },
+];
+
 const CONTENT_PAGES = {
   '/platform': {
     eyebrow: 'Platform',
@@ -3051,131 +3175,6 @@ function PricingPage() {
     </>
   );
 }
-
-// ========== JOB LISTINGS ==========
-const JOB_LISTINGS = [
-  {
-    slug: 'senior-backend-engineer',
-    title: 'Senior Backend Engineer',
-    department: 'Engineering',
-    location: 'Remote (US)',
-    type: 'Full-time',
-    overview: 'Build the core platform that powers enterprise cloud governance. You will design and implement APIs, data pipelines, and scanning infrastructure that processes millions of cloud resources.',
-    responsibilities: [
-      'Design and build scalable APIs and microservices in Go',
-      'Architect data pipelines for cloud resource scanning and analysis',
-      'Implement compliance frameworks and rule engines',
-      'Collaborate with product and design to deliver features end-to-end',
-      'Participate in on-call rotations and incident response',
-      'Mentor junior engineers and contribute to engineering standards',
-    ],
-    qualifications: [
-      '5+ years of backend engineering experience',
-      'Strong experience with Go, PostgreSQL, and AWS',
-      'Experience building and operating production SaaS systems',
-      'Understanding of cloud infrastructure and security concepts',
-      'Comfortable with CI/CD, infrastructure-as-code, and monitoring',
-      'Clear written and verbal communication skills',
-    ],
-  },
-  {
-    slug: 'senior-frontend-engineer',
-    title: 'Senior Frontend Engineer',
-    department: 'Engineering',
-    location: 'Remote (US)',
-    type: 'Full-time',
-    overview: 'Craft the interfaces that security and operations teams use every day. You will build dashboards, data visualizations, and workflow tools that make complex governance data actionable.',
-    responsibilities: [
-      'Build and maintain React/TypeScript UI components and pages',
-      'Implement complex data visualizations and interactive dashboards',
-      'Collaborate closely with product design on UX decisions',
-      'Optimize front-end performance and accessibility',
-      'Write unit and integration tests for critical user flows',
-      'Contribute to the component library and design system',
-    ],
-    qualifications: [
-      '5+ years of frontend engineering experience',
-      'Expert-level React and TypeScript skills',
-      'Experience with data visualization libraries (D3, Recharts, etc.)',
-      'Strong understanding of web accessibility (WCAG 2.1)',
-      'Design system experience is a plus',
-      'Comfortable working in a fast-paced, remote-first environment',
-    ],
-  },
-  {
-    slug: 'product-designer',
-    title: 'Product Designer',
-    department: 'Design',
-    location: 'Remote (US)',
-    type: 'Full-time',
-    overview: 'Design enterprise software that does not feel like enterprise software. You will own the end-to-end design process for features used by CIOs, CISOs, and engineering leaders.',
-    responsibilities: [
-      'Lead design for new features from concept through implementation',
-      'Conduct user research and synthesize findings into design decisions',
-      'Create wireframes, prototypes, and high-fidelity designs in Figma',
-      'Collaborate with engineering to ensure design intent is preserved',
-      'Contribute to and maintain the product design system',
-      'Present design rationale to stakeholders and incorporate feedback',
-    ],
-    qualifications: [
-      '4+ years of product design experience, preferably in B2B SaaS',
-      'Strong portfolio demonstrating complex information design',
-      'Proficiency in Figma and prototyping tools',
-      'Experience designing for data-heavy applications',
-      'Understanding of accessibility and responsive design principles',
-      'Excellent communication and collaboration skills',
-    ],
-  },
-  {
-    slug: 'enterprise-account-executive',
-    title: 'Enterprise Account Executive',
-    department: 'Sales',
-    location: 'Remote (US)',
-    type: 'Full-time',
-    overview: 'Sell to CIOs and CISOs at mid-market and enterprise organizations. You will run complex sales cycles with security-conscious buyers who need governance solutions they can trust.',
-    responsibilities: [
-      'Manage full-cycle enterprise sales from prospecting to close',
-      'Build relationships with C-level and VP-level decision makers',
-      'Conduct discovery, demos, and executive briefings',
-      'Navigate procurement, legal, and security review processes',
-      'Collaborate with solutions engineering on technical evaluations',
-      'Maintain accurate pipeline and forecasting in CRM',
-    ],
-    qualifications: [
-      '5+ years of enterprise SaaS sales experience',
-      'Track record of selling to security, compliance, or infrastructure buyers',
-      'Consultative sales approach with complex deal management skills',
-      'Comfortable with technical concepts (cloud, security, compliance)',
-      'Experience with MEDDIC, Challenger, or similar sales methodologies',
-      'Self-motivated and comfortable in an early-stage environment',
-    ],
-  },
-  {
-    slug: 'customer-success-manager',
-    title: 'Customer Success Manager',
-    department: 'Customer Success',
-    location: 'Remote (US)',
-    type: 'Full-time',
-    overview: 'Make customers wildly successful with Infra Clean Cloud. You will be the primary point of contact for enterprise accounts, driving adoption, value realization, and retention.',
-    responsibilities: [
-      'Own the post-sale relationship for a portfolio of enterprise accounts',
-      'Drive onboarding, adoption, and value realization',
-      'Conduct regular business reviews and health checks',
-      'Identify expansion opportunities and coordinate with sales',
-      'Serve as the voice of the customer internally',
-      'Build scalable playbooks and best practices documentation',
-    ],
-    qualifications: [
-      '3+ years of customer success or account management in B2B SaaS',
-      'Technical aptitude—comfortable discussing cloud infrastructure concepts',
-      'Strong project management and organizational skills',
-      'Excellent written and verbal communication',
-      'Experience with customer health scoring and retention metrics',
-      'Empathetic, proactive, and solutions-oriented',
-    ],
-  },
-];
-
 // ========== BLOG PAGE ==========
 const BLOG_POSTS = [
   {
