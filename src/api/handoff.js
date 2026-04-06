@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const API_URL = import.meta.env.VITE_APP_API_URL || 'http://localhost:3001';
+const API_URL = import.meta.env.VITE_APP_API_URL || 'https://api.infraclean.cloud';
 
 /**
  * Create a handoff token with user email and attribution data
@@ -112,7 +112,7 @@ export async function createHandoffAndRedirect({
   extraAttribution = {},
   destination = '/welcome',
 } = {}) {
-  const appUrl = import.meta.env.VITE_APP_URL || 'http://localhost:5173';
+  const appUrl = import.meta.env.VITE_APP_URL || 'https://app.infraclean.cloud';
   
   try {
     // Collect all attribution data
@@ -177,7 +177,7 @@ export async function createHandoffAndRedirect({
  * @param {Object} params - URL parameters to include
  */
 export function redirectToApp(path, params = {}) {
-  const appUrl = import.meta.env.VITE_APP_URL || 'http://localhost:5173';
+  const appUrl = import.meta.env.VITE_APP_URL || 'https://app.infraclean.cloud';
   const targetUrl = new URL(path, appUrl);
   
   Object.entries(params).forEach(([key, value]) => {

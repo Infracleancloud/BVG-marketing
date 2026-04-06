@@ -1173,7 +1173,7 @@ const CONTENT_PAGES = {
         bullets: [
           'Deep experience in cloud infrastructure and security',
           'Backgrounds in enterprise SaaS and compliance',
-          'Full team profiles coming soon'
+          'Request a briefing to meet the team'
         ]
       },
       {
@@ -2628,7 +2628,7 @@ function RequestBriefing() {
               <label htmlFor="fullName">Full name *</label>
               <input 
                 id="fullName" 
-                placeholder="Alex Morgan" 
+                placeholder="Your full name" 
                 value={formData.fullName}
                 onChange={handleChange}
                 required
@@ -2638,7 +2638,7 @@ function RequestBriefing() {
               <label htmlFor="email">Work email *</label>
               <input 
                 id="email" 
-                placeholder="alex@company.com" 
+                placeholder="you@company.com" 
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -2649,7 +2649,7 @@ function RequestBriefing() {
               <label htmlFor="company">Company</label>
               <input 
                 id="company" 
-                placeholder="Enterprise Corp"
+                placeholder="Your company"
                 value={formData.company}
                 onChange={handleChange}
               />
@@ -3362,7 +3362,7 @@ function StatusPage() {
             ))}
           </div>
           <p style={{ textAlign: 'center', marginTop: '40px', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-            Live status monitoring will be available at launch. Contact <a href="mailto:support@infraclean.cloud" style={{ color: 'var(--color-accent)' }}>support@infraclean.cloud</a> for current status.
+            For real-time status inquiries, contact <a href="mailto:support@infraclean.cloud" style={{ color: 'var(--color-accent)' }}>support@infraclean.cloud</a>.
           </p>
         </div>
       </section>
