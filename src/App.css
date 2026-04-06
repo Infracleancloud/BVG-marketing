@@ -2199,8 +2199,8 @@ main {
 /* Origin Story */
 .origin-story {
   display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 80px;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
   align-items: center;
 }
 
@@ -2257,7 +2257,7 @@ main {
 
 .origin-image-photo {
   width: 100%;
-  aspect-ratio: 4/5;
+  aspect-ratio: 3/2;
   object-fit: cover;
   border-radius: var(--radius-xl);
   filter: saturate(0.9) contrast(1.05);
@@ -2505,7 +2505,7 @@ main {
 
 .culture-image-photo {
   width: 100%;
-  aspect-ratio: 5/4;
+  aspect-ratio: 3/2;
   object-fit: cover;
   border-radius: var(--radius-xl);
   filter: saturate(0.9) contrast(1.05);
@@ -2711,9 +2711,9 @@ main {
 
   .origin-image-placeholder,
   .origin-image-photo {
-    max-width: 400px;
+    max-width: 100%;
     margin: 0 auto;
-    aspect-ratio: 1;
+    aspect-ratio: 3/2;
   }
 
   .culture-section {

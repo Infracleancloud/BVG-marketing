@@ -1629,6 +1629,7 @@ function SiteLayout({ children, pathname }) {
             <div className="footer-column">
               <strong>Company</strong>
               <SiteLink to="/company">About</SiteLink>
+              <SiteLink to="/company/leadership">Leadership</SiteLink>
               <SiteLink to="/company/careers">Careers</SiteLink>
               <SiteLink to="/privacy">Privacy</SiteLink>
               <SiteLink to="/terms">Terms</SiteLink>
