@@ -425,12 +425,12 @@ const DEFAULT_CTA = {
   secondary: { label: 'Explore platform', href: '/platform' }
 };
 
-function buildOutcomePage({ title, summary, focus, kpis, outcomes }) {
+function buildOutcomePage({ title, summary, focus, kpis, outcomes, demoSlot = 'reports' }) {
   return {
     eyebrow: 'Outcomes',
     title,
     summary,
-    heroScreenshot: { placeholder: `${title} Dashboard View (1100 × 500)` },
+    heroScreenshot: { placeholder: `${title} Dashboard View (1100 × 500)`, demoSlot },
     heroKpis: kpis,
     sections: [
       {
@@ -445,7 +445,8 @@ function buildOutcomePage({ title, summary, focus, kpis, outcomes }) {
         title: 'From reactive to proactive governance',
         body: 'See the transformation from ad-hoc hygiene work to measurable, continuous compliance.',
         bullets: ['Real-time posture visibility', 'Automated evidence capture', 'Executive-ready reporting'],
-        placeholder: 'Governance Dashboard (600 × 360)'
+        placeholder: 'Governance Dashboard (600 × 360)',
+        demoSlot: 'workflow'
       },
       {
         type: 'pillar-grid',
@@ -491,13 +492,13 @@ function buildOutcomePage({ title, summary, focus, kpis, outcomes }) {
   };
 }
 
-function buildRolePage({ title, summary, priorities, outcomes }) {
+function buildRolePage({ title, summary, priorities, outcomes, demoSlot = 'dashboard' }) {
   const roleType = title.replace('For ', '').replace('s', '');
   return {
     eyebrow: 'Roles',
     title,
     summary,
-    heroScreenshot: { placeholder: `${roleType} Dashboard View (1100 × 500)` },
+    heroScreenshot: { placeholder: `${roleType} Dashboard View (1100 × 500)`, demoSlot },
     heroKpis: [
       { label: 'Priority', value: priorities[0], detail: 'Executive mandate' },
       { label: 'Priority', value: priorities[1], detail: 'Operational focus' },
@@ -510,7 +511,8 @@ function buildRolePage({ title, summary, priorities, outcomes }) {
         title: `How ${title.replace('For ', '')} use Infra Clean Cloud`,
         body: 'Start your day with a complete view of governance posture and end it with measurable progress.',
         bullets: ['Morning: Review posture dashboard', 'Midday: Track remediation progress', 'Weekly: Share executive summary'],
-        placeholder: `${roleType} Workflow View (600 × 360)`
+        placeholder: `${roleType} Workflow View (600 × 360)`,
+        demoSlot: 'workflow'
       },
       {
         type: 'narrative',
@@ -630,7 +632,7 @@ const CONTENT_PAGES = {
     eyebrow: 'Platform',
     title: 'Governance that works.',
     summary: 'See everything. Fix anything. Audit-ready, always.',
-    heroScreenshot: { placeholder: 'Dashboard' },
+    heroScreenshot: { placeholder: 'Dashboard', demoSlot: 'dashboard' },
     heroKpis: [
       { label: 'Coverage', value: 'Up to 98%', detail: 'Asset ownership' },
       { label: 'Faster', value: 'Up to 40%', detail: 'Audit prep' },
@@ -642,7 +644,8 @@ const CONTENT_PAGES = {
         type: 'screenshot',
         title: 'Connect once. See everything.',
         body: 'Read-only API access. No agents. No infrastructure changes.',
-        bullets: ['AWS Organizations multi-account', 'Cross-account IAM roles', 'Real-time and scheduled scans']
+        bullets: ['AWS Organizations multi-account', 'Cross-account IAM roles', 'Real-time and scheduled scans'],
+        demoSlot: 'dashboard'
       },
       // What we scan
       {
@@ -663,14 +666,16 @@ const CONTENT_PAGES = {
         title: 'Rules that make sense.',
         body: 'Pre-built controls mapped to CIS, SOC 2, HIPAA, PCI-DSS, ISO 27001.',
         bullets: ['200+ built-in controls', 'Framework-to-finding mapping', 'Custom rule builder'],
-        reverse: true
+        reverse: true,
+        demoSlot: 'standards'
       },
       // Dashboard
       {
         type: 'screenshot',
         title: 'See everything.',
         body: 'Risk, compliance, and cost in one view.',
-        bullets: ['Hygiene score trends', 'Risk by category', 'Compliance metrics']
+        bullets: ['Hygiene score trends', 'Risk by category', 'Compliance metrics'],
+        demoSlot: 'reports'
       },
       // Findings
       {
@@ -678,14 +683,16 @@ const CONTENT_PAGES = {
         title: 'Know what matters.',
         body: 'Prioritized findings with clear paths forward.',
         bullets: ['Impact-ranked', 'Framework-aligned', 'One-click remediation'],
-        reverse: true
+        reverse: true,
+        demoSlot: 'findings'
       },
       // Ownership
       {
         type: 'screenshot',
         title: 'Ownership, not tickets.',
         body: 'Every finding has an owner, a due date, and a clear path.',
-        bullets: ['Auto-assign by tag or team', 'Slack and Teams alerts', 'SLA tracking with escalation']
+        bullets: ['Auto-assign by tag or team', 'Slack and Teams alerts', 'SLA tracking with escalation'],
+        demoSlot: 'tasks'
       },
       // Evidence
       {
@@ -693,7 +700,8 @@ const CONTENT_PAGES = {
         title: 'Audit evidence. Always on.',
         body: 'Continuous evidence collection. Audit packages in minutes.',
         bullets: ['Point-in-time snapshots', 'Control-level evidence', 'PDF and CSV exports'],
-        reverse: true
+        reverse: true,
+        demoSlot: 'security'
       },
       // How it works
       {
@@ -947,6 +955,7 @@ const CONTENT_PAGES = {
     title: 'Governance and control',
     summary:
       'Establish consistent ownership, standards, and accountability across every cloud team.',
+    demoSlot: 'dashboard',
     focus: 'ownership coverage and standards enforcement',
     kpis: [
       { label: 'Coverage', value: 'Up to 98%', detail: 'Ownership on critical assets' },
@@ -963,6 +972,7 @@ const CONTENT_PAGES = {
     title: 'Audit readiness',
     summary:
       'Convert hygiene enforcement into audit-ready evidence for every framework.',
+    demoSlot: 'reports',
     focus: 'evidence collection and control coverage',
     kpis: [
       { label: 'Readiness', value: '90 days', detail: 'Time to audit baseline' },
@@ -979,6 +989,7 @@ const CONTENT_PAGES = {
     title: 'Cost and waste reduction',
     summary:
       'Identify hygiene-driven waste and reduce cloud spend without sacrificing performance.',
+    demoSlot: 'findings',
     focus: 'lifecycle enforcement and ownership clarity',
     kpis: [
       { label: 'Waste', value: 'Up to 30%', detail: 'Reduction in orphaned assets' },
@@ -995,6 +1006,7 @@ const CONTENT_PAGES = {
     title: 'Risk posture',
     summary:
       'Reduce exposure by closing hygiene gaps that create operational and security risk.',
+    demoSlot: 'security',
     focus: 'critical asset protection and remediation velocity',
     kpis: [
       { label: 'Risk', value: 'Up to 60%', detail: 'Fewer critical violations' },
@@ -1012,28 +1024,32 @@ const CONTENT_PAGES = {
     summary:
       'Executive control of cloud hygiene, risk, and accountability.',
     priorities: ['Enterprise governance posture', 'Risk reduction', 'Operational discipline'],
-    outcomes: ['Board-ready reporting', 'Accountability at scale', 'Audit readiness']
+    outcomes: ['Board-ready reporting', 'Accountability at scale', 'Audit readiness'],
+    demoSlot: 'reports'
   }),
   '/roles/ciso': buildRolePage({
     title: 'For CISOs',
     summary:
       'Continuous evidence of governance controls that support audit readiness.',
     priorities: ['Control coverage', 'Evidence trail', 'Security posture'],
-    outcomes: ['Audit-ready evidence', 'Risk exception visibility', 'Policy enforcement']
+    outcomes: ['Audit-ready evidence', 'Risk exception visibility', 'Policy enforcement'],
+    demoSlot: 'security'
   }),
   '/roles/cto': buildRolePage({
     title: 'For CTOs',
     summary:
       'Build engineering velocity on top of enforceable governance standards.',
     priorities: ['Engineering enablement', 'Architecture integrity', 'Operational clarity'],
-    outcomes: ['Reduced rework', 'Aligned standards', 'Measured execution']
+    outcomes: ['Reduced rework', 'Aligned standards', 'Measured execution'],
+    demoSlot: 'standards'
   }),
   '/roles/vp-engineering': buildRolePage({
     title: 'For VPs of Engineering',
     summary:
       'Make ownership and remediation part of the engineering operating system.',
     priorities: ['Execution accountability', 'Team coordination', 'Remediation velocity'],
-    outcomes: ['Clear ownership', 'Measured velocity', 'Executive reporting']
+    outcomes: ['Clear ownership', 'Measured velocity', 'Executive reporting'],
+    demoSlot: 'tasks'
   }),
   '/proof/case-studies': buildProofPage({
     title: 'Case studies',
@@ -1976,7 +1992,7 @@ function SectionRenderer({ section }) {
           )}
         </div>
         <div className="screenshot-wrapper">
-          <ProductScreenshot slot="contentInline" />
+          <ProductDemo slot={section.demoSlot || 'dashboard'} />
         </div>
       </div>
     );
@@ -2380,7 +2396,7 @@ function ContentPage({ page, pathname }) {
           {page.heroScreenshot && (
             <div className="content-hero-screenshot">
               <div className="hero-screenshot-wrapper">
-                <ProductScreenshot slot="contentHero" className="hero-screenshot-placeholder" />
+                <ProductDemo slot={page.heroScreenshot.demoSlot || 'dashboard'} className="hero-screenshot-placeholder" />
               </div>
             </div>
           )}
@@ -3068,7 +3084,7 @@ function PricingPage() {
               </div>
             </div>
             <div className="enterprise-callout-visual">
-              <ProductScreenshot slot="enterprise" className="enterprise-visual-placeholder" />
+              <ProductDemo slot="security" className="enterprise-visual-placeholder" />
             </div>
           </div>
         </div>
