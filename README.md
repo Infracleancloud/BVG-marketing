@@ -1,6 +1,6 @@
-# Cloud Hygiene Coach — Marketing Site
+# Infra Clean Cloud — Marketing Site
 
-Enterprise marketing site for [Cloud Hygiene Coach](https://cloudhygienecoach.com).
+Enterprise marketing site for [Infra Clean Cloud](https://infraclean.cloud).
 
 ## Local Development
 
@@ -25,8 +25,8 @@ Deployed to **Vercel**. Push to `main` triggers production deploy. Pull requests
 
 | Variable | Purpose | Example |
 |---|---|---|
-| `VITE_APP_URL` | Main application URL | `https://app.cloudhygienecoach.com` |
-| `VITE_APP_API_URL` | Handoff API endpoint | `https://api.cloudhygienecoach.com` |
+| `VITE_APP_URL` | Main application URL | `https://app.infraclean.cloud` |
+| `VITE_APP_API_URL` | Handoff API endpoint | `https://api.infraclean.cloud` |
 | `VITE_GA_MEASUREMENT_ID` | Google Analytics ID | `G-XXXXXXXXXX` |
 
 ## Site Structure

@@ -1,9 +1,9 @@
 {
-  "name": "cloud-hygiene-coach-marketing",
+  "name": "infra-clean-cloud-marketing",
   "version": "1.1.0",
   "private": true,
   "type": "module",
-  "description": "Cloud Hygiene Coach marketing site",
+  "description": "Infra Clean Cloud marketing site",
   "scripts": {
     "dev": "vite",
     "dev:open": "vite --open",

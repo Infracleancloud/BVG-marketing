@@ -13,7 +13,7 @@
   </g>
   
   <!-- Company name -->
-  <text x="140" y="108" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="500">Cloud Hygiene Coach</text>
+  <text x="140" y="108" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="500">Infra Clean Cloud</text>
   
   <!-- Main headline -->
   <text x="80" y="300" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="600" letter-spacing="-0.03em">Simple, transparent pricing</text>
@@ -39,7 +39,7 @@
   </g>
   
   <!-- URL -->
-  <text x="1120" y="108" fill="#71717a" font-family="system-ui, -apple-system, sans-serif" font-size="20" text-anchor="end">cloudhygienecoach.com/pricing</text>
+  <text x="1120" y="108" fill="#71717a" font-family="system-ui, -apple-system, sans-serif" font-size="20" text-anchor="end">infraclean.cloud/pricing</text>
   
   <defs>
     <linearGradient id="gradient" x1="0" y1="0" x2="1200" y2="0">

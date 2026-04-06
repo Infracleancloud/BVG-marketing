@@ -1,5 +1,5 @@
 /**
- * Cloud Hygiene Coach - SEO Component
+ * Infra Clean Cloud - SEO Component
  * Handles all meta tags, OpenGraph, Twitter Cards, and JSON-LD
  */
 

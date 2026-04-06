@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cloudhygienecoach.com/</loc>
+    <loc>https://infraclean.cloud/</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -9,25 +9,25 @@
 
   <!-- Platform -->
   <url>
-    <loc>https://cloudhygienecoach.com/platform</loc>
+    <loc>https://infraclean.cloud/platform</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/platform/how-it-works</loc>
+    <loc>https://infraclean.cloud/platform/how-it-works</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/platform/capabilities</loc>
+    <loc>https://infraclean.cloud/platform/capabilities</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/platform/integrations</loc>
+    <loc>https://infraclean.cloud/platform/integrations</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -35,7 +35,7 @@
 
   <!-- Pricing -->
   <url>
-    <loc>https://cloudhygienecoach.com/pricing</loc>
+    <loc>https://infraclean.cloud/pricing</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -43,25 +43,25 @@
 
   <!-- Outcomes -->
   <url>
-    <loc>https://cloudhygienecoach.com/outcomes/governance</loc>
+    <loc>https://infraclean.cloud/outcomes/governance</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/outcomes/audit-readiness</loc>
+    <loc>https://infraclean.cloud/outcomes/audit-readiness</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/outcomes/cost</loc>
+    <loc>https://infraclean.cloud/outcomes/cost</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/outcomes/risk</loc>
+    <loc>https://infraclean.cloud/outcomes/risk</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -69,25 +69,25 @@
 
   <!-- Roles -->
   <url>
-    <loc>https://cloudhygienecoach.com/roles/cio</loc>
+    <loc>https://infraclean.cloud/roles/cio</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/roles/ciso</loc>
+    <loc>https://infraclean.cloud/roles/ciso</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/roles/cto</loc>
+    <loc>https://infraclean.cloud/roles/cto</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/roles/vp-engineering</loc>
+    <loc>https://infraclean.cloud/roles/vp-engineering</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -95,19 +95,19 @@
 
   <!-- Proof -->
   <url>
-    <loc>https://cloudhygienecoach.com/proof/case-studies</loc>
+    <loc>https://infraclean.cloud/proof/case-studies</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/proof/benchmark</loc>
+    <loc>https://infraclean.cloud/proof/benchmark</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/proof/roi</loc>
+    <loc>https://infraclean.cloud/proof/roi</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -115,19 +115,19 @@
 
   <!-- Trust -->
   <url>
-    <loc>https://cloudhygienecoach.com/trust</loc>
+    <loc>https://infraclean.cloud/trust</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/trust/security</loc>
+    <loc>https://infraclean.cloud/trust/security</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/trust/compliance</loc>
+    <loc>https://infraclean.cloud/trust/compliance</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -135,25 +135,25 @@
 
   <!-- Company -->
   <url>
-    <loc>https://cloudhygienecoach.com/company</loc>
+    <loc>https://infraclean.cloud/company</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/company/leadership</loc>
+    <loc>https://infraclean.cloud/company/leadership</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/company/careers</loc>
+    <loc>https://infraclean.cloud/company/careers</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/company/contact</loc>
+    <loc>https://infraclean.cloud/company/contact</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -161,37 +161,37 @@
 
   <!-- Blog -->
   <url>
-    <loc>https://cloudhygienecoach.com/blog</loc>
+    <loc>https://infraclean.cloud/blog</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/blog/cloud-governance-2026</loc>
+    <loc>https://infraclean.cloud/blog/cloud-governance-2026</loc>
     <lastmod>2026-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/blog/soc2-without-pain</loc>
+    <loc>https://infraclean.cloud/blog/soc2-without-pain</loc>
     <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/blog/aws-iam-best-practices</loc>
+    <loc>https://infraclean.cloud/blog/aws-iam-best-practices</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/blog/tagging-strategy-that-works</loc>
+    <loc>https://infraclean.cloud/blog/tagging-strategy-that-works</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/blog/cloud-cost-ownership</loc>
+    <loc>https://infraclean.cloud/blog/cloud-cost-ownership</loc>
     <lastmod>2025-12-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -199,7 +199,7 @@
 
   <!-- Conversion -->
   <url>
-    <loc>https://cloudhygienecoach.com/request-briefing</loc>
+    <loc>https://infraclean.cloud/request-briefing</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -207,19 +207,19 @@
 
   <!-- Legal -->
   <url>
-    <loc>https://cloudhygienecoach.com/privacy</loc>
+    <loc>https://infraclean.cloud/privacy</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/terms</loc>
+    <loc>https://infraclean.cloud/terms</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://cloudhygienecoach.com/security</loc>
+    <loc>https://infraclean.cloud/security</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

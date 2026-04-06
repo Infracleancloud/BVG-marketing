@@ -1,5 +1,5 @@
-# Cloud Hygiene Coach - Robots.txt
-# https://cloudhygienecoach.com
+# Infra Clean Cloud - Robots.txt
+# https://infraclean.cloud
 
 User-agent: *
 Allow: /
@@ -10,7 +10,4 @@ Disallow: /signup
 Disallow: /status
 
 # Sitemap
-Sitemap: https://cloudhygienecoach.com/sitemap.xml
-
-# Crawl-delay for politeness (optional)
-Crawl-delay: 1
+Sitemap: https://infraclean.cloud/sitemap.xml

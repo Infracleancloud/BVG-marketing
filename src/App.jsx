@@ -133,7 +133,7 @@ function ScrollReveal({ children, className = '', delay = 0, direction = 'up' })
 
 // ========== PRODUCT DEMOS ==========
 const DEMOS = {
-  heroMain:      { video: '/demos/01-dashboard-overview.webm',   poster: '/demos/01-dashboard-overview-poster.png',   alt: 'Cloud Hygiene Coach dashboard overview',     w: 1440, h: 900 },
+  heroMain:      { video: '/demos/01-dashboard-overview.webm',   poster: '/demos/01-dashboard-overview-poster.png',   alt: 'Infra Clean Cloud dashboard overview',     w: 1440, h: 900 },
   dashboard:     { video: '/demos/01-dashboard-overview.webm',   poster: '/demos/01-dashboard-overview-poster.png',   alt: 'Governance dashboard with hygiene scores',   w: 1440, h: 900 },
   findings:      { video: '/demos/02-findings-drilldown.webm',   poster: '/demos/02-findings-drilldown-poster.png',   alt: 'Prioritized findings and remediation paths', w: 1440, h: 900 },
   tasks:         { video: '/demos/03-task-remediation.webm',     poster: '/demos/03-task-remediation-poster.png',     alt: 'Remediation task board with ownership',      w: 1440, h: 900 },
@@ -197,8 +197,8 @@ function ProductScreenshot({ slot, className = '' }) {
   return <ProductDemo slot={slot} className={className} />;
 }
 
-const APP_URL = import.meta.env.VITE_APP_URL || 'https://app.cloudhygienecoach.com';
-const API_URL = import.meta.env.VITE_APP_API_URL || 'https://api.cloudhygienecoach.com';
+const APP_URL = import.meta.env.VITE_APP_URL || 'https://app.infraclean.cloud';
+const API_URL = import.meta.env.VITE_APP_API_URL || 'https://api.infraclean.cloud';
 const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
 
 if (GA_ID && typeof window !== 'undefined') {
@@ -222,7 +222,7 @@ function captureUtmParams() {
   if (Object.keys(utm).length > 0) {
     utm.referrer = document.referrer || null;
     utm.landingPage = window.location.pathname;
-    localStorage.setItem('chc_marketing_utm', JSON.stringify(utm));
+    localStorage.setItem('icc_marketing_utm', JSON.stringify(utm));
   }
 }
 
@@ -230,7 +230,7 @@ function captureUtmParams() {
 if (typeof window !== 'undefined') captureUtmParams();
 
 function getStoredUtm() {
-  try { return JSON.parse(localStorage.getItem('chc_marketing_utm') || '{}'); }
+  try { return JSON.parse(localStorage.getItem('icc_marketing_utm') || '{}'); }
   catch { return {}; }
 }
 
@@ -303,7 +303,7 @@ function navigateToApp(path, additionalParams = {}) {
   });
   
   // Clear stored UTM (it's now in the URL)
-  localStorage.removeItem('chc_marketing_utm');
+  localStorage.removeItem('icc_marketing_utm');
   
   // Navigate to the app
   window.location.href = targetUrl.toString();
@@ -507,7 +507,7 @@ function buildRolePage({ title, summary, priorities, outcomes }) {
       {
         type: 'screenshot',
         eyebrow: 'A day in the life',
-        title: `How ${title.replace('For ', '')} use Cloud Hygiene Coach`,
+        title: `How ${title.replace('For ', '')} use Infra Clean Cloud`,
         body: 'Start your day with a complete view of governance posture and end it with measurable progress.',
         bullets: ['Morning: Review posture dashboard', 'Midday: Track remediation progress', 'Weekly: Share executive summary'],
         placeholder: `${roleType} Workflow View (600 × 360)`
@@ -569,7 +569,7 @@ function buildProofPage({ title, summary, stories }) {
       },
       {
         type: 'quote',
-        quote: 'Cloud Hygiene Coach gave us the visibility and accountability we needed to pass our SOC 2 audit with zero findings.',
+        quote: 'Infra Clean Cloud gave us the visibility and accountability we needed to pass our SOC 2 audit with zero findings.',
         role: 'CISO',
         company: 'Enterprise SaaS'
       },
@@ -806,7 +806,7 @@ const CONTENT_PAGES = {
         type: 'narrative',
         title: 'Product overview',
         body:
-          'Cloud Hygiene Coach integrates cloud environment data, applies compliance frameworks, and generates actionable remediation workflows. Built for organizations that require continuous audit readiness, risk quantification, and operational accountability across multi-cloud infrastructure.',
+          'Infra Clean Cloud integrates cloud environment data, applies compliance frameworks, and generates actionable remediation workflows. Built for organizations that require continuous audit readiness, risk quantification, and operational accountability across multi-cloud infrastructure.',
         bullets: ['Continuous audit readiness', 'Risk quantification', 'Operational accountability']
       },
       {
@@ -1038,7 +1038,7 @@ const CONTENT_PAGES = {
   '/proof/case-studies': buildProofPage({
     title: 'Case studies',
     summary:
-      'Enterprise teams use Cloud Hygiene Coach to drive accountability and reduce risk.',
+      'Enterprise teams use Infra Clean Cloud to drive accountability and reduce risk.',
     stories: [
       {
         title: 'Financial services',
@@ -1129,7 +1129,7 @@ const CONTENT_PAGES = {
           'We\'d seen it before—at companies large and small. The same story: good intentions, no system. Hygiene debt piling up until audit season became panic season.',
           'So we built the tool we wished we had. A single source of truth for cloud governance. Not another dashboard to ignore—an operating system for hygiene.'
         ],
-        signature: { name: 'The Founding Team', role: 'Cloud Hygiene Coach' },
+        signature: { name: 'The Founding Team', role: 'Infra Clean Cloud' },
         imagePlaceholder: 'Founders Photo (400 × 500)'
       },
       {
@@ -1169,7 +1169,7 @@ const CONTENT_PAGES = {
       {
         type: 'narrative',
         title: 'Leadership team',
-        body: 'Cloud Hygiene Coach is led by a team of operators and engineers who have built governance and compliance systems at enterprise scale.',
+        body: 'Infra Clean Cloud is led by a team of operators and engineers who have built governance and compliance systems at enterprise scale.',
         bullets: [
           'Deep experience in cloud infrastructure and security',
           'Backgrounds in enterprise SaaS and compliance',
@@ -1244,13 +1244,13 @@ const CONTENT_PAGES = {
   '/privacy': {
     eyebrow: 'Legal',
     title: 'Privacy Policy',
-    summary: 'How we collect, use, and protect your information. Last updated: [Date — requires legal review].',
+    summary: 'How we collect, use, and protect your information. This policy is under legal review and will be finalized before general availability.',
     hideLogoBar: true,
     sections: [
       {
         type: 'narrative',
         title: 'DRAFT — Pending Legal Review',
-        body: 'This privacy policy is a draft and is subject to final legal review before launch. It outlines the intended data practices of Cloud Hygiene Coach.',
+        body: 'This privacy policy is a draft and is subject to final legal review before launch. It outlines the intended data practices of Infra Clean Cloud.',
         bullets: []
       },
       {
@@ -1322,7 +1322,7 @@ const CONTENT_PAGES = {
       {
         type: 'narrative',
         title: '7. Contact us',
-        body: 'For privacy-related inquiries, contact us at privacy@cloudhygienecoach.com. We aim to respond within 30 days.',
+        body: 'For privacy-related inquiries, contact us at privacy@infraclean.cloud. We aim to respond within 30 days.',
         bullets: []
       }
     ]
@@ -1330,25 +1330,25 @@ const CONTENT_PAGES = {
   '/terms': {
     eyebrow: 'Legal',
     title: 'Terms of Service',
-    summary: 'Terms and conditions for using Cloud Hygiene Coach. Last updated: [Date — requires legal review].',
+    summary: 'Terms and conditions for using Infra Clean Cloud. These terms are under legal review and will be finalized before general availability.',
     hideLogoBar: true,
     sections: [
       {
         type: 'narrative',
         title: 'DRAFT — Pending Legal Review',
-        body: 'These terms of service are a draft and are subject to final legal review before launch. They outline the intended contractual framework for Cloud Hygiene Coach.',
+        body: 'These terms of service are a draft and are subject to final legal review before launch. They outline the intended contractual framework for Infra Clean Cloud.',
         bullets: []
       },
       {
         type: 'narrative',
         title: '1. Acceptance of terms',
-        body: 'By accessing or using Cloud Hygiene Coach, you agree to be bound by these Terms of Service and our Privacy Policy. If you are using the service on behalf of an organization, you represent that you have authority to bind that organization.',
+        body: 'By accessing or using Infra Clean Cloud, you agree to be bound by these Terms of Service and our Privacy Policy. If you are using the service on behalf of an organization, you represent that you have authority to bind that organization.',
         bullets: []
       },
       {
         type: 'narrative',
         title: '2. Description of service',
-        body: 'Cloud Hygiene Coach provides cloud governance, compliance monitoring, and remediation workflow tools delivered as a software-as-a-service platform. Features and availability may vary by subscription plan.',
+        body: 'Infra Clean Cloud provides cloud governance, compliance monitoring, and remediation workflow tools delivered as a software-as-a-service platform. Features and availability may vary by subscription plan.',
         bullets: []
       },
       {
@@ -1375,9 +1375,9 @@ const CONTENT_PAGES = {
       {
         type: 'narrative',
         title: '5. Intellectual property',
-        body: 'Cloud Hygiene Coach and its content, features, and functionality are owned by BVG Solutions and are protected by copyright, trademark, and other intellectual property laws. Your data remains yours.',
+        body: 'Infra Clean Cloud and its content, features, and functionality are owned by BVG Solutions and are protected by copyright, trademark, and other intellectual property laws. Your data remains yours.',
         bullets: [
-          'Service IP belongs to Cloud Hygiene Coach',
+          'Service IP belongs to Infra Clean Cloud',
           'Customer data remains customer property',
           'Limited license granted for service use'
         ]
@@ -1397,13 +1397,13 @@ const CONTENT_PAGES = {
       {
         type: 'narrative',
         title: '8. Limitation of liability',
-        body: 'To the maximum extent permitted by law, Cloud Hygiene Coach shall not be liable for indirect, incidental, special, consequential, or punitive damages. Our total liability is limited to the amount paid for the service in the 12 months preceding the claim.',
+        body: 'To the maximum extent permitted by law, Infra Clean Cloud shall not be liable for indirect, incidental, special, consequential, or punitive damages. Our total liability is limited to the amount paid for the service in the 12 months preceding the claim.',
         bullets: []
       },
       {
         type: 'narrative',
         title: '9. Contact',
-        body: 'For questions about these terms, contact us at legal@cloudhygienecoach.com.',
+        body: 'For questions about these terms, contact us at legal@infraclean.cloud.',
         bullets: []
       }
     ]
@@ -1417,7 +1417,7 @@ const CONTENT_PAGES = {
       {
         type: 'narrative',
         title: 'Security first',
-        body: 'Security is foundational to everything we build at Cloud Hygiene Coach.',
+        body: 'Security is foundational to everything we build at Infra Clean Cloud.',
         bullets: [
           'SOC 2 Type II certified',
           'Encryption at rest and in transit',
@@ -1438,9 +1438,9 @@ const CONTENT_PAGES = {
         title: 'Get in touch',
         subtitle: 'We typically respond within 24 hours.',
         options: [
-          { icon: 'mail', label: 'Sales inquiries', value: 'sales@cloudhygienecoach.com', action: 'Email us', href: 'mailto:sales@cloudhygienecoach.com' },
-          { icon: 'message', label: 'Support', value: 'support@cloudhygienecoach.com', action: 'Get help', href: 'mailto:support@cloudhygienecoach.com' },
-          { icon: 'mail', label: 'Press & partnerships', value: 'press@cloudhygienecoach.com', action: 'Reach out', href: 'mailto:press@cloudhygienecoach.com' },
+          { icon: 'mail', label: 'Sales inquiries', value: 'sales@infraclean.cloud', action: 'Email us', href: 'mailto:sales@infraclean.cloud' },
+          { icon: 'message', label: 'Support', value: 'support@infraclean.cloud', action: 'Get help', href: 'mailto:support@infraclean.cloud' },
+          { icon: 'mail', label: 'Press & partnerships', value: 'press@infraclean.cloud', action: 'Reach out', href: 'mailto:press@infraclean.cloud' },
           { icon: 'map', label: 'Office', value: 'San Francisco, CA (Remote-first)', action: 'View on map', href: '#' }
         ]
       },
@@ -1452,7 +1452,7 @@ const CONTENT_PAGES = {
       },
       {
         type: 'quote',
-        quote: 'The Cloud Hygiene Coach team was incredibly responsive during our evaluation. They understood our requirements and made procurement painless.',
+        quote: 'The Infra Clean Cloud team was incredibly responsive during our evaluation. They understood our requirements and made procurement painless.',
         role: 'VP of IT',
         company: 'Enterprise Customer'
       }
@@ -1543,7 +1543,7 @@ function SiteLayout({ children, pathname }) {
       <header className="nav">
         <div className="section-content nav-inner">
           <SiteLink to="/" className="logo">
-            Cloud Hygiene Coach
+            Infra Clean Cloud
           </SiteLink>
           <nav className="nav-links">
             {NAV_LINKS.map((link) => (
@@ -1616,17 +1616,17 @@ function SiteLayout({ children, pathname }) {
             </div>
             <div className="footer-column footer-contact">
               <strong>Contact</strong>
-              <a href="mailto:hello@cloudhygienecoach.com">
-                <Mail size={16} /> hello@cloudhygienecoach.com
+              <a href="mailto:hello@infraclean.cloud">
+                <Mail size={16} /> hello@infraclean.cloud
               </a>
-              <a href="mailto:support@cloudhygienecoach.com">
-                <MessageCircle size={16} /> support@cloudhygienecoach.com
+              <a href="mailto:support@infraclean.cloud">
+                <MessageCircle size={16} /> support@infraclean.cloud
               </a>
               <div className="footer-social">
-                <a href="https://linkedin.com/company/cloudhygienecoach" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <a href="https://linkedin.com/company/infracleancloud" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                   <Linkedin size={20} />
                 </a>
-                <a href="https://twitter.com/cloudhygiene" target="_blank" rel="noreferrer" aria-label="Twitter">
+                <a href="https://twitter.com/infracleancloud" target="_blank" rel="noreferrer" aria-label="Twitter">
                   <Twitter size={20} />
                 </a>
               </div>
@@ -1634,7 +1634,7 @@ function SiteLayout({ children, pathname }) {
           </div>
           <div className="footer-bottom">
             <div className="footer-copyright">
-              © {new Date().getFullYear()} Cloud Hygiene Coach
+              © {new Date().getFullYear()} Infra Clean Cloud
             </div>
             <div className="footer-legal">
               <SiteLink to="/status">Status</SiteLink>
@@ -1875,7 +1875,7 @@ function HomePage() {
             <div className="quote-section">
               <p className="quote-text">
                 "We replaced quarterly hygiene audits with weekly operational reporting 
-                and cut audit prep time in half. Cloud Hygiene Coach transformed how 
+                and cut audit prep time in half. Infra Clean Cloud transformed how 
                 we govern our cloud infrastructure."
               </p>
               <div className="quote-attribution">
@@ -1924,7 +1924,7 @@ const ICON_COLORS = ['feature-icon-blue', 'feature-icon-green', 'feature-icon-pu
   'feature-icon-orange', 'feature-icon-teal', 'feature-icon-indigo'];
 
 function DarkCTA({ headline = "Ready to transform your cloud governance?",
-  description = "Get a personalized briefing on how Cloud Hygiene Coach can help your organization.",
+  description = "Get a personalized briefing on how Infra Clean Cloud can help your organization.",
   primaryHref = "/request-briefing", secondaryHref = "/platform" }) {
   return (
     <section className="section-dark">
@@ -2594,7 +2594,7 @@ function RequestBriefing() {
         destination: '/welcome',
       });
     } catch (err) {
-      setError('Something went wrong. Please try again or contact support@cloudhygienecoach.com.');
+      setError('Something went wrong. Please try again or contact support@infraclean.cloud.');
     } finally {
       setIsSubmitting(false);
     }
@@ -2749,7 +2749,7 @@ function AuthRedirect({ mode }) {
             {mode === 'login' ? 'Redirecting to sign in...' : 'Redirecting to sign up...'}
           </h1>
           <p className="content-page-summary">
-            Taking you to Cloud Hygiene Coach
+            Taking you to Infra Clean Cloud
           </p>
           <noscript>
             <div style={{ marginTop: '24px' }}>
@@ -3118,7 +3118,7 @@ const BLOG_POSTS = [
     title: 'The State of Cloud Governance in 2026',
     excerpt: 'Why 73% of enterprises still struggle with cloud compliance—and what the leaders are doing differently.',
     date: '2026-01-15',
-    author: 'Cloud Hygiene Coach Team',
+    author: 'Infra Clean Cloud Team',
     category: 'Industry',
     readTime: '8 min',
     content: [
@@ -3140,7 +3140,7 @@ const BLOG_POSTS = [
     title: 'SOC 2 Without the Pain',
     excerpt: 'How modern teams are cutting audit prep time from weeks to hours with continuous compliance.',
     date: '2026-01-08',
-    author: 'Cloud Hygiene Coach Team',
+    author: 'Infra Clean Cloud Team',
     category: 'Compliance',
     readTime: '6 min',
     content: [
@@ -3161,7 +3161,7 @@ const BLOG_POSTS = [
     title: 'AWS IAM Best Practices for 2026',
     excerpt: 'Least privilege, key rotation, and MFA enforcement—a practical guide for security teams.',
     date: '2025-12-20',
-    author: 'Cloud Hygiene Coach Team',
+    author: 'Infra Clean Cloud Team',
     category: 'Security',
     readTime: '10 min',
     content: [
@@ -3188,7 +3188,7 @@ const BLOG_POSTS = [
     title: 'A Tagging Strategy That Actually Works',
     excerpt: 'Why most tagging initiatives fail—and the simple framework that drives 95%+ compliance.',
     date: '2025-12-12',
-    author: 'Cloud Hygiene Coach Team',
+    author: 'Infra Clean Cloud Team',
     category: 'Operations',
     readTime: '7 min',
     content: [
@@ -3209,7 +3209,7 @@ const BLOG_POSTS = [
     title: 'The Hidden Cost of No Ownership',
     excerpt: 'Unowned cloud resources cost enterprises millions. Here is how to fix it.',
     date: '2025-12-01',
-    author: 'Cloud Hygiene Coach Team',
+    author: 'Infra Clean Cloud Team',
     category: 'Cost',
     readTime: '5 min',
     content: [
@@ -3314,7 +3314,7 @@ function BlogPost({ post }) {
               {post.content ? post.content.map(renderContent) : (
                 <>
                   <p>This article is coming soon.</p>
-                  <p>Request a briefing and experience Cloud Hygiene Coach firsthand.</p>
+                  <p>Request a briefing and experience Infra Clean Cloud firsthand.</p>
                 </>
               )}
             </div>
@@ -3362,7 +3362,7 @@ function StatusPage() {
             ))}
           </div>
           <p style={{ textAlign: 'center', marginTop: '40px', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-            Live status monitoring will be available at launch. Contact <a href="mailto:support@cloudhygienecoach.com" style={{ color: 'var(--color-accent)' }}>support@cloudhygienecoach.com</a> for current status.
+            Live status monitoring will be available at launch. Contact <a href="mailto:support@infraclean.cloud" style={{ color: 'var(--color-accent)' }}>support@infraclean.cloud</a> for current status.
           </p>
         </div>
       </section>

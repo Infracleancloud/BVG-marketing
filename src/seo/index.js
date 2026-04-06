@@ -1,5 +1,5 @@
 /**
- * Cloud Hygiene Coach - SEO Module
+ * Infra Clean Cloud - SEO Module
  * Export all SEO utilities
  */
 

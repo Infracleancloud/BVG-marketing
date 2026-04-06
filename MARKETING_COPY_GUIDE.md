@@ -1,6 +1,6 @@
 # Marketing Copy Guide (Palantir-Style)
 
-This guide defines the voice, structure, and standards for the Cloud Hygiene Coach marketing site.
+This guide defines the voice, structure, and standards for the Infra Clean Cloud marketing site.
 
 ## Voice and Tone
 - Executive, precise, and outcomes-first
