@@ -1,9 +1,15 @@
 # INFRA CLEAN CLOUD - MARKETING SITE RULES
-# Version: 1.1.0 | Last Updated: January 25, 2026
+# Version: 1.2.0 | Last Updated: March 25, 2026
 
 ## REQUIRED READS (MARKETING)
 1. MARKETING_COPY_GUIDE.md - Palantir-style copy and structure
 2. README.md - Local development and structure
+
+## DEPLOYMENT — MANDATORY PROCESS
+# ⛔ NEVER DEPLOY DIRECTLY TO PRODUCTION
+# ALWAYS: local validate → UAT preview → present results → get operator approval → then prod
+# SEE .cursor/rules/deployment-guardrails.mdc FOR FULL PROCESS
+# VIOLATION OF THIS PROCESS IS NOT ACCEPTABLE
 
 ## COPY GUARDRAILS
 - Follow Palantir-style tone: executive, outcomes-first, evidence-led

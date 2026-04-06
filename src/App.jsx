@@ -3503,7 +3503,7 @@ export default function App() {
     }
     window.history.pushState({}, '', normalized);
     setPathname(normalized);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const route = useMemo(() => resolveRoute(pathname), [pathname]);

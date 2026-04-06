@@ -1,0 +1,87 @@
+---
+description: MANDATORY deployment process — UAT before production, operator approval required
+alwaysApply: true
+---
+
+# DEPLOYMENT GUARDRAILS — MANDATORY
+
+## NEVER PUSH DIRECTLY TO PRODUCTION
+
+Every deployment MUST go through UAT (preview) first. No exceptions.
+
+## REQUIRED DEPLOYMENT PROCESS
+
+### Step 1: Local validation
+```
+npm run lint
+npm run build
+npm run smoke
+```
+
+### Step 2: Deploy to UAT (Vercel preview)
+```
+npx vercel deploy --yes
+```
+This returns a preview URL. This is the UAT environment.
+
+### Step 3: Verify UAT
+Open the preview URL in the browser. Check:
+- Homepage loads, no blank screen
+- Navigation works
+- Key pages render (pricing, careers, blog, legal)
+- No console errors
+- Videos/images load
+- CTAs point to correct destinations
+
+### Step 4: PRESENT UAT RESULTS TO OPERATOR FOR APPROVAL
+
+You MUST show the operator the following message **before any production deployment**:
+
+```
+========================================
+  UAT DEPLOYMENT RESULT
+========================================
+
+Preview URL: <vercel preview url>
+Build: PASS / FAIL
+Lint: PASS / FAIL
+Smoke test: PASS / FAIL
+Browser check: PASS / FAIL / NOT CHECKED
+
+Pages verified:
+- [ ] Homepage
+- [ ] Pricing
+- [ ] Careers
+- [ ] Blog
+- [ ] Legal (privacy/terms)
+- [ ] Other: ...
+
+Issues found: <none or list>
+
+========================================
+  REQUESTING APPROVAL TO PUSH TO PROD
+========================================
+
+Do you approve promoting this UAT build to production? (yes/no)
+```
+
+### Step 5: WAIT FOR EXPLICIT "yes" FROM OPERATOR
+
+Do NOT proceed to production until the operator explicitly says yes.
+
+### Step 6: Only then deploy to production
+```
+npx vercel deploy --prod --yes
+```
+
+## WHAT IS FORBIDDEN
+
+- `npx vercel deploy --prod` without a UAT preview first
+- `git push origin main` followed immediately by prod deploy without UAT
+- Skipping the approval prompt
+- Assuming approval
+- Deploying to prod "because the smoke test passed"
+
+## IF YOU VIOLATE THIS PROCESS
+
+Stop. Acknowledge the violation. Do not continue deploying.
