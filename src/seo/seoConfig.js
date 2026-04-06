@@ -185,7 +185,7 @@ export const SEO_CONFIG = {
   // Blog Posts
   '/blog/cloud-governance-2026': {
     title: 'The State of Cloud Governance in 2026 | Infra Clean Cloud',
-    description: 'Why 73% of enterprises still struggle with cloud compliance and what leaders are doing differently.',
+    description: 'Why most enterprises still struggle with cloud compliance—and what the leaders are doing differently.',
     keywords: 'cloud governance 2026, compliance trends, enterprise cloud',
     article: true,
   },
@@ -227,13 +227,13 @@ export const SEO_CONFIG = {
     noindex: true,
   },
   '/login': {
-    title: 'Login | Infra Clean Cloud',
-    description: 'Sign in to your Infra Clean Cloud account.',
+    title: 'Request Access | Infra Clean Cloud',
+    description: 'Request access to the Infra Clean Cloud platform. Get a personalized briefing.',
     noindex: true,
   },
   '/signup': {
-    title: 'Sign Up | Infra Clean Cloud',
-    description: 'Create your free Infra Clean Cloud account.',
+    title: 'Request Access | Infra Clean Cloud',
+    description: 'Request access to the Infra Clean Cloud platform. Get a personalized briefing.',
     noindex: true,
   },
   '/status': {
@@ -265,12 +265,21 @@ export function getSeoConfig(pathname) {
     return SEO_CONFIG[pathname];
   }
 
-  // Check for dynamic routes (campaigns)
   if (pathname.startsWith('/campaigns/')) {
     return {
       title: 'Campaign | Infra Clean Cloud',
       description: 'Explore this cloud governance solution from Infra Clean Cloud.',
       noindex: true,
+    };
+  }
+
+  if (pathname.startsWith('/company/careers/')) {
+    const slug = pathname.split('/').pop();
+    const roleName = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    return {
+      title: `${roleName} | Careers at Infra Clean Cloud`,
+      description: `Apply for the ${roleName} position at Infra Clean Cloud. Remote-first, competitive equity, meaningful work.`,
+      keywords: `careers, ${slug.replace(/-/g, ', ')}, cloud governance jobs, remote jobs`,
     };
   }
 

@@ -474,12 +474,6 @@ function buildOutcomePage({ title, summary, focus, kpis, outcomes, demoSlot = 'r
         ]
       },
       {
-        type: 'quote',
-        quote: 'We moved from reactive hygiene work to a measurable governance cadence in under 60 days.',
-        role: 'VP Cloud Operations',
-        company: 'Enterprise Customer'
-      },
-      {
         type: 'cta',
         title: 'Align on outcomes',
         body: 'See how a governance operating model maps to executive priorities.',
@@ -536,12 +530,6 @@ function buildRolePage({ title, summary, priorities, outcomes, demoSlot = 'dashb
           { value: 'Audit-ready', label: 'Evidence', detail: 'Always available' }
         ]
       },
-      {
-        type: 'quote',
-        quote: 'Finally, a tool that gives me the executive visibility I need without requiring my team to do manual work.',
-        role: roleType,
-        company: 'Enterprise Customer'
-      }
     ]
   };
 }
@@ -566,12 +554,6 @@ function buildProofPage({ title, summary, stories }) {
                   i === 1 ? { value: 'Up to 98%', label: 'ownership coverage' } :
                            { value: 'Up to 60%', label: 'violations reduced' }
         }))
-      },
-      {
-        type: 'quote',
-        quote: 'Continuous evidence collection changed how we approach audits. We went from scrambling to prepared.',
-        role: 'CISO',
-        company: 'Enterprise SaaS'
       },
       {
         type: 'stat-grid',
@@ -1150,7 +1132,7 @@ const CONTENT_PAGES = {
         body: 'Improved ownership coverage to up to 98% across regulated environments.'
       },
       {
-        title: 'Enterprise SaaS',
+        title: 'SaaS platform',
         body: 'Reduced high-severity hygiene violations by up to 60% in 90 days.'
       }
     ]
@@ -1182,17 +1164,17 @@ const CONTENT_PAGES = {
     sections: [
       {
         type: 'mission-hero',
-        mission: "We're on a mission to make cloud governance boring.",
-        subtitle: 'Not exciting. Not stressful. Just... handled. So you can focus on what actually matters.'
+        mission: "Cloud governance should be an operating discipline, not a crisis.",
+        subtitle: 'We build the infrastructure that makes compliance, ownership, and hygiene measurable defaults—so your team can focus on what matters.'
       },
       {
         type: 'origin-story',
         eyebrow: 'Our Story',
         title: 'Built by operators, for operators',
         paragraphs: [
-          'In 2024, we watched enterprise teams drown in cloud sprawl. Manual audits. Spreadsheet gymnastics. Finger-pointing about who owns what. Zero accountability.',
-          'We\'d seen it before—at companies large and small. The same story: good intentions, no system. Hygiene debt piling up until audit season became panic season.',
-          'So we built the tool we wished we had. A single source of truth for cloud governance. Not another dashboard to ignore—an operating system for hygiene.'
+          'In 2024, we saw the same problem across every enterprise we worked with: cloud environments growing faster than any team could govern them. Manual audits, fragmented ownership, and compliance gaps that only surfaced under pressure.',
+          'The root cause was always the same—good intentions without an operating system. Hygiene debt accumulated until it became a board-level risk.',
+          'We built Infra Clean Cloud to close that gap: a single source of truth for cloud governance that connects policy to execution, ownership to accountability, and evidence to assurance.'
         ],
         signature: { name: 'The Founding Team', role: 'Infra Clean Cloud' },
         image: '/images/team-collab.jpg',
@@ -1216,9 +1198,9 @@ const CONTENT_PAGES = {
         title: 'What we stand for',
         subtitle: 'These aren\'t posters on a wall. They\'re how we make decisions.',
         values: [
-          { name: 'Boring is better', icon: 'target', description: 'We ship reliable, not flashy. Governance should be invisible when it\'s working.' },
-          { name: 'Own the outcome', icon: 'flame', description: 'No finger-pointing. If it\'s broken, we fix it. If we broke it, we say so.' },
-          { name: 'Earn trust daily', icon: 'heart', description: 'Enterprise customers bet their compliance on us. We take that seriously.' },
+          { name: 'Reliability over novelty', icon: 'target', description: 'We ship what works. Governance should be invisible when it\'s operating correctly.' },
+          { name: 'Own the outcome', icon: 'flame', description: 'No ambiguity in ownership. If something is broken, we fix it and document why.' },
+          { name: 'Earn trust daily', icon: 'heart', description: 'Enterprise customers depend on us for their compliance posture. We treat that responsibility seriously.' },
           { name: 'Move with urgency', icon: 'rocket', description: 'Speed matters. But so does quality. We find the balance every day.' }
         ]
       },
@@ -1602,11 +1584,8 @@ function SiteLayout({ children, pathname }) {
             ))}
           </nav>
           <div className="nav-actions">
-            <SiteLink to="/login" className="btn btn-secondary nav-desktop-only">
-              Sign in
-            </SiteLink>
             <SiteLink to="/request-briefing" className="btn btn-primary nav-desktop-only">
-              Request briefing
+              Request access
             </SiteLink>
             <button
               className="mobile-menu-toggle"
@@ -1627,11 +1606,8 @@ function SiteLayout({ children, pathname }) {
                 </SiteLink>
               ))}
               <hr className="mobile-menu-divider" />
-              <SiteLink to="/login" className="mobile-menu-link">
-                Sign in
-              </SiteLink>
               <SiteLink to="/request-briefing" className="btn btn-primary mobile-menu-cta">
-                Request briefing
+                Request access
               </SiteLink>
             </nav>
           </div>
@@ -1907,9 +1883,9 @@ function HomePage() {
           <ScrollReveal direction="fade">
             <div className="quote-section">
               <p className="quote-text">
-                "Every enterprise has the same problem: too many cloud resources, 
-                not enough owners, and audit season turns into panic season. 
-                It doesn't have to be this way."
+                "Every enterprise faces the same challenge: cloud environments growing faster than governance can keep up. 
+                Ownership gaps, compliance debt, and audit risk compound silently. 
+                It does not have to work this way."
               </p>
               <div className="quote-attribution">
                 <div className="quote-info">
@@ -2074,7 +2050,7 @@ function SectionRenderer({ section }) {
   }
 
   if (section.type === 'quote') {
-    const displayName = section.name || section.attribution || section.role || 'Enterprise Customer';
+    const displayName = section.name || section.attribution || section.role || 'Infra Clean Cloud';
     const initials = displayName.split(' ').map(n => n[0]).join('').slice(0, 2);
     return (
       <div className="content-block">
@@ -2085,7 +2061,7 @@ function SectionRenderer({ section }) {
             <div className="quote-avatar-large" aria-hidden="true">{initials}</div>
             <div className="quote-info">
               {section.name && <div className="quote-name">{section.name}</div>}
-              <div className="quote-role">{section.role || 'Enterprise Customer'}</div>
+              <div className="quote-role">{section.role || ''}</div>
               {section.company && <div className="quote-company">{section.company}</div>}
             </div>
           </div>
@@ -2141,23 +2117,6 @@ function SectionRenderer({ section }) {
                 <span className="badge-name">{badge.name}</span>
                 {badge.status === 'roadmap' && <span className="badge-status">Coming soon</span>}
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  if (section.type === 'trust-badges') {
-    return (
-      <div className="content-block">
-        <h2 className="content-block-title">{section.title}</h2>
-        <div className="trust-badges">
-          {section.badges.map((badge) => (
-            <div key={badge.name} className="trust-badge">
-              <Shield size={40} />
-              <span className="trust-badge-name">{badge.name}</span>
-              <span className="trust-badge-detail">{badge.detail}</span>
             </div>
           ))}
         </div>
@@ -2230,37 +2189,6 @@ function SectionRenderer({ section }) {
     );
   }
 
-  if (section.type === 'team-grid') {
-    return (
-      <div className="content-block">
-        <h2 className="content-block-title">{section.title}</h2>
-        {section.subtitle && <p className="team-subtitle">{section.subtitle}</p>}
-        <div className="team-grid">
-          {section.members.map((member) => (
-            <div key={member.name} className="team-card">
-              <div className="team-photo">
-                <div className="team-photo-placeholder">
-                  {member.name.split(' ').map(n => n[0]).join('')}
-                </div>
-              </div>
-              <h3 className="team-name">{member.name}</h3>
-              <span className="team-role">{member.role}</span>
-              {member.bio && <p className="team-bio">{member.bio}</p>}
-              {member.funFact && <p className="team-fun-fact">"{member.funFact}"</p>}
-              <div className="team-social">
-                {member.linkedin && (
-                  <a href={member.linkedin} target="_blank" rel="noreferrer" className="social-link">
-                    <Linkedin size={18} />
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
   if (section.type === 'culture-section') {
     return (
       <div className="culture-section">
@@ -2286,20 +2214,6 @@ function SectionRenderer({ section }) {
     );
   }
 
-  if (section.type === 'investors-bar') {
-    return (
-      <div className="investors-section">
-        <span className="investors-label">{section.label || 'Backed by'}</span>
-        <div className="investors-logos">
-          {section.investors.map((investor) => (
-            <div key={investor} className="investor-logo">
-              {investor}
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
 
   if (section.type === 'metrics-bar') {
     return (
@@ -2393,7 +2307,14 @@ function SectionRenderer({ section }) {
   }
 
   if (section.type === 'cta') {
-    return null;
+    return (
+      <DarkCTA
+        headline={section.title || "Ready to transform your cloud governance?"}
+        description={section.body || "Get a personalized briefing on how Infra Clean Cloud can help your organization."}
+        primaryHref={section.primary?.href || '/request-briefing'}
+        secondaryHref={section.secondary?.href || '/platform'}
+      />
+    );
   }
 
   return null;
@@ -3180,14 +3101,14 @@ const BLOG_POSTS = [
   {
     slug: 'cloud-governance-2026',
     title: 'The State of Cloud Governance in 2026',
-    excerpt: 'Why 73% of enterprises still struggle with cloud compliance—and what the leaders are doing differently.',
+    excerpt: 'Why most enterprises still struggle with cloud compliance—and what the leaders are doing differently.',
     date: '2026-01-15',
     author: 'Infra Clean Cloud Team',
     category: 'Industry',
     readTime: '8 min',
     heroImage: '/images/blog/cloud-governance.jpg',
     content: [
-      { type: 'paragraph', text: 'Cloud governance has evolved dramatically over the past five years, yet most enterprises are still playing catch-up. According to recent industry surveys, 73% of organizations report significant gaps in their cloud compliance posture—a number that has barely budged since 2023.' },
+      { type: 'paragraph', text: 'Cloud governance has evolved dramatically over the past five years, yet most enterprises are still playing catch-up. Industry surveys consistently show that the majority of organizations report significant gaps in their cloud compliance posture—and the number has barely improved year over year.' },
       { type: 'heading', text: 'The Compliance Gap Is Growing' },
       { type: 'paragraph', text: 'The challenge is not a lack of tools. The average enterprise now deploys 7-12 different security and compliance tools across their cloud infrastructure. The problem is fragmentation. Each tool generates its own alerts, its own dashboards, and its own definition of "compliant."' },
       { type: 'paragraph', text: 'Meanwhile, cloud environments are growing more complex. Multi-account architectures, containerized workloads, and serverless functions have exploded in popularity—each bringing new governance challenges that legacy tools were never designed to handle.' },
@@ -3406,43 +3327,27 @@ function BlogPost({ post }) {
 }
 
 function StatusPage() {
-  const services = [
-    { name: 'Dashboard' },
-    { name: 'API' },
-    { name: 'Scanning Engine' },
-    { name: 'Reports' },
-    { name: 'Authentication' },
-    { name: 'Webhooks' }
-  ];
-  
   return (
     <>
       <section className="content-page-hero">
         <div className="section-content">
           <div className="content-page-header">
             <h1 className="content-page-title">System status</h1>
-            <p className="content-page-summary">For real-time status updates, check our monitoring dashboard.</p>
+            <p className="content-page-summary">Real-time status monitoring is being configured. For current platform availability, contact our team.</p>
           </div>
         </div>
       </section>
       <section className="section-white">
         <div className="section-content">
-          <h2 className="content-block-title">Services</h2>
-          <div className="status-grid">
-            {services.map((service) => (
-              <div key={service.name} className="status-card">
-                <div className="status-card-header">
-                  <span className="status-card-name">{service.name}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <p style={{ textAlign: 'center', marginTop: '40px', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-            For real-time status inquiries, contact <a href="mailto:support@infraclean.cloud" style={{ color: 'var(--color-accent)' }}>support@infraclean.cloud</a>.
+          <p style={{ textAlign: 'center', marginTop: '20px', color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.7' }}>
+            Our status page will provide live operational visibility into all Infra Clean Cloud services including the Dashboard, API, Scanning Engine, Reports, Authentication, and Webhooks.
+          </p>
+          <p style={{ textAlign: 'center', marginTop: '24px', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+            For status inquiries, contact <a href="mailto:support@infraclean.cloud" style={{ color: 'var(--color-accent)' }}>support@infraclean.cloud</a>.
           </p>
         </div>
       </section>
-      <DarkCTA headline="Questions about our reliability?" 
+      <DarkCTA headline="Questions about our reliability?"
                description="Our team is available to discuss SLAs, security, and compliance." />
     </>
   );
@@ -3548,12 +3453,8 @@ function resolveRoute(pathname) {
     return { title: 'Request Briefing', element: <RequestBriefing /> };
   }
 
-  if (pathname === '/login') {
-    return { title: 'Sign In', element: <AuthRedirect mode="login" /> };
-  }
-
-  if (pathname === '/signup') {
-    return { title: 'Get Access', element: <AuthRedirect mode="signup" /> };
+  if (pathname === '/login' || pathname === '/signup') {
+    return { title: 'Request Access', element: <RequestBriefing /> };
   }
 
   if (pathname === '/status') {
