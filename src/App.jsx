@@ -145,19 +145,28 @@ const DEMOS = {
 
 function ProductDemo({ slot, className = '', eager = false }) {
   const ref = useRef(null);
+  const hasStarted = useRef(false);
   const demo = DEMOS[slot];
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || eager || !demo?.video) return;
+    if (!el || !demo?.video) return;
+    el.playbackRate = 0.55;
+  }, [demo]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || eager || !demo?.video || hasStarted.current) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasStarted.current) {
+          hasStarted.current = true;
+          el.playbackRate = 0.55;
           el.play().catch(() => {});
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.15 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -183,7 +192,7 @@ function ProductDemo({ slot, className = '', eager = false }) {
       loop
       muted
       playsInline
-      preload={eager ? 'auto' : 'none'}
+      preload={eager ? 'auto' : 'metadata'}
       aria-label={demo.alt}
     >
       <source src={demo.video} type="video/webm" />
@@ -546,16 +555,16 @@ function buildProofPage({ title, summary, stories }) {
     ],
     sections: [
       {
-        type: 'narrative',
-        title: 'How we present results',
+        type: 'results-intro',
         body: 'The examples below represent typical deployment patterns and expected outcomes based on our platform capabilities and enterprise engagement model. Customer names and specific references are available upon request during a briefing.',
-        bullets: []
       },
       ...stories.map(story => ({
-        type: 'narrative',
+        type: 'case-study-detail',
         title: story.title,
         body: story.body,
-        bullets: story.bullets || []
+        metrics: story.metrics || [],
+        details: story.details || [],
+        highlight: story.highlight || null,
       })),
       {
         type: 'cta',
@@ -1124,43 +1133,67 @@ const CONTENT_PAGES = {
       'Representative deployment outcomes across regulated industries. Named references available upon request.',
     stories: [
       {
-        title: 'Example: Multi-entity financial services firm — 14 business units',
-        body: 'A regulated financial services company with 14 business units and over 200 AWS accounts needed to unify cloud governance standards across a fragmented environment. Manual audit preparation consumed 6-8 weeks per cycle, with no consistent ownership model.',
-        bullets: [
-          'Customer profile: Large financial services firm, 14 business units, 200+ AWS accounts, SOC 2 and PCI-DSS compliance requirements',
-          'Problem: Fragmented governance across acquisitions, no unified hygiene baseline, audit prep consuming 6-8 weeks per cycle',
-          'Implementation: Deployed Infra Clean Cloud across all business units in a phased 90-day rollout, starting with the three highest-risk divisions',
-          'Modules used: Dashboard, Findings, Tasks, Standards, Reports, Audit Evidence Packages',
-          'Governance outcome: Unified hygiene scoring across all 14 business units with consistent policy enforcement',
-          'Operational outcome: Audit preparation time reduced by up to 40%, from 6-8 weeks to under 4 weeks',
-          'Time to value: Initial visibility within 48 hours of first account connection; full rollout completed in 90 days'
-        ]
+        title: 'Example: Multi-entity financial services firm',
+        body: 'A regulated financial services company with 14 business units and over 200 AWS accounts needed to unify cloud governance standards across a fragmented environment. Manual audit preparation consumed 6–8 weeks per cycle, with no consistent ownership model across acquisitions.',
+        highlight: 'Audit preparation time reduced by up to 40%',
+        metrics: [
+          { value: '14', label: 'Business units unified' },
+          { value: '200+', label: 'AWS accounts governed' },
+          { value: '~40%', label: 'Audit prep time saved' },
+          { value: '90 days', label: 'Full rollout' },
+        ],
+        details: [
+          { label: 'Industry', value: 'Financial services' },
+          { label: 'Compliance', value: 'SOC 2, PCI-DSS' },
+          { label: 'Challenge', value: 'Fragmented governance across acquisitions, 6–8 week audit prep cycles, no unified hygiene baseline' },
+          { label: 'Implementation', value: 'Phased 90-day rollout starting with the three highest-risk divisions, then expanded across all business units' },
+          { label: 'Modules deployed', value: 'Dashboard, Findings, Tasks, Standards, Reports, Audit Evidence Packages' },
+          { label: 'Governance outcome', value: 'Unified hygiene scoring with consistent policy enforcement across all 14 business units' },
+          { label: 'Operational outcome', value: 'Audit preparation reduced from 6–8 weeks to under 4 weeks per cycle' },
+          { label: 'Time to value', value: 'Initial visibility within 48 hours; full rollout in 90 days' },
+        ],
       },
       {
-        title: 'Example: Regulated healthcare platform — HIPAA-governed environment',
+        title: 'Example: Regulated healthcare platform',
         body: 'A healthcare technology company managing protected health information across multiple AWS accounts needed to prove continuous compliance and establish resource ownership across engineering teams that had grown through acquisition.',
-        bullets: [
-          'Customer profile: Healthcare SaaS platform, HIPAA and SOC 2 compliance, 50+ AWS accounts, 3 engineering teams from separate acquisitions',
-          'Problem: Ownership gaps across 40% of cloud resources, no continuous compliance evidence, audit findings increasing year over year',
-          'Implementation: Full deployment with ownership enforcement, compliance framework mapping, and automated evidence collection',
-          'Modules used: Dashboard, Findings, Tasks, Resources, Standards (HIPAA, SOC 2), Evidence Packages',
-          'Governance outcome: Resource ownership coverage improved to up to 98% across all regulated environments',
-          'Operational outcome: Continuous compliance evidence replaced quarterly manual collection; audit findings reduced by 70%',
-          'Time to value: Ownership baseline established in first 2 weeks; full compliance mapping within 60 days'
-        ]
+        highlight: 'Ownership coverage improved to up to 98%',
+        metrics: [
+          { value: '98%', label: 'Ownership coverage' },
+          { value: '50+', label: 'AWS accounts' },
+          { value: '70%', label: 'Fewer audit findings' },
+          { value: '60 days', label: 'Full compliance mapping' },
+        ],
+        details: [
+          { label: 'Industry', value: 'Healthcare technology (PHI / regulated data)' },
+          { label: 'Compliance', value: 'HIPAA, SOC 2' },
+          { label: 'Challenge', value: 'Ownership gaps across 40% of cloud resources, no continuous compliance evidence, audit findings increasing year over year' },
+          { label: 'Implementation', value: 'Full deployment with ownership enforcement, compliance framework mapping, and automated evidence collection' },
+          { label: 'Modules deployed', value: 'Dashboard, Findings, Tasks, Resources, Standards (HIPAA, SOC 2), Evidence Packages' },
+          { label: 'Governance outcome', value: 'Resource ownership coverage improved to up to 98% across all regulated environments' },
+          { label: 'Operational outcome', value: 'Continuous compliance evidence replaced quarterly manual collection; audit findings reduced by 70%' },
+          { label: 'Time to value', value: 'Ownership baseline in 2 weeks; full compliance mapping within 60 days' },
+        ],
       },
       {
-        title: 'Example: Fast-growing SaaS platform — scaling governance with engineering velocity',
+        title: 'Example: Fast-growing SaaS platform',
         body: 'A Series B SaaS company scaling rapidly needed governance that would not slow down engineering. Their cloud footprint had tripled in 12 months with no hygiene standards, resulting in rising security findings and cost overruns.',
-        bullets: [
-          'Customer profile: B2B SaaS, Series B, engineering team doubled in 12 months, 30+ AWS accounts, preparing for SOC 2 Type II',
-          'Problem: Cloud footprint tripled without governance, high-severity security findings increasing monthly, no tagging or ownership discipline',
-          'Implementation: Deployed governance-as-code approach with automated scanning, tagging enforcement, and remediation workflows integrated into existing Jira and Slack tooling',
-          'Modules used: Dashboard, Findings, Tasks, Custom Rules, Slack Integration, Jira Integration, Audit Evidence',
-          'Governance outcome: High-severity hygiene violations reduced by up to 60% within 90 days',
-          'Operational outcome: Tagging compliance improved from under 30% to over 90%; remediation SLAs established and tracked',
-          'Time to value: First scan results within 1 hour; governance operating cadence established within 30 days'
-        ]
+        highlight: 'High-severity violations reduced by up to 60%',
+        metrics: [
+          { value: '~60%', label: 'Violations reduced' },
+          { value: '30+', label: 'AWS accounts' },
+          { value: '90%+', label: 'Tagging compliance' },
+          { value: '30 days', label: 'Governance cadence' },
+        ],
+        details: [
+          { label: 'Industry', value: 'B2B SaaS (Series B, high growth)' },
+          { label: 'Compliance', value: 'SOC 2 Type II preparation' },
+          { label: 'Challenge', value: 'Cloud footprint tripled without governance, high-severity security findings increasing monthly, no tagging or ownership discipline' },
+          { label: 'Implementation', value: 'Governance-as-code approach with automated scanning, tagging enforcement, and remediation workflows integrated into Jira and Slack' },
+          { label: 'Modules deployed', value: 'Dashboard, Findings, Tasks, Custom Rules, Slack + Jira Integration, Audit Evidence' },
+          { label: 'Governance outcome', value: 'High-severity hygiene violations reduced by up to 60% within 90 days' },
+          { label: 'Operational outcome', value: 'Tagging compliance from under 30% to over 90%; remediation SLAs established and tracked' },
+          { label: 'Time to value', value: 'First scan results within 1 hour; governance operating cadence in 30 days' },
+        ],
       }
     ]
   }),
@@ -1992,6 +2025,52 @@ function SectionRenderer({ section }) {
               <li key={item}><Check size={18} aria-hidden="true" /> {item}</li>
             ))}
           </ul>
+        )}
+      </div>
+    );
+  }
+
+  if (section.type === 'results-intro') {
+    return (
+      <div className="results-intro">
+        <p>{section.body}</p>
+      </div>
+    );
+  }
+
+  if (section.type === 'case-study-detail') {
+    return (
+      <div className="case-study-detail">
+        <div className="case-study-detail-header">
+          <span className="case-study-label">Representative deployment</span>
+          <h2 className="case-study-detail-title">{section.title}</h2>
+          <p className="case-study-detail-body">{section.body}</p>
+          {section.highlight && (
+            <div className="case-study-highlight">
+              <TrendingUp size={20} aria-hidden="true" />
+              <span>{section.highlight}</span>
+            </div>
+          )}
+        </div>
+        {section.metrics && section.metrics.length > 0 && (
+          <div className="case-study-metrics">
+            {section.metrics.map((m) => (
+              <div key={m.label} className="case-study-metric">
+                <div className="case-study-metric-value">{m.value}</div>
+                <div className="case-study-metric-label">{m.label}</div>
+              </div>
+            ))}
+          </div>
+        )}
+        {section.details && section.details.length > 0 && (
+          <div className="case-study-details-grid">
+            {section.details.map((d) => (
+              <div key={d.label} className="case-study-detail-row">
+                <div className="case-study-detail-key">{d.label}</div>
+                <div className="case-study-detail-val">{d.value}</div>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     );
