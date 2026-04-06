@@ -23,15 +23,15 @@
   
   <!-- Stats -->
   <g transform="translate(80, 450)">
-    <text fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="600">98%</text>
+    <text fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="600">Up to 98%</text>
     <text y="30" fill="#71717a" font-family="system-ui, -apple-system, sans-serif" font-size="16">Coverage</text>
   </g>
-  <g transform="translate(280, 450)">
-    <text fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="600">40%</text>
+  <g transform="translate(320, 450)">
+    <text fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="600">Up to 40%</text>
     <text y="30" fill="#71717a" font-family="system-ui, -apple-system, sans-serif" font-size="16">Faster audits</text>
   </g>
-  <g transform="translate(480, 450)">
-    <text fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="600">60%</text>
+  <g transform="translate(560, 450)">
+    <text fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="600">Up to 60%</text>
     <text y="30" fill="#71717a" font-family="system-ui, -apple-system, sans-serif" font-size="16">Fewer violations</text>
   </g>
   

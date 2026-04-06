@@ -339,7 +339,7 @@ const CAMPAIGNS = [
     title: 'Cloud Hygiene Score',
     summary: 'Quantify governance gaps with an executive-ready scorecard.',
     outcomes: ['Board-ready reporting', 'Enterprise baselines', 'Weekly trend visibility'],
-    metrics: ['Reduce audit prep time by 40%', 'Achieve 95% ownership coverage'],
+    metrics: ['Reduce audit prep time by up to 40%', 'Target up to 95% ownership coverage'],
     sections: [
       {
         title: 'What leaders need',
@@ -360,7 +360,7 @@ const CAMPAIGNS = [
     title: 'CIO Risk Reduction',
     summary: 'Govern cloud sprawl with accountable ownership and lifecycle control.',
     outcomes: ['Policy adherence across accounts', 'Reduced operational surprises'],
-    metrics: ['60% fewer critical violations', '2x faster remediation cycles'],
+    metrics: ['Up to 60% fewer critical violations', 'Up to 2x faster remediation cycles'],
     sections: [
       {
         title: 'Operational risk map',
@@ -381,7 +381,7 @@ const CAMPAIGNS = [
     title: 'CISO Audit Readiness',
     summary: 'Turn hygiene enforcement into auditable evidence.',
     outcomes: ['Continuous evidence trail', 'Compliance-aligned reporting'],
-    metrics: ['SOC 2 readiness in 90 days', '98% tagging compliance'],
+    metrics: ['SOC 2 readiness target in 90 days', 'Up to 98% tagging compliance'],
     sections: [
       {
         title: 'Audit evidence, always on',
@@ -402,7 +402,7 @@ const CAMPAIGNS = [
     title: 'DevOps Efficiency',
     summary: 'Eliminate hygiene debt without slowing delivery.',
     outcomes: ['Automated remediation guidance', 'Clear ownership signals'],
-    metrics: ['30% fewer rework cycles', 'Faster change approvals'],
+    metrics: ['Up to 30% fewer rework cycles', 'Faster change approvals'],
     sections: [
       {
         title: 'Operational focus',
@@ -562,9 +562,9 @@ function buildProofPage({ title, summary, stories }) {
         title: 'Enterprise success stories',
         stories: stories.map((story, i) => ({
           ...story,
-          result: i === 0 ? { value: '40%', label: 'audit time saved' } :
-                  i === 1 ? { value: '98%', label: 'ownership coverage' } :
-                           { value: '60%', label: 'violations reduced' }
+          result: i === 0 ? { value: 'Up to 40%', label: 'audit time saved' } :
+                  i === 1 ? { value: 'Up to 98%', label: 'ownership coverage' } :
+                           { value: 'Up to 60%', label: 'violations reduced' }
         }))
       },
       {
@@ -577,9 +577,9 @@ function buildProofPage({ title, summary, stories }) {
         type: 'stat-grid',
         title: 'Aggregate impact across customers',
         stats: [
-          { value: '40%', label: 'Audit prep', detail: 'Time reduction average' },
-          { value: '60%', label: 'Violations', detail: 'Critical issues reduced' },
-          { value: '98%', label: 'Ownership', detail: 'Coverage achieved' }
+          { value: 'Up to 40%', label: 'Audit prep', detail: 'Time reduction target' },
+          { value: 'Up to 60%', label: 'Violations', detail: 'Critical issues reduced' },
+          { value: 'Up to 98%', label: 'Ownership', detail: 'Coverage target' }
         ]
       }
     ]
@@ -593,16 +593,16 @@ function buildTrustPage({ title, summary, domains }) {
     summary,
     heroKpis: [
       { label: 'Security', value: 'Enterprise', detail: 'Grade' },
-      { label: 'Uptime', value: '99.9%', detail: 'SLA' },
-      { label: 'Incidents', value: '0', detail: 'Since launch' }
+      { label: 'Uptime', value: '99.9%', detail: 'Target SLA' },
+      { label: 'Monitoring', value: '24/7', detail: 'Active' }
     ],
     sections: [
       {
         type: 'trust-badges',
         title: 'Certifications',
         badges: [
-          { name: 'SOC 2 Type II', detail: 'Audited' },
-          { name: 'ISO 27001', detail: 'Certified' },
+          { name: 'SOC 2 Type II', detail: 'In progress' },
+          { name: 'ISO 27001', detail: 'Aligned' },
           { name: 'GDPR', detail: 'Compliant' },
           { name: 'HIPAA', detail: 'Ready' }
         ]
@@ -632,9 +632,9 @@ const CONTENT_PAGES = {
     summary: 'See everything. Fix anything. Audit-ready, always.',
     heroScreenshot: { placeholder: 'Dashboard' },
     heroKpis: [
-      { label: 'Coverage', value: '98%', detail: 'Asset ownership' },
-      { label: 'Faster', value: '40%', detail: 'Audit prep' },
-      { label: 'Fewer', value: '60%', detail: 'Violations' }
+      { label: 'Coverage', value: 'Up to 98%', detail: 'Asset ownership' },
+      { label: 'Faster', value: 'Up to 40%', detail: 'Audit prep' },
+      { label: 'Fewer', value: 'Up to 60%', detail: 'Violations' }
     ],
     sections: [
       // Connect once
@@ -714,7 +714,7 @@ const CONTENT_PAGES = {
           { title: 'Multi-tenancy', body: 'Manage hundreds of customers from one pane.' },
           { title: 'SSO & RBAC', body: 'SAML/OIDC. Granular permissions by team.' },
           { title: 'API-first', body: 'REST API for CI/CD and ITSM integration.' },
-          { title: 'SOC 2 Type II', body: 'We practice what we preach.' }
+          { title: 'SOC 2 Type II', body: 'Audit program underway.' }
         ]
       },
       // Quote
@@ -876,9 +876,9 @@ const CONTENT_PAGES = {
         type: 'stat-grid',
         title: 'Enterprise impact signals',
         stats: [
-          { value: '40%', label: 'Audit prep time reduced' },
-          { value: '60%', label: 'Critical violations reduced' },
-          { value: '98%', label: 'Tagging compliance achieved' }
+          { value: 'Up to 40%', label: 'Audit prep time reduced' },
+          { value: 'Up to 60%', label: 'Critical violations reduced' },
+          { value: 'Up to 98%', label: 'Tagging compliance target' }
         ]
       },
       {
@@ -949,7 +949,7 @@ const CONTENT_PAGES = {
       'Establish consistent ownership, standards, and accountability across every cloud team.',
     focus: 'ownership coverage and standards enforcement',
     kpis: [
-      { label: 'Coverage', value: '98%', detail: 'Ownership on critical assets' },
+      { label: 'Coverage', value: 'Up to 98%', detail: 'Ownership on critical assets' },
       { label: 'Standards', value: 'Weekly', detail: 'Policy drift reporting' },
       { label: 'Visibility', value: 'Unified', detail: 'Cross-team hygiene view' }
     ],
@@ -981,7 +981,7 @@ const CONTENT_PAGES = {
       'Identify hygiene-driven waste and reduce cloud spend without sacrificing performance.',
     focus: 'lifecycle enforcement and ownership clarity',
     kpis: [
-      { label: 'Waste', value: '30%', detail: 'Reduction in orphaned assets' },
+      { label: 'Waste', value: 'Up to 30%', detail: 'Reduction in orphaned assets' },
       { label: 'Attribution', value: 'Full', detail: 'Cost aligned to owners' },
       { label: 'Savings', value: 'Quarterly', detail: 'Executive cost reporting' }
     ],
@@ -997,8 +997,8 @@ const CONTENT_PAGES = {
       'Reduce exposure by closing hygiene gaps that create operational and security risk.',
     focus: 'critical asset protection and remediation velocity',
     kpis: [
-      { label: 'Risk', value: '60%', detail: 'Fewer critical violations' },
-      { label: 'Speed', value: '2x', detail: 'Remediation velocity' },
+      { label: 'Risk', value: 'Up to 60%', detail: 'Fewer critical violations' },
+      { label: 'Speed', value: 'Up to 2x', detail: 'Remediation velocity' },
       { label: 'Coverage', value: 'Weekly', detail: 'Risk posture updates' }
     ],
     outcomes: [
@@ -1042,15 +1042,15 @@ const CONTENT_PAGES = {
     stories: [
       {
         title: 'Financial services',
-        body: 'Unified hygiene standards across 14 business units with 40% faster audit prep.'
+        body: 'Unified hygiene standards across 14 business units with up to 40% faster audit prep.'
       },
       {
         title: 'Healthcare',
-        body: 'Improved ownership coverage to 98% across regulated environments.'
+        body: 'Improved ownership coverage to up to 98% across regulated environments.'
       },
       {
         title: 'Enterprise SaaS',
-        body: 'Reduced high-severity hygiene violations by 60% in 90 days.'
+        body: 'Reduced high-severity hygiene violations by up to 60% in 90 days.'
       }
     ]
   }),
@@ -1107,7 +1107,7 @@ const CONTENT_PAGES = {
   '/trust': buildTrustPage({
     title: 'Enterprise ready.',
     summary: 'Security. Compliance. Reliability.',
-    domains: ['SOC 2 Type II', 'ISO 27001', '99.9% uptime']
+    domains: ['SOC 2 Type II aligned', 'ISO 27001 aligned', '99.9% uptime target']
   }),
   '/company': {
     eyebrow: 'Company',
@@ -1294,7 +1294,7 @@ const CONTENT_PAGES = {
           'Encryption at rest and in transit',
           'Role-based access control',
           'Regular security assessments',
-          'SOC 2 Type II audit program'
+          'SOC 2 Type II audit program in progress'
         ]
       },
       {
@@ -1419,7 +1419,7 @@ const CONTENT_PAGES = {
         title: 'Security first',
         body: 'Security is foundational to everything we build at Infra Clean Cloud.',
         bullets: [
-          'SOC 2 Type II certified',
+          'SOC 2 Type II aligned',
           'Encryption at rest and in transit',
           'Role-based access control',
           '24/7 security monitoring'
@@ -1680,19 +1680,19 @@ function HomePage() {
           <div className="hero-stats">
             <ScrollReveal delay={0}>
               <div className="hero-stat-card">
-                <div className="hero-stat-value">98%</div>
+                <div className="hero-stat-value">Up to 98%</div>
                 <p>Asset ownership coverage</p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={50}>
               <div className="hero-stat-card">
-                <div className="hero-stat-value">40%</div>
+                <div className="hero-stat-value">Up to 40%</div>
                 <p>Less audit prep time</p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <div className="hero-stat-card">
-                <div className="hero-stat-value">60%</div>
+                <div className="hero-stat-value">Up to 60%</div>
                 <p>Fewer critical violations</p>
               </div>
             </ScrollReveal>
@@ -2818,7 +2818,7 @@ const PRICING_TIERS = [
       'SSO & RBAC',
       'Full API access',
       'Priority support',
-      '99.9% SLA'
+      '99.9% target SLA'
     ],
     cta: 'Request briefing',
     ctaHref: '/request-briefing',
@@ -2903,7 +2903,7 @@ const PRICING_FAQS = [
   },
   {
     question: 'Is my data secure?',
-    answer: 'Yes. We are SOC 2 Type II certified and encrypt all data at rest and in transit. We never store your cloud credentials—we use read-only IAM roles with least-privilege access.'
+    answer: 'Yes. We are pursuing SOC 2 Type II certification and encrypt all data at rest and in transit. We never store your cloud credentials—we use read-only IAM roles with least-privilege access.'
   },
   {
     question: 'Can I get a demo before purchasing?',
@@ -3059,8 +3059,8 @@ function PricingPage() {
                 <li><Check size={18} /> Multi-cloud support (AWS, Azure, GCP)</li>
                 <li><Check size={18} /> SSO with your identity provider</li>
                 <li><Check size={18} /> Full API access for automation</li>
-                <li><Check size={18} /> Priority support with 99.9% SLA</li>
-                <li><Check size={18} /> SOC 2 Type II compliance report</li>
+                <li><Check size={18} /> Priority support with 99.9% target SLA</li>
+                <li><Check size={18} /> SOC 2 Type II readiness report</li>
               </ul>
               <div className="hero-buttons">
                 <SiteLink to="/request-briefing" className="btn btn-primary">Request briefing</SiteLink>

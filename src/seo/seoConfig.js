@@ -89,12 +89,12 @@ export const SEO_CONFIG = {
   // Outcomes Pages
   '/outcomes/governance': {
     title: 'Cloud Governance Outcomes | Infra Clean Cloud',
-    description: 'Achieve 98% asset ownership coverage and reduce governance overhead by 40%. See real governance outcomes.',
+    description: 'Target up to 98% asset ownership coverage and reduce governance overhead by up to 40%. See governance outcomes.',
     keywords: 'cloud governance outcomes, governance ROI, asset ownership, policy enforcement',
   },
   '/outcomes/audit-readiness': {
     title: 'Audit Readiness | SOC 2, ISO 27001 | Infra Clean Cloud',
-    description: 'Cut audit prep time by 40%. Continuous compliance evidence for SOC 2, ISO 27001, PCI DSS, and HIPAA.',
+    description: 'Cut audit prep time by up to 40%. Continuous compliance evidence for SOC 2, ISO 27001, PCI DSS, and HIPAA.',
     keywords: 'audit readiness, SOC 2 compliance, ISO 27001, continuous compliance, audit automation',
   },
   '/outcomes/cost': {
@@ -104,7 +104,7 @@ export const SEO_CONFIG = {
   },
   '/outcomes/risk': {
     title: 'Cloud Risk Reduction | Infra Clean Cloud',
-    description: 'Reduce high-severity violations by 60% in 90 days. Quantified risk metrics and prioritized remediation.',
+    description: 'Reduce high-severity violations by up to 60% in 90 days. Quantified risk metrics and prioritized remediation.',
     keywords: 'cloud risk reduction, security risk, compliance risk, risk quantification',
   },
 
@@ -133,7 +133,7 @@ export const SEO_CONFIG = {
   // Proof Pages
   '/proof/case-studies': {
     title: 'Customer Case Studies | Infra Clean Cloud',
-    description: 'See how enterprise teams achieved 40% faster audits and 60% fewer violations with Infra Clean Cloud.',
+    description: 'See how enterprise teams achieved up to 40% faster audits and up to 60% fewer violations with Infra Clean Cloud.',
     keywords: 'cloud governance case studies, customer success, compliance case studies',
   },
   '/proof/benchmark': {
@@ -150,7 +150,7 @@ export const SEO_CONFIG = {
   // Trust Pages
   '/trust': {
     title: 'Trust Center | Security & Compliance | Infra Clean Cloud',
-    description: 'SOC 2 Type II certified. ISO 27001 compliant. 99.9% uptime SLA. Enterprise-grade security you can trust.',
+    description: 'SOC 2 Type II aligned. ISO 27001 aligned. 99.9% uptime target. Enterprise-grade security you can trust.',
     keywords: 'trust center, security certifications, SOC 2, ISO 27001, enterprise security',
   },
   '/trust/security': {
@@ -198,7 +198,7 @@ export const SEO_CONFIG = {
         { '@type': 'Question', name: 'Is there a free trial?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. All paid plans include a 14-day free trial with full access. No credit card required to start.' }},
         { '@type': 'Question', name: 'Can I change plans later?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. Upgrade or downgrade anytime. When upgrading, you get immediate access to new features.' }},
         { '@type': 'Question', name: 'What happens if I exceed my resource limits?', acceptedAnswer: { '@type': 'Answer', text: 'We will notify you when you reach 80% of your limit. Scanning continues but new resources are queued until you upgrade.' }},
-        { '@type': 'Question', name: 'Is my data secure?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We are SOC 2 Type II certified and encrypt all data at rest and in transit. We use read-only IAM roles with least-privilege access.' }},
+        { '@type': 'Question', name: 'Is my data secure?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We are pursuing SOC 2 Type II certification and encrypt all data at rest and in transit. We use read-only IAM roles with least-privilege access.' }},
       ]
     }],
   },
