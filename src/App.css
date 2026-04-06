@@ -2259,7 +2259,7 @@ main {
   width: 100%;
   aspect-ratio: 3/2;
   object-fit: cover;
-  border-radius: var(--radius-xl);
+  border-radius: 0;
   filter: saturate(0.9) contrast(1.05);
 }
 
@@ -2507,7 +2507,20 @@ main {
   width: 100%;
   aspect-ratio: 3/2;
   object-fit: cover;
-  border-radius: var(--radius-xl);
+  border-radius: 0;
+  filter: saturate(0.9) contrast(1.05);
+}
+
+.image-break {
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-break img {
+  width: 100%;
+  aspect-ratio: 21/9;
+  object-fit: cover;
+  display: block;
   filter: saturate(0.9) contrast(1.05);
 }
 

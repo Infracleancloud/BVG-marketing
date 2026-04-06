@@ -1150,6 +1150,11 @@ const CONTENT_PAGES = {
         imageAlt: 'Team working together at laptops in a modern workspace'
       },
       {
+        type: 'image-break',
+        image: '/images/team-laptops.jpg',
+        imageAlt: 'Team working at laptops in a modern workspace'
+      },
+      {
         type: 'metrics-bar',
         metrics: [
           { value: '2024', label: 'Founded' },
@@ -1228,6 +1233,11 @@ const CONTENT_PAGES = {
         ],
         image: '/images/team-whiteboard.jpg',
         imageAlt: 'Team planning session around a whiteboard with post-its'
+      },
+      {
+        type: 'image-break',
+        image: '/images/team-discussion.jpg',
+        imageAlt: 'Team collaborating around a table'
       },
       {
         type: 'values-grid',
@@ -2351,6 +2361,14 @@ function SectionRenderer({ section }) {
             );
           })}
         </div>
+      </div>
+    );
+  }
+
+  if (section.type === 'image-break') {
+    return (
+      <div className="image-break">
+        <img src={section.image} alt={section.imageAlt || ''} loading="lazy" />
       </div>
     );
   }
