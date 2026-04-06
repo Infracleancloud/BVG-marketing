@@ -1505,7 +1505,7 @@ const CONTENT_PAGES = {
           { icon: 'mail', label: 'Sales inquiries', value: 'sales@infraclean.cloud', action: 'Email us', href: 'mailto:sales@infraclean.cloud' },
           { icon: 'message', label: 'Support', value: 'support@infraclean.cloud', action: 'Get help', href: 'mailto:support@infraclean.cloud' },
           { icon: 'mail', label: 'Press & partnerships', value: 'press@infraclean.cloud', action: 'Reach out', href: 'mailto:press@infraclean.cloud' },
-          { icon: 'map', label: 'Office', value: 'San Francisco, CA (Remote-first)', action: 'View on map', href: '#' }
+          { icon: 'map', label: 'Office', value: 'San Francisco, CA (Remote-first)' }
         ]
       },
       {
@@ -2585,7 +2585,7 @@ function CampaignLanding({ campaign }) {
           </div>
         </div>
       </section>
-      <DarkCTA headline={`Ready to ${campaign.title.toLowerCase()}?`}
+      <DarkCTA headline="Ready to transform your cloud governance?"
                description="Get a customized briefing for your organization's specific needs." />
     </>
   );
@@ -2972,8 +2972,6 @@ const PRICING_FAQS = [
   }
 ];
 
-const TRUST_LOGOS = [];
-
 function PricingPage() {
   const [isAnnual, setIsAnnual] = useState(true);
   const [expandedFaq, setExpandedFaq] = useState(null);
@@ -3153,12 +3151,14 @@ function PricingPage() {
                   className="faq-question"
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
                   aria-expanded={expandedFaq === index}
+                  aria-controls={`faq-answer-${index}`}
+                  id={`faq-question-${index}`}
                   type="button"
                 >
                   <span>{faq.question}</span>
                   <ChevronDown size={20} className="faq-icon" aria-hidden="true" />
                 </button>
-                <div className="faq-answer" role="region">
+                <div className="faq-answer" role="region" id={`faq-answer-${index}`} aria-labelledby={`faq-question-${index}`}>
                   <p>{faq.answer}</p>
                 </div>
               </div>
@@ -3185,6 +3185,7 @@ const BLOG_POSTS = [
     author: 'Infra Clean Cloud Team',
     category: 'Industry',
     readTime: '8 min',
+    heroImage: '/images/blog/cloud-governance.jpg',
     content: [
       { type: 'paragraph', text: 'Cloud governance has evolved dramatically over the past five years, yet most enterprises are still playing catch-up. According to recent industry surveys, 73% of organizations report significant gaps in their cloud compliance posture—a number that has barely budged since 2023.' },
       { type: 'heading', text: 'The Compliance Gap Is Growing' },
@@ -3207,6 +3208,7 @@ const BLOG_POSTS = [
     author: 'Infra Clean Cloud Team',
     category: 'Compliance',
     readTime: '6 min',
+    heroImage: '/images/blog/soc2-compliance.jpg',
     content: [
       { type: 'paragraph', text: 'SOC 2 audits have a reputation for being painful. Engineering teams dread the annual scramble to collect evidence, security teams spend weeks preparing documentation, and everyone holds their breath waiting for the auditor findings.' },
       { type: 'paragraph', text: 'But it does not have to be this way. A growing number of companies are completing SOC 2 audits with minimal disruption—some in as little as a few hours of actual preparation time. Here is how they do it.' },
@@ -3228,6 +3230,7 @@ const BLOG_POSTS = [
     author: 'Infra Clean Cloud Team',
     category: 'Security',
     readTime: '10 min',
+    heroImage: '/images/blog/aws-iam-security.jpg',
     content: [
       { type: 'paragraph', text: 'AWS Identity and Access Management (IAM) is the foundation of cloud security. Get it right, and you have a solid security posture. Get it wrong, and no amount of additional tooling will save you.' },
       { type: 'paragraph', text: 'After reviewing hundreds of AWS environments, we have identified the IAM practices that separate secure organizations from vulnerable ones. Here is what you need to know.' },
@@ -3255,6 +3258,7 @@ const BLOG_POSTS = [
     author: 'Infra Clean Cloud Team',
     category: 'Operations',
     readTime: '7 min',
+    heroImage: '/images/blog/tagging-strategy.jpg',
     content: [
       { type: 'paragraph', text: 'Resource tagging sounds simple. Define some tags, apply them to resources, done. Yet most organizations struggle to maintain even 50% tag compliance across their cloud estate.' },
       { type: 'paragraph', text: 'We have seen tagging initiatives come and go at dozens of enterprises. Here is what separates the successful ones from the failures.' },
@@ -3276,6 +3280,7 @@ const BLOG_POSTS = [
     author: 'Infra Clean Cloud Team',
     category: 'Cost',
     readTime: '5 min',
+    heroImage: '/images/blog/cloud-cost-ownership.jpg',
     content: [
       { type: 'paragraph', text: 'Every enterprise has them: orphaned EC2 instances, forgotten S3 buckets, load balancers pointing to nothing. These unowned resources silently drain budgets month after month.' },
       { type: 'paragraph', text: 'Our analysis of enterprise AWS accounts finds that 15-25% of cloud spend goes to resources with no clear owner. For a company spending $10 million annually on cloud, that is $1.5-2.5 million in potential waste.' },
@@ -3314,7 +3319,9 @@ function BlogPage() {
                 tabIndex={0}
                 onKeyDown={(e) => e.key === 'Enter' && navigate(`/blog/${post.slug}`)}
               >
-                <div className="blog-card-image"></div>
+                <div className="blog-card-image">
+                  {post.heroImage && <img src={post.heroImage} alt={post.title} loading="lazy" />}
+                </div>
                 <div className="blog-card-content">
                   <span className="blog-category">{post.category}</span>
                   <h2 className="blog-title">{post.title}</h2>
@@ -3331,7 +3338,7 @@ function BlogPage() {
           </div>
         </div>
       </section>
-      <DarkCTA headline="Want governance insights in your inbox?" description="Subscribe to our newsletter for weekly tips and industry updates." />
+      <DarkCTA headline="Ready to take control of your cloud?" description="Get a personalized briefing on how Infra Clean Cloud can help your organization." />
     </>
   );
 }
@@ -3368,6 +3375,11 @@ function BlogPost({ post }) {
               <span>{post.readTime} read</span>
             </div>
           </div>
+          {post.heroImage && (
+            <div className="blog-post-hero-image">
+              <img src={post.heroImage} alt={post.title} />
+            </div>
+          )}
         </div>
       </section>
       <section className="section-white">

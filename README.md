@@ -34,13 +34,16 @@ Deployed to **Vercel**. Push to `main` triggers production deploy. Pull requests
 - `/` — Homepage
 - `/platform` — Platform overview, capabilities, integrations, how-it-works
 - `/pricing` — Plans and comparison
-- `/proof/*` — Case studies, benchmarks, ROI
+- `/proof/case-studies` — Customer case studies
+- `/proof/benchmark` — Benchmark report
 - `/roles/*` — CIO, CISO, CTO, VP Engineering
 - `/outcomes/*` — Governance, audit, cost, risk
-- `/trust/*` — Security, compliance
-- `/company` — About, leadership, careers, contact
+- `/company` — About, careers, contact
+- `/company/careers` — Open roles with detail pages
 - `/blog` — Articles
-- `/request-briefing` — Sign-up / trial form
+- `/privacy` — Privacy policy (draft)
+- `/terms` — Terms of service (draft)
+- `/request-briefing` — Briefing request form
 - `/campaigns/*` — Campaign landing pages
 
 ## Copy Guidelines
