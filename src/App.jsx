@@ -548,7 +548,7 @@ function buildProofPage({ title, summary, stories }) {
       {
         type: 'narrative',
         title: 'How we present results',
-        body: 'The deployments below represent real implementation patterns across enterprise environments. Customer names are available upon request during a briefing. All outcome metrics reflect measured results from production deployments.',
+        body: 'The examples below represent typical deployment patterns and expected outcomes based on our platform capabilities and enterprise engagement model. Customer names and specific references are available upon request during a briefing.',
         bullets: []
       },
       ...stories.map(story => ({
@@ -1121,13 +1121,13 @@ const CONTENT_PAGES = {
   '/proof/case-studies': buildProofPage({
     title: 'Enterprise deployment results',
     summary:
-      'Measured outcomes from production governance deployments across regulated industries.',
+      'Representative deployment outcomes across regulated industries. Named references available upon request.',
     stories: [
       {
-        title: 'Multi-entity financial services firm — 14 business units',
+        title: 'Example: Multi-entity financial services firm — 14 business units',
         body: 'A regulated financial services company with 14 business units and over 200 AWS accounts needed to unify cloud governance standards across a fragmented environment. Manual audit preparation consumed 6-8 weeks per cycle, with no consistent ownership model.',
         bullets: [
-          'Customer profile: Fortune 500 financial services, 14 business units, 200+ AWS accounts, SOC 2 and PCI-DSS compliance requirements',
+          'Customer profile: Large financial services firm, 14 business units, 200+ AWS accounts, SOC 2 and PCI-DSS compliance requirements',
           'Problem: Fragmented governance across acquisitions, no unified hygiene baseline, audit prep consuming 6-8 weeks per cycle',
           'Implementation: Deployed Infra Clean Cloud across all business units in a phased 90-day rollout, starting with the three highest-risk divisions',
           'Modules used: Dashboard, Findings, Tasks, Standards, Reports, Audit Evidence Packages',
@@ -1137,7 +1137,7 @@ const CONTENT_PAGES = {
         ]
       },
       {
-        title: 'Regulated healthcare platform — HIPAA-governed environment',
+        title: 'Example: Regulated healthcare platform — HIPAA-governed environment',
         body: 'A healthcare technology company managing protected health information across multiple AWS accounts needed to prove continuous compliance and establish resource ownership across engineering teams that had grown through acquisition.',
         bullets: [
           'Customer profile: Healthcare SaaS platform, HIPAA and SOC 2 compliance, 50+ AWS accounts, 3 engineering teams from separate acquisitions',
@@ -1150,7 +1150,7 @@ const CONTENT_PAGES = {
         ]
       },
       {
-        title: 'Fast-growing SaaS platform — scaling governance with engineering velocity',
+        title: 'Example: Fast-growing SaaS platform — scaling governance with engineering velocity',
         body: 'A Series B SaaS company scaling rapidly needed governance that would not slow down engineering. Their cloud footprint had tripled in 12 months with no hygiene standards, resulting in rising security findings and cost overruns.',
         bullets: [
           'Customer profile: B2B SaaS, Series B, engineering team doubled in 12 months, 30+ AWS accounts, preparing for SOC 2 Type II',
@@ -1309,7 +1309,7 @@ const CONTENT_PAGES = {
     sections: [
       {
         type: 'narrative',
-        title: 'Effective Date: January 1, 2026',
+        title: 'Effective Date: January 1, 2026 · Subject to final legal review',
         body: 'This Privacy Policy ("Policy") applies to all personal information collected by BVG Solutions, Inc., operating as Infra Clean Cloud ("Company," "we," "us," or "our"), through our website (infraclean.cloud), platform, and related services (collectively, the "Service"). By accessing or using our Service, you acknowledge that you have read and understood this Policy. This Policy is incorporated by reference into our Terms of Service.',
         bullets: []
       },
@@ -1407,7 +1407,7 @@ const CONTENT_PAGES = {
     sections: [
       {
         type: 'narrative',
-        title: 'Effective Date: January 1, 2026',
+        title: 'Effective Date: January 1, 2026 · Subject to final legal review',
         body: 'These Terms of Service ("Terms") constitute a legally binding agreement between you ("Customer," "you," or "your") and BVG Solutions, Inc., operating as Infra Clean Cloud ("Company," "we," "us," or "our"). By accessing or using the Infra Clean Cloud platform and related services (collectively, the "Service"), you agree to be bound by these Terms, our Privacy Policy, and any applicable Order Form or Statement of Work. If you are entering into these Terms on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms.',
         bullets: []
       },

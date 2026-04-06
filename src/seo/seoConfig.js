@@ -132,7 +132,7 @@ export const SEO_CONFIG = {
   // Proof Pages
   '/proof/case-studies': {
     title: 'Enterprise Deployment Results | Infra Clean Cloud',
-    description: 'Measured outcomes from production governance deployments across regulated financial services, healthcare, and technology companies.',
+    description: 'Representative deployment outcomes across regulated industries. Named customer references available upon request.',
     keywords: 'cloud governance case studies, customer success, compliance case studies',
   },
   '/proof/benchmark': {
