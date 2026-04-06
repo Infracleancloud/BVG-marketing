@@ -1146,7 +1146,8 @@ const CONTENT_PAGES = {
           'So we built the tool we wished we had. A single source of truth for cloud governance. Not another dashboard to ignore—an operating system for hygiene.'
         ],
         signature: { name: 'The Founding Team', role: 'Infra Clean Cloud' },
-        imagePlaceholder: 'Founders Photo (400 × 500)'
+        image: '/images/team-collab.jpg',
+        imageAlt: 'Team working together at laptops in a modern workspace'
       },
       {
         type: 'metrics-bar',
@@ -1183,14 +1184,15 @@ const CONTENT_PAGES = {
     hideLogoBar: true,
     sections: [
       {
-        type: 'narrative',
+        type: 'origin-story',
         title: 'Leadership team',
-        body: 'Infra Clean Cloud is led by a team of operators and engineers who have built governance and compliance systems at enterprise scale.',
-        bullets: [
-          'Deep experience in cloud infrastructure and security',
-          'Backgrounds in enterprise SaaS and compliance',
-          'Request a briefing to meet the team'
-        ]
+        paragraphs: [
+          'Infra Clean Cloud is led by a team of operators and engineers who have built governance and compliance systems at enterprise scale.',
+          'Deep experience in cloud infrastructure and security. Backgrounds in enterprise SaaS and compliance.'
+        ],
+        signature: { name: 'The Leadership Team', role: 'Infra Clean Cloud' },
+        image: '/images/team-meeting.jpg',
+        imageAlt: 'Engineers collaborating on code together'
       },
       {
         type: 'values-grid',
@@ -1224,7 +1226,8 @@ const CONTENT_PAGES = {
           'Annual team offsite (somewhere nice)',
           'Learning & development budget'
         ],
-        imagePlaceholder: 'Team Offsite Photo (500 × 400)'
+        image: '/images/team-whiteboard.jpg',
+        imageAlt: 'Team planning session around a whiteboard with post-its'
       },
       {
         type: 'values-grid',
@@ -2179,9 +2182,10 @@ function SectionRenderer({ section }) {
           )}
         </div>
         <div className="origin-image">
-          <div className="origin-image-placeholder">
-            {section.imagePlaceholder || 'Founder Photo'}
-          </div>
+          {section.image
+            ? <img src={section.image} alt={section.imageAlt || 'Team'} className="origin-image-photo" loading="lazy" />
+            : <div className="origin-image-placeholder">{section.imagePlaceholder || 'Founder Photo'}</div>
+          }
         </div>
       </div>
     );
@@ -2266,9 +2270,10 @@ function SectionRenderer({ section }) {
           </div>
         </div>
         <div className="culture-image">
-          <div className="culture-image-placeholder">
-            {section.imagePlaceholder || 'Team Culture Photo'}
-          </div>
+          {section.image
+            ? <img src={section.image} alt={section.imageAlt || 'Team culture'} className="culture-image-photo" loading="lazy" />
+            : <div className="culture-image-placeholder">{section.imagePlaceholder || 'Team Culture Photo'}</div>
+          }
         </div>
       </div>
     );

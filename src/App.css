@@ -2255,6 +2255,14 @@ main {
   font-size: 0.9rem;
 }
 
+.origin-image-photo {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  filter: saturate(0.9) contrast(1.05);
+}
+
 /* Values Grid */
 .values-subtitle {
   font-size: 1.15rem;
@@ -2495,6 +2503,14 @@ main {
   font-size: 0.9rem;
 }
 
+.culture-image-photo {
+  width: 100%;
+  aspect-ratio: 5/4;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  filter: saturate(0.9) contrast(1.05);
+}
+
 /* Investors Bar */
 .investors-section {
   text-align: center;
@@ -2693,7 +2709,8 @@ main {
     order: -1;
   }
 
-  .origin-image-placeholder {
+  .origin-image-placeholder,
+  .origin-image-photo {
     max-width: 400px;
     margin: 0 auto;
     aspect-ratio: 1;
